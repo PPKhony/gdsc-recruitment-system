@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
@@ -19,8 +18,6 @@ function LoginPage() {
     if (data.url) {
       redirect(data.url); // use the redirect API for your server framework
     }
-		// console.log(data);
-		
 
     redirect("/protected");
   };
