@@ -1,18 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { createClient } from "@/utils/supabase/client";
+import { createClient} from "@/utils/supabase/client";
 import { useEffect } from "react";
 
 const Header: React.FC = () => {
-  const [user, setUser] = useState({user_metadata: {name: ""}});
+  const [user, setUser] = useState({} as any);
   const supabase = createClient();
 
   const getUserData = async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser()
-    await setUser(user!)
+    setUser(user)
   }
   
   useEffect(()=> {
