@@ -6,7 +6,6 @@ import { createClient } from "@/utils/supabase/server";
 function MemberRegister() {
   const submitApplication = async (formData: FormData) => {
     "use server";
-    const origin = headers().get("origin");
     const rawFormData = {
       email: formData.get("email"),
       name: formData.get("name"),
@@ -19,10 +18,8 @@ function MemberRegister() {
       .select();
     console.log(data);
     console.log(error);
-    
 
     if(!error) redirect("/home/success");
-    // else redirect("/login")
   };
   return (
     <>
@@ -45,7 +42,7 @@ function MemberRegister() {
                 aria-describedby="emailHelp"
               />
               <div id="emailHelp" className="form-text">
-                We'll never share your email with anyone else.
+                We wll never share your email with anyone else.
               </div>
             </div>
           </Col>
