@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Analytics } from "@vercel/analytics/react"
-
-const inter = Inter({ subsets: ["latin"] });
+import "@/utils/custom.scss"
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,10 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Analytics/>
         {children}
-        </body>
+      </body>
     </html>
   );
 }

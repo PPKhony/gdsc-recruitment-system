@@ -8,7 +8,7 @@ function GDSCCalendar(props: any) {
       cal("ui", {
         styles: { branding: { brandColor: "#000000" } },
         hideEventTypeDetails: false,
-        layout: "week_view",
+        layout: "month_view",
       });
     })();
   }, []);
@@ -16,9 +16,9 @@ function GDSCCalendar(props: any) {
     <>
       <Cal
         calLink="praphon.kha/gdsc.tu.interview"
-        style={{ width: "100%", height: "100%", overflow: "scroll" }}
+        style={{ width: "100%" , overflow: "visible" , msOverflowStyle: "none"}}
         config={{
-          layout: "week_view",
+          layout: "month_view",
           email: `${props.data.email}`,
           name: `${props.data.user_metadata.full_name}`,
           CandidateID: `${props.data.id}`
