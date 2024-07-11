@@ -13,17 +13,18 @@ function GDSCCalendar(props: any) {
       });
     })();
   }, []);
-  return (
-    <Cal
-      calLink="https://cal.com/d/dbkzpd5dWmrRV6pvghnoUm/gdsc.tu.interview"
-      style={{ width: "100%", overflow: "visible", msOverflowStyle: "none" }}
-      config={{
-        layout: "month_view",
-        email: `${props.data.email}`,
-        name: `${props.data.user_metadata.full_name}`,
-        CandidateID: `${props.data.id}`,
-      }}
-    />
+  return (   
+      <Cal
+        calLink="praphon.kha/gdsc.tu.interview"
+        style={{ width: "100%" , overflow: "visible" , msOverflowStyle: "none"}}
+        config={{
+          layout: "month_view",
+          email: `${props.data.email}`,
+          name: `${props.data.user_metadata.full_name}`,
+          CandidateID: `${props.data.id}`
+        }}
+      />
+    
   );
 }
 
