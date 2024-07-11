@@ -5,19 +5,19 @@ import { createClient} from "@/utils/supabase/client";
 import { useEffect } from "react";
 
 const Header: React.FC = () => {
-  const [user, setUser] = useState({} as any);
-  const supabase = createClient();
+  // const [user, setUser] = useState({} as any);
+  // const supabase = createClient();
 
-  const getUserData = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-    setUser(user)
-  }
+  // const getUserData = async () => {
+  //   const {
+  //     data: { user },
+  //   } = await supabase.auth.getUser()
+  //   await setUser(user)
+  // }
   
-  useEffect(()=> {
-    getUserData()
-  })
+  // useEffect(()=> {
+  //   getUserData()
+  // })
   
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mb-3">
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
             </NavDropdown> */}
           </Nav>
           <Nav>
-              {user.user_metadata.name? "Login as " + user.user_metadata.name : ""}
+              {/* {user.user_metadata.name? "Login as " + user.user_metadata.name : ""} */}
           </Nav>
         </Navbar.Collapse>
       </Container>
