@@ -3,7 +3,6 @@ import React, { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import Process from "@/components/Process";
 type LayoutProps = {
   children: ReactNode;
 };
@@ -26,7 +25,6 @@ const Layout = async ({ children }: LayoutProps) => {
       {/* Render the children */}
 
       <Container>
-        <Process />
         {children}
       </Container>
 

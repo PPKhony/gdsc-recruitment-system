@@ -12,8 +12,7 @@ function GDSCCalendar(props: any) {
       });
     })();
   }, []);
-  return (
-    <>
+  return (   
       <Cal
         calLink="praphon.kha/gdsc.tu.interview"
         style={{ width: "100%" , overflow: "visible" , msOverflowStyle: "none"}}
@@ -24,8 +23,7 @@ function GDSCCalendar(props: any) {
           CandidateID: `${props.data.id}`
         }}
       />
-      ;
-    </>
+    
   );
 }
 
