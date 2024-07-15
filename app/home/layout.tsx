@@ -14,7 +14,7 @@ const Layout = async ({ children }: LayoutProps) => {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return redirect("/login");
+    return redirect("/");
   }
 
   return (
