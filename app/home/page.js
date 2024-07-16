@@ -56,7 +56,7 @@ function ApplicationMember() {
           saveProgressInside(updatedData);
           return updatedData;
         });
-      }, 1000),
+      }, 5000),
     [prevData]
   );
 
@@ -95,7 +95,7 @@ function ApplicationMember() {
             id={data.field}
             name={data.field}
             aria-describedby={data.field}
-            defaultValue={prevData[data.field.toLowerCase()]}
+            defaultValue={prevData[data.field.toLowerCase()] || ""}
             onChange={debouncedEventHandler}
             required
           />
