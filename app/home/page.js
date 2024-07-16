@@ -124,7 +124,7 @@ function ApplicationMember() {
             onChange={debouncedEventHandler}
             required
           >
-            <option value="" disabled>
+            <option value="">
               Select an option
             </option>
             {data.options.map((option, optionIndex) => (
