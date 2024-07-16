@@ -79,7 +79,7 @@ function PDPAConsent() {
             </ul>
             <p>
               ผู้เข้าร่วมที่ได้รับคำขอให้ยุติพฤติกรรมคุกคามใดๆ
-              จำเป็นต้องปฏิบัติตามทันที "นโยบายไม่ยอมรับการคุกคามอย่างเด็ดขาด"
+              จำเป็นต้องปฏิบัติตามทันที นโยบายไม่ยอมรับการคุกคามอย่างเด็ดขาด
               ของเราหมายความว่า
               เราจะตรวจสอบและพิจารณาข้อกล่าวหาทุกกรณีที่เกี่ยวข้องกับการละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม
               และดำเนินการตามความเหมาะสม หากท่านต้องการรายงานพฤติกรรมใดๆ
@@ -181,8 +181,8 @@ function PDPAConsent() {
               look into and review every allegation of violation of our Event
               Community Guidelines and Anti-Harassment Policy and respond
               appropriately. To report any behavior that makes you or others
-              feel uncomfortable, visit your event's website to file a report to
-              your event's organizers.
+              feel uncomfortable, visit your event website to file a report to
+              your event organizers.
             </p>
             <p>
               This policy extends to talks, forums, workshops, codelabs, social
