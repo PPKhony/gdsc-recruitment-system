@@ -39,17 +39,9 @@ function Application() {
     if (!error) redirect("/home/success");
   };
 
-  const saveProgress = async (prevData) => {
-    "use server"
-    const supabase = createClient();
-    console.log(prevData);
-   
-    if(error) console.log(error);
-  };
-
   return (
     <div>
-      <ApplicationMember  submitApplication={submitApplication} />
+      <ApplicationMember submitApplication={submitApplication} />
     </div>
   );
 }

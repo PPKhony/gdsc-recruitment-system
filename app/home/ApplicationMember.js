@@ -99,6 +99,7 @@ function ApplicationMember({ submitApplication }) {
             aria-describedby={data.field}
             defaultValue={prevData[data.field.toLowerCase()]}
             onChange={debouncedEventHandler}
+            required
           />
           <div className="form-text">{data.description}</div>
         </div>
