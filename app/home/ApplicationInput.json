@@ -31,12 +31,6 @@
     "description": "รูปแบบ: 6212345678 (ใส่รหัสนักศึกษา)"
   },
   {
-    "field": "UniversityEmail",
-    "label" : "อีเมลในมหาวิทยาลัย",
-    "type" : "email",
-    "description": "รูปแบบ: john.doe@dome.tu.ac.th (ใส่อีเมลในมหาวิทยาลัยภายใต้ domain @dome.tu.ac.th)"
-  },
-  {
     "field": "PersonalEmail",
     "label" : "อีเมลส่วนตัว",
     "type" : "email",

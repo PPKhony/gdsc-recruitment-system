@@ -3,18 +3,16 @@ import React, { useState } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const [user, setUser] = useState("" as string);
   const supabase = createClient();
-  const router = useRouter();
 
   const getUserData = async () => {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    console.log(user);
     setUser(user?.user_metadata.full_name);
   };
 
@@ -34,7 +32,12 @@ const Header: React.FC = () => {
     >
       <Container>
         <Navbar.Brand href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
-          GDSC Thammasat 2024
+        <Image
+            src="/images/TU-GDSC Logo chapter lockup template.png"
+            alt="logo"
+            width={280}
+            height={35}
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -42,18 +45,21 @@ const Header: React.FC = () => {
             <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
               About us
             </Nav.Link>
-            {/* <Nav.Link href="#pricing">Contact us</Nav.Link> */}
-            {/* <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+            <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
+              report problem
+            </Nav.Link>
+            {/* <Nav.Link href="#pricing">con</Nav.Link> */}
+            {/* <NavDropdown title="Contact us" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">problem about website</NavDropdown.Item> */}
+              {/* <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
+              </NavDropdown.Item> */}
+            {/* </NavDropdown> */}
           </Nav>
           <Navbar.Text>
             {"signed in as "}
