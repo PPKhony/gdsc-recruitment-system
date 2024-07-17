@@ -2,7 +2,7 @@
 import { Col, Row } from "react-bootstrap";
 import applicationSelect from "./ApplicationSelect.json";
 import applicationInput from "./ApplicationInput.json";
-import { createClient, SupabaseClient } from "@/utils/supabase/client";
+import { createClient } from "@/utils/supabase/client";
 import { useEffect, useMemo, useState, ChangeEvent, FormEvent } from "react";
 import { debounce } from "lodash";
 import { v4 as uuidv4 } from 'uuid';
@@ -28,7 +28,7 @@ const ApplicationMember: React.FC = () => {
   const [lastSaveTime, setLastSaveTime] = useState<string | null>(null);
   const [isLoadingPrevData, setIsLoadingPrevData] = useState<boolean>(true);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const supabase: SupabaseClient = createClient();
+  const supabase: any = createClient();
 
   useEffect(() => {
     const getUser = async () => {
