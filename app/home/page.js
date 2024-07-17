@@ -5,7 +5,6 @@ import applicationInput from "./ApplicationInput.json";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useMemo, useState } from "react";
 import { debounce } from "lodash";
-import Select from "react-select";
 
 function ApplicationMember() {
   const [prevData, setPrevData] = useState({});
@@ -57,7 +56,7 @@ function ApplicationMember() {
           saveProgressInside(updatedData);
           return updatedData;
         });
-      }, 5000),
+      }, 500),
     [prevData]
   );
 
@@ -116,7 +115,7 @@ function ApplicationMember() {
           <label htmlFor={data.field} className="form-label">
             {data.label}
           </label>
-          <Select
+          <select
             className="form-select"
             id={data.field}
             name={data.field}
@@ -133,7 +132,7 @@ function ApplicationMember() {
                 {option}
               </option>
             ))}
-          </Select>
+          </select>
           <div className="form-text">{data.description}</div>
         </div>
       </Col>
