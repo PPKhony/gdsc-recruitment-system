@@ -3,32 +3,15 @@ import { Col, Row } from "react-bootstrap";
 import applicationSelect from "./ApplicationSelect.json";
 import applicationInput from "./ApplicationInput.json";
 import { createClient } from "@/utils/supabase/client";
-import { useEffect, useMemo, useState, ChangeEvent, FormEvent } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { debounce } from "lodash";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-interface User {
-  id: string;
-  email: string;
-  user_metadata: {
-    full_name: string;
-  };
-}
-
-interface ApplicantData {
-  user_id?: string;
-  universityemail?: string;
-  [key: string]: any;
-}
-
-const ApplicationMember: React.FC = () => {
-  const [prevData, setPrevData] = useState<ApplicantData>({});
-  const [isSaving, setIsSaving] = useState<boolean>(false);
-  const [saveError, setSaveError] = useState<boolean>(false);
-  const [lastSaveTime, setLastSaveTime] = useState<string | null>(null);
-  const [isLoadingPrevData, setIsLoadingPrevData] = useState<boolean>(true);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const supabase: any = createClient();
+function ApplicationMember() {
+  const [prevData, setPrevData] = useState({});
+  const [isSaving, setIsSaving] = useState(false);
+  const [lastSaveTime, setLastSaveTime] = useState(null);
+  const supabase = createClient();
 
   useEffect(() => {
     const getUser = async () => {
@@ -39,17 +22,15 @@ const ApplicationMember: React.FC = () => {
         } = await supabase.auth.getUser();
         if (error) throw error;
         await getPrevData(user);
-      } catch (error: any) {
+      } catch (error) {
         console.error("Error getting user:", error.message);
-      } finally {
-        setIsLoadingPrevData(false);
       }
     };
 
     getUser();
   }, [supabase]);
 
-  const getPrevData = async (userLogin: User | null) => {
+  const getPrevData = async (userLogin) => {
     try {
       const { data, error } = await supabase
         .from("applicants")
@@ -62,49 +43,46 @@ const ApplicationMember: React.FC = () => {
         user_id: userLogin?.id,
         universityemail: userLogin?.email,
       });
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error getting previous data:", error.message);
     }
   };
 
-  const debouncedSave = useMemo(
+  const debouncedEventHandler = useMemo(
     () =>
-      debounce(async (updatedData: ApplicantData) => {
-        setSaveError(false);
-        try {
-          const { error } = await supabase
-            .from("applicants")
-            .upsert(updatedData, { onConflict: ["user_id"] });
-
-          if (error) {
-            setSaveError(true);
-            console.error("Error saving progress:", error.message);
-          } else {
-            setLastSaveTime(new Date().toLocaleString());
-          }
-        } catch (error: any) {
-          setSaveError(true);
-          console.error("Error saving progress:", error.message);
-        } finally {
-          setIsSaving(false);
-        }
-      }, 1500),
-    [supabase]
+      debounce((event) => {
+        const { name, value } = event.target;
+        setPrevData((prevData) => {
+          const updatedData = { ...prevData, [name.toLowerCase()]: value };
+          saveProgressInside(updatedData);
+          return updatedData;
+        });
+      }, 1000),
+    [prevData]
   );
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = event.target;
-    const updatedData = { ...prevData, [name.toLowerCase()]: value };
-    setPrevData(updatedData);
+  const saveProgressInside = async (data) => {
     setIsSaving(true);
-    debouncedSave(updatedData);
+    try {
+      const { error } = await supabase
+        .from("applicants")
+        .upsert(data, { onConflict: ["user_id"] });
+
+      if (error) {
+        console.error("Error saving progress:", error.message);
+      } else {
+        setLastSaveTime(new Date().toLocaleString());
+      }
+    } catch (error) {
+      console.error("Error saving progress:", error.message);
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   const RenderStaticInput = (
-    startIndex: number = 0,
-    stopIndex: number = applicationInput.length
+    startIndex = 0,
+    stopIndex = applicationInput.length
   ) => {
     return applicationInput.slice(startIndex, stopIndex).map((data, index) => (
       <Col key={uuidv4()} className="mb-3">
@@ -114,16 +92,13 @@ const ApplicationMember: React.FC = () => {
           </label>
           <input
             type={data.type}
-            className={`form-control ${isLoadingPrevData ? "placeholder" : ""}`}
+            className="form-control"
             id={data.field}
             name={data.field}
             aria-describedby={data.field}
-            defaultValue={
-              isLoadingPrevData ? "" : prevData[data.field.toLowerCase()] || ""
-            }
-            onChange={handleChange}
+            defaultValue={prevData[data.field.toLowerCase()]}
+            onChange={debouncedEventHandler}
             required
-            disabled={isLoadingPrevData}
           />
           <div className="form-text">{data.description}</div>
         </div>
@@ -132,8 +107,8 @@ const ApplicationMember: React.FC = () => {
   };
 
   const RenderStaticSelect = (
-    startIndex: number = 0,
-    stopIndex: number = applicationSelect.length
+    startIndex = 0,
+    stopIndex = applicationSelect.length
   ) => {
     return applicationSelect.slice(startIndex, stopIndex).map((data, index) => (
       <Col key={uuidv4()} className="mb-3">
@@ -142,20 +117,17 @@ const ApplicationMember: React.FC = () => {
             {data.label}
           </label>
           <select
-            className={`form-select ${isLoadingPrevData ? "placeholder" : ""}`}
+            className="form-select"
             id={data.field}
             name={data.field}
             aria-describedby={data.field}
-            defaultValue={
-              isLoadingPrevData ? "" : prevData[data.field.toLowerCase()]
-            }
-            onChange={handleChange}
+            defaultValue={prevData[data.field.toLowerCase()]}
+            onChange={debouncedEventHandler}
             required
-            disabled={isLoadingPrevData}
           >
             <option value="">Select an option</option>
-            {data.options.map((option: string, optionIndex: number) => (
-              <option key={optionIndex} value={option}>
+            {data.options.map((option, optionIndex) => (
+              <option key={uuidv4()} value={option}>
                 {option}
               </option>
             ))}
@@ -166,9 +138,8 @@ const ApplicationMember: React.FC = () => {
     ));
   };
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
     try {
       const response = await fetch("/api/submit-application", {
         method: "POST",
@@ -188,10 +159,8 @@ const ApplicationMember: React.FC = () => {
       if (result.redirectUrl) {
         window.location.href = result.redirectUrl;
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error submitting form:", error.message);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -210,17 +179,9 @@ const ApplicationMember: React.FC = () => {
         >
           <h2>ส่วนที่ 1 ข้อมูลเกี่ยวกับผู้สมัคร</h2>
           <div>
-            {isSaving ? (
-              <i className="bi bi-cloud-upload"> Saving...</i>
-            ) : saveError ? (
-              <i className="bi bi-cloud-slash"> Error saving</i>
-            ) : (
-              <i className="bi bi-cloud-check">
-                {lastSaveTime
-                  ? ` Draft saved at: ${lastSaveTime}`
-                  : " Draft save latest"}
-              </i>
-            )}
+            {isSaving
+              ? "Saving..."
+              : `Last saved at: ${lastSaveTime || "Not yet saved"}`}
           </div>
         </div>
         <Row md={1} xl={2}>
@@ -242,34 +203,12 @@ const ApplicationMember: React.FC = () => {
           </Col>
           <Col xl={10}>{RenderStaticInput(7, 10)}</Col>
         </Row>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            marginTop: "1rem",
-          }}
-        >
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <>
-                <span
-                  className="spinner-border spinner-border-sm"
-                  aria-hidden="true"
-                ></span>
-                <span role="status"> Loading...</span>
-              </>
-            ) : (
-              "Submit"
-            )}
-          </button>
-        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
       </form>
     </div>
   );
-};
+}
 
 export default ApplicationMember;
