@@ -59,7 +59,7 @@ const AutosaveForm = () => {
       if (user) {
         const savedFormData = localStorage.getItem("formData");
         if (savedFormData) {
-          setFormData(JSON.parse(savedFormData)); 
+          setFormData(JSON.parse(savedFormData));
         } else {
           const initialData = await fetchInitialData(user.id);
           if (initialData) {
@@ -141,40 +141,48 @@ const AutosaveForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>{status}</h3>
-      {inputFields.map((input) => (
-        <div key={input.field}>
-          <label>{input.label}</label>
-          <input
-            type={input.type}
-            name={input.field}
-            value={formData[input.field]}
-            onChange={handleChange}
-          />
-          <small>{input.description}</small>
-        </div>
-      ))}
-      {selectFields.map((select) => (
-        <div key={select.field}>
-          <label>{select.label}</label>
-          <select
-            name={select.field}
-            value={formData[select.field]}
-            onChange={handleChange}
-          >
-            <option value="">-- Select --</option>
-            {select.options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <small>{select.description}</small>
-        </div>
-      ))}
-      <button type="submit">Submit</button>
-    </form>
+    <div className="container mt-5">
+      <form onSubmit={handleSubmit} className="bg-light p-4 rounded shadow">
+        <h3 className="text-center mb-4">{status}</h3>
+        {inputFields.map((input) => (
+          <div key={input.field} className="mb-3">
+            <label className="form-label">{input.label}</label>
+            <input
+              type={input.type}
+              name={input.field}
+              className="form-control"
+              value={formData[input.field]}
+              onChange={handleChange}
+              required // Add required attribute if needed
+            />
+            <small className="form-text text-muted">{input.description}</small>
+          </div>
+        ))}
+        {selectFields.map((select) => (
+          <div key={select.field} className="mb-3">
+            <label className="form-label">{select.label}</label>
+            <select
+              name={select.field}
+              className="form-select"
+              value={formData[select.field]}
+              onChange={handleChange}
+              required // Add required attribute if needed
+            >
+              <option value="">-- Select --</option>
+              {select.options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <small className="form-text text-muted">{select.description}</small>
+          </div>
+        ))}
+        <button type="submit" className="btn btn-primary w-100 mt-3">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
