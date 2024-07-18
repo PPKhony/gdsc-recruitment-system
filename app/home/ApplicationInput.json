@@ -1,61 +1,60 @@
 [
   {
-    "field": "ThaiName",
-    "label" : "ชื่อภาษาไทย (ไม่มีคำนำหน้า)",
-    "type" : "text",
+    "field": "thainame",
+    "label": "ชื่อภาษาไทย (ไม่มีคำนำหน้า)",
+    "type": "text",
     "description": "รูปแบบ: สมชาย ดวงดี (ใส่ชื่อภาษาไทยโดยไม่ต้องใส่คำนำหน้า)"
   },
   {
-    "field": "EnglishName",
-    "label" : "ชื่อภาษาอังกฤษ",
-    "type" : "text",
+    "field": "englishname",
+    "label": "ชื่อภาษาอังกฤษ",
+    "type": "text",
     "description": "รูปแบบ: John Doe (ใส่ชื่อภาษาอังกฤษ)"
   },
   {
-    "field": "Nickname",
-    "label" : "ชื่อเล่น",
-    "type" : "text",
+    "field": "nickname",
+    "label": "ชื่อเล่น",
+    "type": "text",
     "description": "รูปแบบ: จอห์น (ใส่ชื่อเล่น)"
   },
   {
-    "field": "Department",
-    "label" : "ภาค/สาขาวิชา",
-    "type" : "text",
+    "field": "department",
+    "label": "ภาค/สาขาวิชา",
+    "type": "text",
     "description": "รูปแบบ: สาขาวิชาวิศวกรรมคอมพิวเตอร์ (ใส่ชื่อภาคหรือสาขาวิชา)"
   },
-  
   {
-    "field": "StudentID",
-    "label" : "รหัสนักศึกษา",
-    "type" : "text",
+    "field": "studentid",
+    "label": "รหัสนักศึกษา",
+    "type": "text",
     "description": "รูปแบบ: 6212345678 (ใส่รหัสนักศึกษา)"
   },
   {
-    "field": "PersonalEmail",
-    "label" : "อีเมลส่วนตัว",
-    "type" : "email",
+    "field": "personalemail",
+    "label": "อีเมลส่วนตัว",
+    "type": "email",
     "description": "รูปแบบ: john.doe@gmail.com (ใส่อีเมลส่วนตัว)"
   },
   {
-    "field": "PhoneNumber",
-    "label" : "หมายเลขโทรศัพท์",
-    "type" : "text",
+    "field": "phonenumber",
+    "label": "หมายเลขโทรศัพท์",
+    "type": "text",
     "description": "รูปแบบ: 0812345678 (ใส่หมายเลขโทรศัพท์)"
   },
   {
-    "field": "GitHub",
+    "field": "github",
     "label": "GitHub",
     "type": "text",
     "description": "รูปแบบ: https://github.com/your_username (ใส่ลิงก์ GitHub ของคุณ) หากไม่ประสงค์ ให้ใส่ -"
   },
   {
-    "field": "LinkedIn",
+    "field": "linkedin",
     "label": "LinkedIn",
     "type": "text",
     "description": "รูปแบบ: https://www.linkedin.com/in/your_profile (ใส่ลิงก์ LinkedIn ของคุณ) หากไม่ประสงค์ ให้ใส่ -"
   },
   {
-    "field": "GoogleDeveloper",
+    "field": "googledeveloper",
     "label": "Google Developer Profile",
     "type": "text",
     "description": "รูปแบบ: https://developers.google.com/profile/your_profile (ใส่ลิงก์โปรไฟล์ Google Developer ของคุณ) หากไม่ประสงค์ ให้ใส่ -"

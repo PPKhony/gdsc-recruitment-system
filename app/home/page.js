@@ -1,214 +1,181 @@
 "use client";
-import { Col, Row } from "react-bootstrap";
-import applicationSelect from "./ApplicationSelect.json";
-import applicationInput from "./ApplicationInput.json";
+import React, { useState, useEffect, useCallback } from "react";
+import _, { create } from "lodash";
+import inputFields from "./ApplicationInput.json";
+import selectFields from "./ApplicationSelect.json";
 import { createClient } from "@/utils/supabase/client";
-import { useEffect, useMemo, useState } from "react";
-import { debounce } from "lodash";
-import { v4 as uuidv4 } from "uuid";
 
-function ApplicationMember() {
-  const [prevData, setPrevData] = useState({});
-  const [isSaving, setIsSaving] = useState(false);
-  const [lastSaveTime, setLastSaveTime] = useState(null);
+const AutosaveForm = () => {
   const supabase = createClient();
+  let initialFormData;
+  if (!localStorage.getItem("formData")) {
+    initialFormData = inputFields.reduce((acc, curr) => {
+      acc[curr.field] = "";
+      return acc;
+    }, {});
+  } else {
+    initialFormData = JSON.parse(localStorage.getItem("formData"));
+  }
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const {
-          data: { user },
-          error,
-        } = await supabase.auth.getUser();
-        if (error) throw error;
-        await getPrevData(user);
-      } catch (error) {
-        console.error("Error getting user:", error.message);
-      }
-    };
+  selectFields.forEach((select) => {
+    initialFormData[select.field] = "";
+  });
 
-    getUser();
-  }, [supabase]);
+  const [formData, setFormData] = useState(initialFormData);
+  const [status, setStatus] = useState("Form is not saved yet.");
 
-  const getPrevData = async (userLogin) => {
+  const getUser = async () => {
+    try {
+      const {
+        data: { user },
+        error,
+      } = await supabase.auth.getUser();
+      if (error) throw error;
+      return user;
+    } catch (error) {
+      console.error("Error getting user:", error.message);
+      return null;
+    }
+  };
+
+  const fetchInitialData = async (userId) => {
     try {
       const { data, error } = await supabase
         .from("applicants")
-        .select()
-        .eq("user_id", userLogin?.id);
+        .select("*")
+        .eq("user_id", userId)
+        .single();
       if (error) throw error;
-
-      setPrevData({
-        ...data[0],
-        user_id: userLogin?.id,
-        universityemail: userLogin?.email,
-      });
+      return data;
     } catch (error) {
-      console.error("Error getting previous data:", error.message);
+      console.error("Error fetching initial data:", error.message);
+      return null;
     }
   };
 
-  const debouncedEventHandler = useMemo(
-    () =>
-      debounce((event) => {
-        const { name, value } = event.target;
-        setPrevData((prevData) => {
-          const updatedData = { ...prevData, [name.toLowerCase()]: value };
-          saveProgressInside(updatedData);
-          return updatedData;
-        });
-      }, 1000),
-    [prevData]
+  useEffect(() => {
+    const loadInitialData = async () => {
+      const user = await getUser();
+      if (user) {
+        const savedFormData = localStorage.getItem("formData");
+        if (savedFormData) {
+          setFormData(JSON.parse(savedFormData)); 
+        } else {
+          const initialData = await fetchInitialData(user.id);
+          if (initialData) {
+            setFormData(initialData);
+          }
+        }
+      }
+    };
+    loadInitialData();
+  }, []);
+
+  // Save form data to localStorage whenever formData changes
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Debounced API call
+  const debouncedSave = useCallback(
+    _.debounce(async (data) => {
+      try {
+        const user = await getUser();
+        if (user) {
+          const { error } = await supabase
+            .from("applicants")
+            .upsert({
+              ...data,
+              user_id: user.id,
+              universityemail: user.email,
+              issubmit: false,
+            });
+          if (error) throw error;
+          setStatus("Draft save success.");
+          console.log("save online success", formData);
+        }
+      } catch (error) {
+        console.error("Error saving data:", error.message);
+        setStatus("Error saving draft.");
+      }
+    }, 4000),
+    []
   );
 
-  const saveProgressInside = async (data) => {
-    setIsSaving(true);
+  useEffect(() => {
+    debouncedSave(formData);
+  }, [formData, debouncedSave]);
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const { error } = await supabase
-        .from("applicants")
-        .upsert(data, { onConflict: ["user_id"] });
-
-      if (error) {
-        console.error("Error saving progress:", error.message);
-      } else {
-        setLastSaveTime(new Date().toLocaleString());
-      }
-    } catch (error) {
-      console.error("Error saving progress:", error.message);
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const RenderStaticInput = (
-    startIndex = 0,
-    stopIndex = applicationInput.length
-  ) => {
-    return applicationInput.slice(startIndex, stopIndex).map((data, index) => (
-      <Col key={uuidv4()} className="mb-3">
-        <div>
-          <label htmlFor={data.field} className="form-label">
-            {data.label}
-          </label>
-          <input
-            type={data.type}
-            className="form-control"
-            id={data.field}
-            name={data.field}
-            aria-describedby={data.field}
-            defaultValue={prevData[data.field.toLowerCase()]}
-            onChange={debouncedEventHandler}
-            required
-          />
-          <div className="form-text">{data.description}</div>
-        </div>
-      </Col>
-    ));
-  };
-
-  const RenderStaticSelect = (
-    startIndex = 0,
-    stopIndex = applicationSelect.length
-  ) => {
-    return applicationSelect.slice(startIndex, stopIndex).map((data, index) => (
-      <Col key={uuidv4()} className="mb-3">
-        <div>
-          <label htmlFor={data.field} className="form-label">
-            {data.label}
-          </label>
-          <select
-            className="form-select"
-            id={data.field}
-            name={data.field}
-            aria-describedby={data.field}
-            defaultValue={prevData[data.field.toLowerCase()]}
-            onChange={debouncedEventHandler}
-            required
-          >
-            <option value="">Select an option</option>
-            {data.options.map((option, optionIndex) => (
-              <option key={uuidv4()} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <div className="form-text">{data.description}</div>
-        </div>
-      </Col>
-    ));
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch("/api/submit-application", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(prevData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      console.log("Submission successful:", result);
-      if (result.redirectUrl) {
-        window.location.href = result.redirectUrl;
+      const user = await getUser();
+      if (user) {
+        const { error } = await supabase
+          .from("applicants")
+          .upsert({
+            ...formData,
+            user_id: user.id,
+            universityemail: user.email,
+            issubmit: true,
+          });
+        if (error) throw error;
+        setStatus("Form submitted successfully.");
+        // Clear localStorage upon successful form submission if needed
+        // localStorage.removeItem('formData');
       }
     } catch (error) {
       console.error("Error submitting form:", error.message);
+      setStatus("Error submitting form.");
     }
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            marginBottom: "1.3rem",
-            marginTop: "1.3rem",
-          }}
-        >
-          <h2>ส่วนที่ 1 ข้อมูลเกี่ยวกับผู้สมัคร</h2>
-          <div>
-            {isSaving
-              ? "Saving..."
-              : `Last saved at: ${lastSaveTime || "Not yet saved"}`}
-          </div>
+    <form onSubmit={handleSubmit}>
+      <h3>{status}</h3>
+      {inputFields.map((input) => (
+        <div key={input.field}>
+          <label>{input.label}</label>
+          <input
+            type={input.type}
+            name={input.field}
+            value={formData[input.field]}
+            onChange={handleChange}
+          />
+          <small>{input.description}</small>
         </div>
-        <Row md={1} xl={2}>
-          <Col xl={2} className="mb-2">
-            <h4>ข้อมูลทั่วไป</h4>
-          </Col>
-          <Col xl={10}>
-            <Row xs={1} md={2} lg={3} xl={3}>
-              {RenderStaticInput(0, 3)}
-              {RenderStaticSelect(0, applicationSelect.length)}
-              {RenderStaticInput(3, 7)}
-            </Row>
-          </Col>
-        </Row>
-        <hr />
-        <Row md={1} xl={2}>
-          <Col xl={2} className="mb-2">
-            <h4>ช่องทาง social media</h4>
-          </Col>
-          <Col xl={10}>{RenderStaticInput(7, 10)}</Col>
-        </Row>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
-    </div>
+      ))}
+      {selectFields.map((select) => (
+        <div key={select.field}>
+          <label>{select.label}</label>
+          <select
+            name={select.field}
+            value={formData[select.field]}
+            onChange={handleChange}
+          >
+            <option value="">-- Select --</option>
+            {select.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <small>{select.description}</small>
+        </div>
+      ))}
+      <button type="submit">Submit</button>
+    </form>
   );
-}
+};
 
-export default ApplicationMember;
+export default AutosaveForm;
