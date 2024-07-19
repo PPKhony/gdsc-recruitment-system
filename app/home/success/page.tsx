@@ -2,9 +2,9 @@ import GDSCCalendar from "@/components/GDSCInterview";
 import Process from "@/components/Process";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { Alert, Col, Container, Row } from "react-bootstrap";
+import { Alert, Card, CardBody, Col, Container, Row } from "react-bootstrap";
 
-async function AuthorizePage() {
+async function SuccessPage() {
   const supabase = createClient();
 
   const {
@@ -13,11 +13,16 @@ async function AuthorizePage() {
 
   return (
     <div>
-      <Process/>
-      <h1 className="my-3">Pre Screen Round</h1>
-      Success Submit
+      {/* <Process/> */}
+      <Card>
+        <CardBody>
+          <h1>Your form has been successfully sent!</h1>
+          <Alert variant="success">Thank you for submitting the form.</Alert>
+
+        </CardBody>
+      </Card>
     </div>
   );
 }
 
-export default AuthorizePage;
+export default SuccessPage;

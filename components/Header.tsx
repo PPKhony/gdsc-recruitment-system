@@ -26,6 +26,7 @@ const Header: React.FC = () => {
   const logout = async (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent default anchor behavior
     try {
+      localStorage.clear();
       await supabase.auth.signOut();
       setUser(null); // Clear user state on logout
       router.replace('/'); // Redirect to home page
@@ -53,12 +54,12 @@ const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
+            {/* <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
               About us
-            </Nav.Link>
-            <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
+            </Nav.Link> */}
+            {/* <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
               Report problem
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <Navbar.Text>
             {user ? (

@@ -1,5 +1,5 @@
 {
-  "title": "Recruiting Form GDSC@TU 2024 ",
+  "title": "Recruiting Form GDSC@TU 2024",
   "subTitle": "Technical Core Team",
   "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
   "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณโดยอัตโนมัติ เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
@@ -71,29 +71,69 @@
           }
         },
         {
-          "type": "text",
-          "label": "Major",
           "name": "major",
-          "validation": {
-            "required": true,
-            "errorMessage": "Please enter your major."
-          }
+          "label": "Major",
+          "type": "selectOrInput",
+          "validation": { "required": true }
         },
         {
           "type": "select",
           "label": "Current Year of Study",
           "name": "current_year_of_study",
           "options": [
-            "Freshman",
-            "Sophomore",
-            "Junior",
-            "Senior",
+            "Freshman (Year 1)",
+            "Sophomore (Year 2)",
+            "Junior (Year 3)",
+            "Senior (Year 4)",
             "Graduate Student",
             "Other"
           ],
           "validation": {
             "required": true,
             "errorMessage": "Please select your current year of study."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Social media channel",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Github Link (If not avaliable please provide - )",
+          "name": "github",
+          "validation": {
+            "required": false,
+            "pattern": "^(https?:\\/\\/www\\.github\\.com\\/)?([-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*))?$",
+            "errorMessage": "Please enter a valid Github profile URL starting with 'https://www.github.com/' or a valid username."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Google Developer Profile Link (If not avaliable please provide - )",
+          "name": "google_developer",
+          "validation": {
+            "required": false,
+            "errorMessage": "Please enter a valid Google Developer profile URL starting with 'https://g.dev/....'."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Linkedin Link (If not avaliable please provide - )",
+          "name": "linkedin",
+          "validation": {
+            "required": false,
+            "errorMessage": "Please enter a valid Linkedin profile URL starting with 'https://www.linkedin.com/' or a valid username."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Phone",
+          "name": "phone",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$", 
+            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
           }
         }
       ]
@@ -211,5 +251,64 @@
         }
       ]
     }
-  ]
+  ],
+  "faculties": {
+    "Faculty of Science and Technology": [
+      "Actuarial Science (Special Program)",
+      "Agricultural Technology",
+      "Applied Mathematics",
+      "Bioenergy Technology and Bioprocess Engineering (Special Program)",
+      "Biotechnology",
+      "Chemistry",
+      "Computer Science",
+      "Computer Science (Special Program)",
+      "Electronics Physics",
+      "Environmental Science",
+      "Food Science and Innovation",
+      "Food Science and Technology",
+      "Materials Science",
+      "Mathematics",
+      "Mathematics (Financial Mathematics) (Special Program)",
+      "Mathematics (Special Program)",
+      "Physics",
+      "Statistics",
+      "Statistics (Applied Statistics) (Special Program)",
+      "Sustainable Technology",
+      "Textile Science and Technology"
+    ],
+    "Faculty of Engineering": [
+      "Automotive Engineering (International)",
+      "Automotive Technology Engineering",
+      "Chemical Engineering",
+      "Chemical Engineering (Dual Degree Program)",
+      "Chemical Engineering (International)",
+      "Civil Engineering",
+      "Civil Engineering (Dual Degree Program)",
+      "Civil Engineering (International)",
+      "Civil Engineering and Construction Management (EBM)",
+      "Electrical Engineering",
+      "Electrical Engineering (Dual Degree Program)",
+      "Electrical Engineering (International)",
+      "Electrical and Industrial Engineering (IPEN-IEE)",
+      "Industrial Engineering",
+      "Industrial Engineering (Dual Degree Program)",
+      "Industrial Engineering (International)",
+      "Mechanical Engineering",
+      "Mechanical Engineering (Dual Degree Program)",
+      "Mechanical Engineering (International)",
+      "Software Engineering"
+    ],
+    "Sirindhorn International Institute of Technology": [
+      "Chemical Engineering (ChE)",
+      "Civil Engineering (CE)",
+      "Electrical Engineering (EE)",
+      "Industrial Engineering and Logistics Systems (IE)",
+      "Mechanical Engineering (ME)",
+      "Computer Engineering (CPE)",
+      "Digital Engineering (DE)",
+      "Engineering Management (EM)",
+      "Management Technology (MT)"
+    ],
+    "Arts": []
+  }
 }
