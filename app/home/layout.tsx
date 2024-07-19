@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+
 type LayoutProps = {
   children: ReactNode;
 };

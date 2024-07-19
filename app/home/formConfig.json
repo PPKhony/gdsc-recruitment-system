@@ -1,0 +1,106 @@
+{
+  "title": "Interview Demographic Data for [University Name] GDSC Club",
+  "description": "This form collects demographic information from potential GDSC club members to better understand our audience and tailor our activities and resources to your needs. We will use your contact information to get in touch about club events and opportunities. All other responses are anonymous and confidential.",
+  "instructions": "Instructions: Please fill in all the required fields.",
+  "sections": [
+    {
+      "title": "Personal Information",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Full Name",
+          "name": "full_name"
+        },
+        {
+          "type": "email",
+          "label": "Personal Email Address",
+          "name": "personal_email"
+        },
+        {
+          "type": "email",
+          "label": "University Email Address",
+          "name": "university_email"
+        },
+        {
+          "type": "text",
+          "label": "Faculty",
+          "name": "faculty"
+        },
+        {
+          "type": "text",
+          "label": "Major",
+          "name": "major"
+        },
+        {
+          "type": "select",
+          "label": "Current Year of Study",
+          "name": "year_of_study",
+          "options": ["Freshman", "Sophomore", "Junior", "Senior", "Graduate Student", "Other"]
+        },
+        {
+          "type": "text",
+          "label": "Student ID",
+          "name": "student_id"
+        }
+      ]
+    },
+    {
+      "title": "Technical Background",
+      "fields": [
+        {
+          "type": "radio",
+          "label": "Level of experience with technology",
+          "name": "experience_level",
+          "options": ["Beginner", "Intermediate", "Advanced"]
+        },
+        {
+          "type": "checkbox",
+          "label": "Programming languages you are familiar with",
+          "name": "programming_languages",
+          "options": ["Python", "Java", "JavaScript", "C++", "C#", "HTML/CSS", "Swift", "Kotlin", "Go", "R", "Other"]
+        }
+      ]
+    },
+    {
+      "title": "Interests and Goals",
+      "fields": [
+        {
+          "type": "checkbox",
+          "label": "Areas of technology you are most interested in",
+          "name": "technology_interests",
+          "options": ["Web Development", "Mobile App Development", "Game Development", "Artificial Intelligence/Machine Learning", "Data Science/Analysis", "Cloud Computing", "Cybersecurity", "UI/UX Design", "Entrepreneurship", "Other"]
+        },
+        {
+          "type": "textarea",
+          "label": "Why are you interested in joining the GDSC club?",
+          "name": "interest_reason"
+        },
+        {
+          "type": "textarea",
+          "label": "How did you hear about the GDSC club?",
+          "name": "how_heard"
+        }
+      ]
+    },
+    {
+      "title": "Interview Questions",
+      "fields": [
+        {
+          "type": "textarea",
+          "label": "Interview Question 1",
+          "name": "interview_question1"
+        },
+        {
+          "type": "textarea",
+          "label": "Interview Question 2",
+          "name": "interview_question2"
+        },
+        {
+          "type": "textarea",
+          "label": "Interview Question 3",
+          "name": "interview_question3"
+        }
+      ]
+    }
+  ]
+}

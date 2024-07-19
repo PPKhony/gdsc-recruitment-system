@@ -6,7 +6,6 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/css?family=Google+Sans:400,500,800&display=swap");
 
-
 // Override Bootstrap color
 // $primary-color: #ff0000
 
@@ -14,11 +13,6 @@
 :root {
     min-height: 100vh;
 }
-
-// Import Bootstrap's functions, variables, and mixins
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
 
 // Override Bootstrap variables with GDSC colors
 $primary: #4285F4;  // GDSC Blue

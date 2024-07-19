@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Analytics } from "@vercel/analytics/react"
-import "@/utils/custom.scss"
-import Footer from "@/components/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapClient from "@/utils/bootstrapclient";
+import { Analytics } from "@vercel/analytics/react";
+import "@/utils/custom.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Analytics/>
+        <Analytics />
         {children}
+        <BootstrapClient />
       </body>
     </html>
   );
