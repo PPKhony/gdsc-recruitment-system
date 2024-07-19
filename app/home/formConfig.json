@@ -1,5 +1,6 @@
 {
- "title": "แบบฟอร์มสมัครสมาชิก Technical core team ประจำปีการศึกษา 2024",
+  "title": "Recruiting Form GDSC@TU 2024 ",
+  "subTitle": "Technical Core Team",
   "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
   "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณโดยอัตโนมัติ เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
   "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
@@ -9,7 +10,17 @@
       "fields": [
         {
           "type": "text",
-          "label": "Full Name (ภาษาไทย)",
+          "label": "Student ID",
+          "name": "student_id",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Student ID must be 10 digits."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Full Name (ภาษาไทย) ex. ธีรภัทร ภูงามเขียว",
           "name": "full_name",
           "validation": {
             "required": true,
@@ -18,7 +29,7 @@
         },
         {
           "type": "email",
-          "label": "Personal Email Address",
+          "label": "Personal Email Address ex. teera@gmail.com",
           "name": "personal_email",
           "validation": {
             "required": true,
@@ -83,26 +94,6 @@
           "validation": {
             "required": true,
             "errorMessage": "Please select your current year of study."
-          }
-        },
-        {
-          "type": "text",
-          "label": "Student ID",
-          "name": "student_id",
-          "validation": {
-            "required": true,
-            "pattern": "^\\d{10}$",
-            "errorMessage": "Student ID must be 10 digits."
-          }
-        },
-        {
-          "type": "select",
-          "label": "apply for team",
-          "name": "apply_team",
-          "options": ["creative team", "technical team"],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please specify your team"
           }
         }
       ]

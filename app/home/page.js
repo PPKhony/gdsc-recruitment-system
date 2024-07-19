@@ -196,6 +196,7 @@ const InterviewForm = () => {
           <Card>
             <CardBody>
               <h1>{formConfig.title}</h1>
+              <h3>{formConfig.subTitle}</h3>
               <hr/>
               <h5 style={{ fontWeight: "bold" }}>description</h5>
               <p>{formConfig.description}</p>
