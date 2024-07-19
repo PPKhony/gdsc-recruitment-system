@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import formConfig from "./formConfig.json";
-import { Col, Row, Card, Alert, Spinner, Button, Modal } from "react-bootstrap";
+import { Col, Row, Card, Alert, Spinner, Button, Modal, CardBody } from "react-bootstrap";
 
 const InterviewForm = () => {
   const [formData, setFormData] = useState({});
@@ -139,7 +139,7 @@ const InterviewForm = () => {
   const clearFormData = () => {
     setShowClearConfirmation(true);
   };
-  
+
   const handleConfirmClearData = () => {
     setFormData({});
     setErrors({});
@@ -192,37 +192,42 @@ const InterviewForm = () => {
         xl={2}
         className="d-flex justify-content-center"
       >
-        <Col lg={5} xl={4}>
-          <h1>{formConfig.title}</h1>
-          <h5 style={{ fontWeight: "bold" }}>description</h5>
-          <p>{formConfig.description}</p>
-          <h5 style={{ fontWeight: "bold" }}>instructions</h5>
-          <p>{formConfig.instructions}</p>
-          <p>* Please fill in all the required fields.</p>
-          <h5 style={{ fontWeight: "bold" }}>Please note:</h5>
-          <li>
-            <b>
-              Your progress on this form has been automatically saved to your
-              device.
-            </b>
-          </li>
-          <li>
-            <b>
-              When you submit the form, your responses will be associated with
-              the email address you used to log in.
-            </b>
-          </li>
-          <hr />
-          <Button variant="outline-danger" onClick={clearFormData}>
-            Clear form fill
-          </Button>
+        <Col lg={4} xl={4}>
+          <Card>
+            <CardBody>
+              <h1>{formConfig.title}</h1>
+              <hr/>
+              <h5 style={{ fontWeight: "bold" }}>description</h5>
+              <p>{formConfig.description}</p>
+              <h5 style={{ fontWeight: "bold" }}>instructions</h5>
+              <p>{formConfig.instructions}</p>
+              <p>* Please fill in all the required fields.</p>
+              <h5 style={{ fontWeight: "bold" }}>Please note:</h5>
+              <li>
+                <b>
+                  Your progress on this form has been automatically saved to
+                  your device.
+                </b>
+              </li>
+              <li>
+                <b>
+                  When you submit the form, your responses will be associated
+                  with the email address you used to log in.
+                </b>
+              </li>
+              <hr />
+              <Button variant="outline-danger" onClick={clearFormData}>
+                Clear form fill
+              </Button>
+            </CardBody>
+          </Card>
         </Col>
-        <Col className="p-2" lg={7} xl={8}>
+        <Col lg={8} xl={8}>
           <form onSubmit={handleSubmit}>
             {/* Render current form section */}
-            <Card className="mb-3">
+            <Card className="mb-3 p-1">
               <Card.Body>
-                <Card.Title>{currentSection.title}</Card.Title>
+                <h4>{currentSection.title}</h4>
                 {/* Render form fields within the current section */}
                 {currentSection.fields.map((field) => (
                   <div key={field.name} className="mb-3">
@@ -374,8 +379,8 @@ const InterviewForm = () => {
           </form>
         </Col>
       </Row>
-      <br/>
-      <br/>
+      <br />
+      <br />
     </div>
   );
 };
