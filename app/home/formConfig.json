@@ -1,46 +1,108 @@
 {
-  "title": "Interview Demographic Data for [University Name] GDSC Club",
-  "description": "This form collects demographic information from potential GDSC club members to better understand our audience and tailor our activities and resources to your needs. We will use your contact information to get in touch about club events and opportunities. All other responses are anonymous and confidential.",
-  "instructions": "Instructions: Please fill in all the required fields.",
+  "title": "Interview Demographic Data for Thammasat University GDSC Club",
+  "description": "This form collects demographic information from potential GDSC club members to better understand our audience and tailor our activities and resources to your needs. We will use your contact information to get in touch about club events and opportunities. Your progress will be automatically saved on your device.",
+  "instructions": "Please answer the following questions to the best of your ability.",
   "sections": [
     {
       "title": "Personal Information",
       "fields": [
         {
           "type": "text",
-          "label": "Full Name",
-          "name": "full_name"
+          "label": "Full Name (ภาษาไทย)",
+          "name": "full_name",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please enter your full name in Thai."
+          }
         },
         {
           "type": "email",
           "label": "Personal Email Address",
-          "name": "personal_email"
+          "name": "personal_email",
+          "validation": {
+            "required": true,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "errorMessage": "Please enter a valid email address."
+          }
         },
         {
-          "type": "email",
-          "label": "University Email Address",
-          "name": "university_email"
-        },
-        {
-          "type": "text",
+          "type": "select",
           "label": "Faculty",
-          "name": "faculty"
+          "name": "faculty",
+          "options": [
+            "Thammasat Business School",
+            "Faculty of Law",
+            "Faculty of Political Science",
+            "Faculty of Economics",
+            "Faculty of Social Administration",
+            "Faculty of Sociology and Anthropology",
+            "Faculty of Liberal Arts",
+            "Faculty of Journalism and Mass Communication",
+            "Faculty of Science and Technology",
+            "Faculty of Engineering",
+            "Faculty of Architecture and Planning",
+            "Faculty of Medicine",
+            "Faculty of Allied Health Sciences",
+            "Faculty of Dentistry",
+            "Faculty of Nursing",
+            "Faculty of Public Health",
+            "College of Innovation",
+            "College of Interdisciplinary Studies",
+            "School of Global Studies",
+            "Sirindhorn International Institute of Technology",
+            "Pridi Banomyong International College",
+            "Chulabhorn International College of Medicine"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your faculty."
+          }
         },
         {
           "type": "text",
           "label": "Major",
-          "name": "major"
+          "name": "major",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please enter your major."
+          }
         },
         {
           "type": "select",
           "label": "Current Year of Study",
-          "name": "year_of_study",
-          "options": ["Freshman", "Sophomore", "Junior", "Senior", "Graduate Student", "Other"]
+          "name": "current_year_of_study",
+          "options": [
+            "Freshman",
+            "Sophomore",
+            "Junior",
+            "Senior",
+            "Graduate Student",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your current year of study."
+          }
         },
         {
           "type": "text",
           "label": "Student ID",
-          "name": "student_id"
+          "name": "student_id",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Student ID must be 10 digits."
+          }
+        },
+        {
+          "type": "select",
+          "label": "apply for team",
+          "name": "apply_team",
+          "options": ["creative team", "technical team"],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please specify your team"
+          }
         }
       ]
     },
@@ -48,16 +110,36 @@
       "title": "Technical Background",
       "fields": [
         {
-          "type": "radio",
+          "type": "select",
           "label": "Level of experience with technology",
           "name": "experience_level",
-          "options": ["Beginner", "Intermediate", "Advanced"]
+          "options": ["Beginner", "Intermediate", "Advanced"],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your level of experience."
+          }
         },
         {
           "type": "checkbox",
           "label": "Programming languages you are familiar with",
           "name": "programming_languages",
-          "options": ["Python", "Java", "JavaScript", "C++", "C#", "HTML/CSS", "Swift", "Kotlin", "Go", "R", "Other"]
+          "options": [
+            "Python",
+            "Java",
+            "JavaScript",
+            "C++",
+            "C#",
+            "HTML/CSS",
+            "Swift",
+            "Kotlin",
+            "Go",
+            "R",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select at least one programming language."
+          }
         }
       ]
     },
@@ -65,20 +147,43 @@
       "title": "Interests and Goals",
       "fields": [
         {
-          "type": "checkbox",
+          "type": "radio",
           "label": "Areas of technology you are most interested in",
-          "name": "technology_interests",
-          "options": ["Web Development", "Mobile App Development", "Game Development", "Artificial Intelligence/Machine Learning", "Data Science/Analysis", "Cloud Computing", "Cybersecurity", "UI/UX Design", "Entrepreneurship", "Other"]
+          "name": "tech_areas",
+          "options": [
+            "Web Development",
+            "Mobile App Development",
+            "Game Development",
+            "AI/ML",
+            "Data Science",
+            "Cloud Computing",
+            "Cybersecurity",
+            "UI/UX Design",
+            "Entrepreneurship",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select at least one area of interest."
+          }
         },
         {
           "type": "textarea",
           "label": "Why are you interested in joining the GDSC club?",
-          "name": "interest_reason"
+          "name": "joining_reason",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please provide a reason for joining."
+          }
         },
         {
           "type": "textarea",
           "label": "How did you hear about the GDSC club?",
-          "name": "how_heard"
+          "name": "referral_source",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please let us know how you heard about the club."
+          }
         }
       ]
     },
@@ -87,18 +192,30 @@
       "fields": [
         {
           "type": "textarea",
-          "label": "Interview Question 1",
-          "name": "interview_question1"
+          "label": "Tell me about yourself and your interest in technology.",
+          "name": "interview_question_1",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
         },
         {
           "type": "textarea",
-          "label": "Interview Question 2",
-          "name": "interview_question2"
+          "label": "What are your goals for joining GDSC, and how do you plan to contribute to the club?",
+          "name": "interview_question_2",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
         },
         {
           "type": "textarea",
-          "label": "Interview Question 3",
-          "name": "interview_question3"
+          "label": "Describe a project or experience that you are proud of, related to technology or otherwise. What did you learn from it?",
+          "name": "interview_question_3",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
         }
       ]
     }
