@@ -94,7 +94,7 @@
           }
         },
         {
-          "type": "checkbox",
+          "type": "radio",
           "label": "I have read and agree to the Community Guidelines.",
           "name": "community_guidelines_acceptance",
           "options": [
