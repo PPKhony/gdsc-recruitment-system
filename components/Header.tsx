@@ -40,7 +40,7 @@ const Header: React.FC = () => {
   }, [getUserData]);
 
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary mb-3 header">
+    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary mb-3 header">
       <Container>
         <Navbar.Brand href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
           <Image

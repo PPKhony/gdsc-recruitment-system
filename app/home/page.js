@@ -192,7 +192,7 @@ const InterviewForm = () => {
         xl={2}
         className="d-flex justify-content-center"
       >
-        <Col lg={4} xl={4}>
+        <Col lg={4} xl={4} className="mb-3">
           <Card>
             <CardBody>
               <h1>{formConfig.title}</h1>
@@ -201,6 +201,7 @@ const InterviewForm = () => {
               <p>{formConfig.description}</p>
               <h5 style={{ fontWeight: "bold" }}>instructions</h5>
               <p>{formConfig.instructions}</p>
+              <p>{formConfig.deadline}</p>
               <p>* Please fill in all the required fields.</p>
               <h5 style={{ fontWeight: "bold" }}>Please note:</h5>
               <li>

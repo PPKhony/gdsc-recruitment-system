@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import Footer from "@/components/Footer";
 
 type LayoutProps = {
   children: ReactNode;
@@ -30,7 +31,9 @@ const Layout = async ({ children }: LayoutProps) => {
       </Container>
 
       {/* Add your footer component here */}
-      <footer></footer>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

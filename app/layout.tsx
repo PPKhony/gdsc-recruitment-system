@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap.min.css";
-import BootstrapClient from "@/utils/bootstrapclient";
+// import BootstrapClient from "@/utils/bootstrapclient";
 import { Analytics } from "@vercel/analytics/react";
 import "@/utils/custom.scss";
 
@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <Analytics />
         {children}
-        <BootstrapClient />
+        {/* <BootstrapClient /> */}
       </body>
     </html>
   );

@@ -1,7 +1,8 @@
 {
-  "title": "Interview Demographic Data for Thammasat University GDSC Club",
-  "description": "This form collects demographic information from potential GDSC club members to better understand our audience and tailor our activities and resources to your needs. We will use your contact information to get in touch about club events and opportunities. Your progress will be automatically saved on your device.",
-  "instructions": "Please answer the following questions to the best of your ability.",
+ "title": "แบบฟอร์มสมัครสมาชิก Technical core team ประจำปีการศึกษา 2024",
+  "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
+  "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณโดยอัตโนมัติ เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
+  "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
   "sections": [
     {
       "title": "Personal Information",
@@ -92,6 +93,16 @@
             "required": true,
             "pattern": "^\\d{10}$",
             "errorMessage": "Student ID must be 10 digits."
+          }
+        },
+        {
+          "type": "select",
+          "label": "apply for team",
+          "name": "apply_team",
+          "options": ["creative team", "technical team"],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please specify your team"
           }
         }
       ]
