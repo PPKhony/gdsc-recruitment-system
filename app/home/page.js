@@ -192,7 +192,7 @@ const InterviewForm = () => {
         xl={2}
         className="d-flex justify-content-center"
       >
-        <Col lg={4} xl={4}>
+        <Col lg={5} xl={4}>
           <h1>{formConfig.title}</h1>
           <h5 style={{ fontWeight: "bold" }}>description</h5>
           <p>{formConfig.description}</p>
@@ -217,7 +217,7 @@ const InterviewForm = () => {
             Clear form fill
           </Button>
         </Col>
-        <Col className="p-2" lg={8} xl={8}>
+        <Col className="p-2" lg={7} xl={8}>
           <form onSubmit={handleSubmit}>
             {/* Render current form section */}
             <Card className="mb-3">
@@ -374,6 +374,8 @@ const InterviewForm = () => {
           </form>
         </Col>
       </Row>
+      <br/>
+      <br/>
     </div>
   );
 };
