@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import formConfig from "./formConfig.json";
-import { Col, Row, Card, Alert, Spinner, Button } from "react-bootstrap";
+import { Col, Row, Card, Alert, Spinner, Button, Modal } from "react-bootstrap";
 
 const InterviewForm = () => {
   const [formData, setFormData] = useState({});
@@ -133,10 +133,19 @@ const InterviewForm = () => {
   };
 
   // Function to clear all form fields and local storage
+
+  const [showClearConfirmation, setShowClearConfirmation] = useState(false);
+
   const clearFormData = () => {
+    setShowClearConfirmation(true);
+  };
+  
+  const handleConfirmClearData = () => {
     setFormData({});
     setErrors({});
     localStorage.removeItem("formData");
+    window.location.reload();
+    setShowClearConfirmation(false); // Close the modal
   };
 
   // Handle navigation between sections
@@ -154,6 +163,28 @@ const InterviewForm = () => {
 
   return (
     <div className="container fluid">
+      <Modal
+        show={showClearConfirmation}
+        onHide={() => setShowClearConfirmation(false)}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Clear Form</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to clear the form? All progress will be lost.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={() => setShowClearConfirmation(false)}
+          >
+            Cancel
+          </Button>
+          <Button variant="danger" onClick={handleConfirmClearData}>
+            Clear Form
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Row
         xs={1}
         md={1}
@@ -181,6 +212,10 @@ const InterviewForm = () => {
               the email address you used to log in.
             </b>
           </li>
+          <hr />
+          <Button variant="outline-danger" onClick={clearFormData}>
+            Clear form fill
+          </Button>
         </Col>
         <Col className="p-2" lg={8} xl={7}>
           <form onSubmit={handleSubmit}>
