@@ -217,7 +217,7 @@ const InterviewForm = () => {
             Clear form fill
           </Button>
         </Col>
-        <Col className="p-2" lg={8} xl={7}>
+        <Col className="p-2" lg={8} xl={8}>
           <form onSubmit={handleSubmit}>
             {/* Render current form section */}
             <Card className="mb-3">
