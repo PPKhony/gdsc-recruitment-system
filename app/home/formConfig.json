@@ -93,16 +93,6 @@
             "pattern": "^\\d{10}$",
             "errorMessage": "Student ID must be 10 digits."
           }
-        },
-        {
-          "type": "select",
-          "label": "apply for team",
-          "name": "apply_team",
-          "options": ["creative team", "technical team"],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please specify your team"
-          }
         }
       ]
     },
