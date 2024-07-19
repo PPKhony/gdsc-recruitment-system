@@ -6,7 +6,7 @@
   "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
   "sections": [
     {
-      "title": "Personal Information",
+      "title": "Personal Information & Community Guidelines",
       "fields": [
         {
           "type": "text",
@@ -92,6 +92,18 @@
             "required": true,
             "errorMessage": "Please select your current year of study."
           }
+        },
+        {
+          "type": "checkbox",
+          "label": "I have read and agree to the Community Guidelines.",
+          "name": "community_guidelines_acceptance",
+          "options": [
+            "I have read and agree to the Community Guidelines."
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please agree to the Community Guidelines."
+          }
         }
       ]
     },
@@ -100,17 +112,16 @@
       "fields": [
         {
           "type": "text",
-          "label": "Github Link (If not avaliable please provide - )",
+          "label": "Github Link (Optional)",
           "name": "github",
           "validation": {
             "required": false,
-            "pattern": "^(https?:\\/\\/www\\.github\\.com\\/)?([-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*))?$",
             "errorMessage": "Please enter a valid Github profile URL starting with 'https://www.github.com/' or a valid username."
           }
         },
         {
           "type": "text",
-          "label": "Google Developer Profile Link (If not avaliable please provide - )",
+          "label": "Google Developer Profile Link (Optional)",
           "name": "google_developer",
           "validation": {
             "required": false,
@@ -119,7 +130,7 @@
         },
         {
           "type": "text",
-          "label": "Linkedin Link (If not avaliable please provide - )",
+          "label": "Linkedin Link (Optional)",
           "name": "linkedin",
           "validation": {
             "required": false,
@@ -132,7 +143,7 @@
           "name": "phone",
           "validation": {
             "required": true,
-            "pattern": "^\\d{10}$", 
+            "pattern": "^\\d{10}$",
             "errorMessage": "Please enter a valid phone number in the format '0123456789'."
           }
         }
@@ -145,7 +156,12 @@
           "type": "select",
           "label": "Level of experience with technology",
           "name": "experience_level",
-          "options": ["Beginner", "Intermediate", "Advanced"],
+          "options": [
+            "Beginner (0 month - 6 months)",
+            "Intermediate (6 months - 2 years)",
+            "Advanced (2 years - 4 years)",
+            "Expert (>4 years)"
+          ],
           "validation": {
             "required": true,
             "errorMessage": "Please select your level of experience."
@@ -172,12 +188,7 @@
             "required": true,
             "errorMessage": "Please select at least one programming language."
           }
-        }
-      ]
-    },
-    {
-      "title": "Interests and Goals",
-      "fields": [
+        },
         {
           "type": "radio",
           "label": "Areas of technology you are most interested in",
@@ -198,7 +209,12 @@
             "required": true,
             "errorMessage": "Please select at least one area of interest."
           }
-        },
+        }
+      ]
+    },
+    {
+      "title": "Interests and Goals",
+      "fields": [
         {
           "type": "textarea",
           "label": "Why are you interested in joining the GDSC club?",
@@ -209,12 +225,19 @@
           }
         },
         {
-          "type": "textarea",
+          "type": "radio",
           "label": "How did you hear about the GDSC club?",
           "name": "referral_source",
+          "options": [
+            "Social media",
+            "University event",
+            "Friend or peer",
+            "GDSC website",
+            "Other"
+          ],
           "validation": {
             "required": true,
-            "errorMessage": "Please let us know how you heard about the club."
+            "errorMessage": "Please select how you heard about the club."
           }
         }
       ]
@@ -286,6 +309,7 @@
       "Civil Engineering (Dual Degree Program)",
       "Civil Engineering (International)",
       "Civil Engineering and Construction Management (EBM)",
+      "Computer Engineering",
       "Electrical Engineering",
       "Electrical Engineering (Dual Degree Program)",
       "Electrical Engineering (International)",
@@ -308,7 +332,6 @@
       "Digital Engineering (DE)",
       "Engineering Management (EM)",
       "Management Technology (MT)"
-    ],
-    "Arts": []
+    ]
   }
 }

@@ -54,9 +54,9 @@ const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {/* <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
-              About us
-            </Nav.Link> */}
+            <Nav.Link href="https://gdsctu-internal.vercel.app/home/guideline">
+              Guideline
+            </Nav.Link>
             {/* <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
               Report problem
             </Nav.Link> */}

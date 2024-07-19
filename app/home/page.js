@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import formConfig from "./formConfig.json";
 import { Col, Row, Card, Alert, Spinner, Button, Modal, CardBody, Container } from "react-bootstrap";
+import { redirect } from "next/navigation";
 
 const InterviewForm = () => {
   const [formData, setFormData] = useState({});
@@ -137,6 +138,7 @@ const InterviewForm = () => {
       setStatus("saved");
       // Clear local storage after successful submission
       localStorage.removeItem("formData");
+      window.location.href = "/home/success";
     }
   };
 
@@ -169,7 +171,7 @@ const InterviewForm = () => {
   };
 
   return (
-    <div className="container fluid">
+    <div className="container fluid form-register">
       <Modal show={showClearConfirmation} onHide={() => setShowClearConfirmation(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Confirm Clear Form</Modal.Title>
@@ -292,7 +294,6 @@ const InterviewForm = () => {
                             placeholder="Enter your major"
                           />
                         )}
-                        
                       </>
                     )}
                     {field.type === "radio" &&
@@ -350,14 +351,14 @@ const InterviewForm = () => {
             </Card>
 
             {/* Navigation buttons */}
-            <Container className="d-flex justify-content-left m-3">
+            <Container className="d-flex justify-content-end m-3">
               {currentSectionIndex > 0 && (
-                <Button variant="secondary" onClick={handlePrevious}>
+                <Button variant="secondary" onClick={handlePrevious} className="me-2">
                   Previous
                 </Button>
               )}
               {currentSectionIndex < formConfig.sections.length - 1 ? (
-                <Button variant="primary" type="button" onClick={handleNext}>
+                <Button variant="primary" type="button" onClick={handleNext} className="me-2">
                   Next
                 </Button>
               ) : null}

@@ -2,8 +2,8 @@ import { Container } from "react-bootstrap";
 
 function PDPAConsent() {
   return (
-    <>
-      <Container className="d-flex justify-content-center">
+    <div >
+      <Container className="d-flex justify-content-center mb-5">
         <div className="card" style={{ maxWidth: "992px" }}>
           <div className="card-body">
             <h3>แนวปฏิบัติสำหรับชุมชน (Community Guidelines)</h3>
@@ -202,7 +202,7 @@ function PDPAConsent() {
           </div>
         </div>
       </Container>
-    </>
+    </div>
   );
 }
 
