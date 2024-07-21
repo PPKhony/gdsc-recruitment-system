@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@/utils/supabase/client";
-import formConfig from "../formConfig.json";
+import formConfig from "./formConfig.json";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {
