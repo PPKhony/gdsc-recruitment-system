@@ -1,0 +1,420 @@
+{
+  
+  "title": "Recruiting Form GDSC@TU 2024",
+  "subTitle": "Technical Core Team",
+  "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
+  "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น (local device) เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
+  "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
+  "sections": [
+    {
+      "title" : "Personal data policy",
+      "fields" : [
+        {
+          "type": "markdown",
+          "content": "**นโยบายข้อมูลส่วนบุคคล**"  
+        },
+        {
+          "type": "markdown",
+          "content": "นโยบายข้อมูลส่วนบุคคลนี้ (\"นโยบาย\") อธิบายวิธีการที่กลุ่มอิสระ GDSC@TU 2024 (\"เรา\", \"พวกเรา\" หรือ \"ของเรา\") รวบรวม ใช้ เปิดเผย และปกป้องข้อมูลส่วนบุคคลของคุณ (\"ข้อมูลส่วนบุคคล\" หรือ \"ข้อมูล\") ที่รวบรวมจากเว็บไซต์ของเรา (รวมถึงเว็บไซต์ที่เกี่ยวข้อง เช่น เว็บไซต์ของกิจกรรม) และบริการอื่นๆ ที่เกี่ยวข้องกับ GDSC@TU 2024"
+        },
+        {
+          "type": "markdown",
+          "content": "**ข้อมูลที่เราเก็บรวบรวม**\n\nเราอาจรวบรวมข้อมูลประเภทต่อไปนี้:\n\n* **ข้อมูลส่วนบุคคลที่คุณให้เรา:**  เช่น ชื่อ นามสกุล ที่อยู่อีเมล หมายเลขโทรศัพท์  ข้อมูลติดต่ออื่นๆ  ข้อมูลประวัติส่วนตัว  ข้อมูลการศึกษา  ข้อมูลเกี่ยวกับการเข้าร่วมกิจกรรม  และข้อมูลอื่นๆ ที่คุณอาจให้เรา\n* **ข้อมูลที่รวบรวมโดยอัตโนมัติ:** เช่น ที่อยู่ IP  ประเภทของอุปกรณ์  ข้อมูลเกี่ยวกับเบราว์เซอร์  กิจกรรมของคุณบนเว็บไซต์  ข้อมูลเกี่ยวกับตำแหน่งที่ตั้ง  และข้อมูลอื่นๆ ที่เก็บรวบรวมโดยอัตโนมัติ"
+        },
+        {
+          "type": "markdown",
+          "content": "**วิธีการใช้ข้อมูลส่วนบุคคล**\n\nเราอาจใช้ข้อมูลส่วนบุคคลของคุณเพื่อจุดประสงค์ดังต่อไปนี้:\n\n* เพื่อให้บริการแก่คุณ  เช่น การจัดกิจกรรม  การส่งข่าวสาร  การติดต่อสื่อสาร  การตอบคำถาม\n* เพื่อจัดการและปรับปรุงเว็บไซต์และบริการของเรา\n* เพื่อติดตามการใช้งานเว็บไซต์และบริการของเรา\n*  เพื่อปฏิบัติตามกฎหมายหรือข้อบังคับที่เกี่ยวข้อง\n* เพื่อปกป้องสิทธิ์และความปลอดภัยของเราและบุคคลอื่นๆ"
+        },
+        {
+          "type": "markdown",
+          "content": "**การเปิดเผยข้อมูลส่วนบุคคล**\n\nเราอาจเปิดเผยข้อมูลส่วนบุคคลของคุณต่อบุคคลหรือองค์กรต่อไปนี้:\n\n* ชมรม กลุ่มอิสระ หรือ หน่วยงานที่เกี่ยวข้องกับเรา\n* ผู้ให้บริการความช่วยเหลือของเรา  เช่น บริษัทที่ให้บริการทางเทคนิค  การตลาด  และบริการอื่นๆ\n* ผู้ที่เกี่ยวข้องกับกิจกรรมของเรา  เช่น ผู้สนับสนุน  วิทยากร  และผู้เข้าร่วม\n* หน่วยงานภาครัฐ  เช่น ตามคำสั่งศาลหรือตามกฎหมาย"
+        },
+        {
+          "type": "markdown",
+          "content": "**ความปลอดภัยของข้อมูลส่วนบุคคล**\n\nเราดำเนินการมาตรการทางเทคนิคและองค์กรที่เหมาะสมเพื่อปกป้องข้อมูลส่วนบุคคลของคุณจากการเข้าถึง  การเปิดเผย  การแก้ไข  หรือการทำลายโดยไม่ได้รับอนุญาต  อย่างไรก็ตาม  ไม่มีระบบใดที่ปลอดภัย 100%  และเราไม่สามารถรับประกันความปลอดภัยของข้อมูลส่วนบุคคลของคุณได้อย่างสมบูรณ์"
+        },
+        {
+          "type": "markdown",
+          "content": "**การเข้าถึง  การแก้ไข  และการลบข้อมูลส่วนบุคคล**\n\nคุณมีสิทธิ์ในการเข้าถึง  การแก้ไข  และการลบข้อมูลส่วนบุคคลของคุณ  คุณสามารถติดต่อเราเพื่อขอใช้สิทธิเหล่านี้  เราอาจขอให้คุณยืนยันตัวตนของคุณก่อนดำเนินการใดๆ"
+        },
+        {
+          "type": "markdown",
+          "content": "**การเปลี่ยนแปลงนโยบาย**\n\nเราอาจแก้ไขหรือปรับปรุงนโยบายนี้เป็นครั้งคราว  เราจะแจ้งให้คุณทราบถึงการเปลี่ยนแปลงใดๆ  โดยการโพสต์นโยบายที่แก้ไขแล้วบนเว็บไซต์ของเรา  เราขอแนะนำให้คุณตรวจสอบนโยบายนี้เป็นประจำเพื่อให้แน่ใจว่าคุณเข้าใจแนวทางปฏิบัติของเราเกี่ยวกับข้อมูลส่วนบุคคลของคุณ"
+        },
+        {
+          "type": "markdown",
+          "content": "**การติดต่อ**\n\nหากคุณมีคำถามหรือข้อกังวลใดๆ เกี่ยวกับนโยบายนี้  กรุณาติดต่อเราได้ที่ อีเมล หรือ google chat : praphon.kha@dome.tu.ac.th"
+        },
+        {
+          "type": "markdown",
+          "content": "---"
+        },
+        {
+          "type": "radio",
+          "label": "I have read and agree to the Personal data policy",
+          "name": "community_personal_data_policy_acceptance",
+          "options": [
+            "I have read and agree to the Personal data policy"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please agree to the personal data policy for continue."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Personal Information",
+      "fields": [
+        {
+          "type": "markdown",
+          "content": "Please fill out the form below to apply for the GDSC@TU 2024 Technical Core Team"
+        },
+        {
+          "type": "text",
+          "label": "Student ID",
+          "name": "student_id",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Student ID must be 10 digits."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Full Name (ภาษาไทย) ex. ธีรภัทร ภูงามเขียว",
+          "name": "full_name",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please enter your full name in Thai."
+          }
+        },
+        {
+          "type": "email",
+          "label": "Personal Email Address ex. teera@gmail.com",
+          "name": "personal_email",
+          "validation": {
+            "required": true,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "errorMessage": "Please enter a valid email address."
+          }
+        },
+        {
+          "type": "select",
+          "label": "Faculty",
+          "name": "faculty",
+          "options": [
+            "Thammasat Business School",
+            "Faculty of Law",
+            "Faculty of Political Science",
+            "Faculty of Economics",
+            "Faculty of Social Administration",
+            "Faculty of Sociology and Anthropology",
+            "Faculty of Liberal Arts",
+            "Faculty of Journalism and Mass Communication",
+            "Faculty of Science and Technology",
+            "Faculty of Engineering",
+            "Faculty of Architecture and Planning",
+            "Faculty of Medicine",
+            "Faculty of Allied Health Sciences",
+            "Faculty of Dentistry",
+            "Faculty of Nursing",
+            "Faculty of Public Health",
+            "College of Innovation",
+            "College of Interdisciplinary Studies",
+            "School of Global Studies",
+            "Sirindhorn International Institute of Technology",
+            "Pridi Banomyong International College",
+            "Chulabhorn International College of Medicine"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your faculty."
+          }
+        },
+        {
+          "name": "major",
+          "label": "Major",
+          "type": "selectOrInput",
+          "validation": { "required": true }
+        },
+        {
+          "type": "select",
+          "label": "Current Year of Study",
+          "name": "current_year_of_study",
+          "options": [
+            "Freshman (Year 1)",
+            "Sophomore (Year 2)",
+            "Junior (Year 3)",
+            "Senior (Year 4)",
+            "Graduate Student",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your current year of study."
+          }
+        },
+        {
+          "type" : "markdown",
+          "content" : "---" 
+          },
+        {
+          "type" : "markdown",
+          "content" : "**ข้อตกลงในการเข้าร่วมกลุ่มอิสระ GDSC@TU 2024**" 
+          },
+        {
+          "type" : "markdown",
+          "content" : "คุณยอมรับว่าคุณได้อ่านและเข้าใจ [แนวปฏิบัติสำหรับชุมชน](https://developers.google.com/community-guidelines) และตกลงที่จะปฏิบัติตามแนวปฏิบัติดังกล่าวอย่างเคร่งครัด คุณตกลงที่จะไม่ละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม"
+        },
+        {
+          "type": "radio",
+          "label": "I have read and agree to the Community Guidelines.",
+          "name": "community_guidelines_acceptance",
+          "options": [
+            "I have read and agree to the Community Guidelines."
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please agree to the Community Guidelines."
+          }
+        },
+        {
+          "type": "markdown",
+          "content": "---"  
+        }
+        
+      ]
+    },
+    {
+      "title": "Social media channel",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Github Link (Optional)",
+          "name": "github",
+          "validation": {
+            "required": false,
+            "errorMessage": "Please enter a valid Github profile URL starting with 'https://www.github.com/' or a valid username."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Google Developer Profile Link (Optional)",
+          "name": "google_developer",
+          "validation": {
+            "required": false,
+            "errorMessage": "Please enter a valid Google Developer profile URL starting with 'https://g.dev/....'."
+          }
+        },
+        {
+          "type": "text",
+          "label": "Linkedin Link (Optional)",
+          "name": "linkedin",
+          "validation": {
+            "required": false,
+            "errorMessage": "Please enter a valid Linkedin profile URL starting with 'https://www.linkedin.com/' or a valid username."
+          }
+        },
+        {
+          "type" : "markdown",
+          "content" : "---" 
+          },
+        {
+          "type": "text",
+          "label": "Phone",
+          "name": "phone",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Technical Background",
+      "fields": [
+        {
+          "type": "select",
+          "label": "Level of experience with technology",
+          "name": "experience_level",
+          "options": [
+            "Beginner (0 month - 6 months)",
+            "Intermediate (6 months - 2 years)",
+            "Advanced (2 years - 4 years)",
+            "Expert (>4 years)"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your level of experience."
+          }
+        },
+        {
+          "type": "checkbox",
+          "label": "Programming languages you are familiar with",
+          "name": "programming_languages",
+          "options": [
+            "Python",
+            "Java",
+            "JavaScript",
+            "C++",
+            "C#",
+            "HTML/CSS",
+            "Swift",
+            "Kotlin",
+            "Go",
+            "R",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select at least one programming language."
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Areas of technology you are most interested in",
+          "name": "tech_areas",
+          "options": [
+            "Web Development",
+            "Mobile App Development",
+            "Game Development",
+            "AI/ML",
+            "Data Science",
+            "Cloud Computing",
+            "Cybersecurity",
+            "UI/UX Design",
+            "Entrepreneurship",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select at least one area of interest."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Interests and Goals",
+      "fields": [
+        {
+          "type": "textarea",
+          "label": "Why are you interested in joining the GDSC club?",
+          "name": "joining_reason",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please provide a reason for joining."
+          }
+        },
+        {
+          "type": "radio",
+          "label": "How did you hear about the GDSC club?",
+          "name": "referral_source",
+          "options": [
+            "Social media",
+            "University event",
+            "Friend or peer",
+            "GDSC website",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select how you heard about the club."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Interview Questions",
+      "fields": [
+        {
+          "type": "textarea",
+          "label": "Tell me about yourself and your interest in technology.",
+          "name": "interview_question_1",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
+        },
+        {
+          "type": "textarea",
+          "label": "What are your goals for joining GDSC, and how do you plan to contribute to the club?",
+          "name": "interview_question_2",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
+        },
+        {
+          "type": "textarea",
+          "label": "Describe a project or experience that you are proud of, related to technology or otherwise. What did you learn from it?",
+          "name": "interview_question_3",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please answer the question."
+          }
+        }
+      ]
+    }
+  ],
+  "faculties": {
+    "Faculty of Science and Technology": [
+      "Actuarial Science (Special Program)",
+      "Agricultural Technology",
+      "Applied Mathematics",
+      "Bioenergy Technology and Bioprocess Engineering (Special Program)",
+      "Biotechnology",
+      "Chemistry",
+      "Computer Science",
+      "Computer Science (Special Program)",
+      "Electronics Physics",
+      "Environmental Science",
+      "Food Science and Innovation",
+      "Food Science and Technology",
+      "Materials Science",
+      "Mathematics",
+      "Mathematics (Financial Mathematics) (Special Program)",
+      "Mathematics (Special Program)",
+      "Physics",
+      "Statistics",
+      "Statistics (Applied Statistics) (Special Program)",
+      "Sustainable Technology",
+      "Textile Science and Technology"
+    ],
+    "Faculty of Engineering": [
+      "Automotive Engineering (International)",
+      "Automotive Technology Engineering",
+      "Chemical Engineering",
+      "Chemical Engineering (Dual Degree Program)",
+      "Chemical Engineering (International)",
+      "Civil Engineering",
+      "Civil Engineering (Dual Degree Program)",
+      "Civil Engineering (International)",
+      "Civil Engineering and Construction Management (EBM)",
+      "Computer Engineering",
+      "Electrical Engineering",
+      "Electrical Engineering (Dual Degree Program)",
+      "Electrical Engineering (International)",
+      "Electrical and Industrial Engineering (IPEN-IEE)",
+      "Industrial Engineering",
+      "Industrial Engineering (Dual Degree Program)",
+      "Industrial Engineering (International)",
+      "Mechanical Engineering",
+      "Mechanical Engineering (Dual Degree Program)",
+      "Mechanical Engineering (International)",
+      "Software Engineering"
+    ],
+    "Sirindhorn International Institute of Technology": [
+      "Chemical Engineering (ChE)",
+      "Civil Engineering (CE)",
+      "Electrical Engineering (EE)",
+      "Industrial Engineering and Logistics Systems (IE)",
+      "Mechanical Engineering (ME)",
+      "Computer Engineering (CPE)",
+      "Digital Engineering (DE)",
+      "Engineering Management (EM)",
+      "Management Technology (MT)"
+    ]
+  }
+}
