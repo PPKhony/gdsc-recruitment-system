@@ -6,7 +6,6 @@ import { Button, Container, Row, Col } from 'react-bootstrap';
 
 export default function Home() {
   const router = useRouter();
-
   const handleLoginClick = () => {
     router.push('/login');
   };
