@@ -184,9 +184,9 @@ const InterviewForm = () => {
   // Handle navigation between sections
   const handleNext = () => {
     if (validateSection()) {
+      targetRef.current.scrollIntoView({ behavior: "smooth" });
       setCurrentSectionIndex((prev) => prev + 1);
       setStatus("idle")
-      targetRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
       setStatus("error");
     }

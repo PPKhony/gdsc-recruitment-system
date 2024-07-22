@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "GDSC Internal",
   description: "GDSC Internal",
   icons: {
-    icon: "/image/Google_for_Developers_logomark_color.png"
+    icon: "images\TU-GDSC Logo chapter lockup template.png"
   }
 };
 
