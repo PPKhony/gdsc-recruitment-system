@@ -11,15 +11,16 @@
 }
 
 .form-bg-01 {
-   /* background-image: linear-gradient(to bottom, #ffffff, #020202); */
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/view-3d-school-classroom.jpg?alt=media&token=4469e291-1bef-4b16-9764-5d008ef6d16c");
+  /* background-image: linear-gradient(to bottom, #f3ffad, #ff9f9f); */
+  /* background-image: url("https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/view-3d-school-classroom.jpg?alt=media&token=4469e291-1bef-4b16-9764-5d008ef6d16c"); */
+  background-color: #f1f3f4;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .form-bg-login {
-  background-image: url("https://www.holcimelevate.com/content/dam/elevateemea/assets/references/elevate-roofing-ultraply-tpo-thammasat-university-thailand-2019-01-lr.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/elevate-roofing-ultraply-tpo-thammasat-university-thailand-2019-01-lr.jpg?alt=media&token=b644be90-fe2a-4703-ae48-b6dba1957674");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,7 +30,7 @@
 h1 {
   font-family: "Inter" !important;
   font-weight: 700 !important;
-  /* // font-family: "Google Sans" !important; */
+  /* font-family: "Google Sans" !important; */
   /* // font-family: "Prompt", sans-serif !important; */
 }
 
@@ -39,14 +40,14 @@ h4,
 h5,
 h6 {
   font-family: "Inter" !important;
-  /* // font-family: "Google Sans" !important; */
+  /* font-family: "Google Sans" !important; */
   /* // font-family: "Prompt", sans-serif !important; */
   font-weight: 300;
 }
 
 html,
 body {
-/* //   font-family: "Google Sans" !important; */
+   /* font-family: "Google Sans" !important; */
   font-family: "Bai Jamjuree", sans-serif !important;
   font-weight: 300;
   font-style: normal;
@@ -62,4 +63,22 @@ textarea {
   font-family: "Poppins", "Prompt", sans-serif;
   font-weight: 500;
   font-style: normal;
+}/* Container div */
+
+.colored-bar-container {
+  position: relative; /* Needed for positioning the ::before pseudo-element */
+  padding-left: 10px; /* Adjust as needed to provide space for the color bar */
+  border: 1px solid #ddd; /* Optional: Add border to the container */
+  background-color: #f9f9f9; /* Optional: Background color of the container */
+}
+
+/* Color bar */
+.colored-bar-container::before {
+  content: ''; /* No text content needed */
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px; /* Width of the color bar */
+  background-color: #4285f4; /* Color of the bar */
 }

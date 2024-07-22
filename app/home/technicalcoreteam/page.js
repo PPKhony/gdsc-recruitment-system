@@ -185,6 +185,7 @@ const InterviewForm = () => {
   const handleNext = () => {
     if (validateSection()) {
       setCurrentSectionIndex((prev) => prev + 1);
+      setStatus("idle")
       targetRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
       setStatus("error");
@@ -193,6 +194,7 @@ const InterviewForm = () => {
 
   const handlePrevious = () => {
     setCurrentSectionIndex((prev) => prev - 1);
+    setStatus("idle")
     targetRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -233,7 +235,7 @@ const InterviewForm = () => {
               variant="top"
               style={{ objectFit: "cover" }}
               height="210px"
-              src="https://s.yimg.com/ny/api/res/1.2/qTL3gCpign9c9J6zBAbDGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQxOA--/https://s.yimg.com/os/creatr-uploaded-images/2023-05/f07f40c0-ef5a-11ed-bfed-eaa440d7eecb"
+              src="https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/01.webp?alt=media&token=e1ad32a5-9201-4cd3-8203-28650ed21aaf"
             />
             <CardBody>
               <h1 style={{ fontWeight: "600", lineHeight: "1.3" }}>

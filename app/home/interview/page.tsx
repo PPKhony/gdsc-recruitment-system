@@ -13,8 +13,7 @@ async function AuthorizePage() {
 
   return (
     <div>
-      <Process />
-      <h1 className="my-3">ระบบการจองเวลาสัมภาษณ์</h1>
+      <h1 className="my-3">Interview Scheduling</h1>
       <Row xs={1} lg={2}>
         <Col lg={4} className="px-3">
           <Alert className="my-3">

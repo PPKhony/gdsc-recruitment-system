@@ -26,15 +26,14 @@ const Layout = async ({ children }: LayoutProps) => {
 
       {/* Render the children */}
       <div className="form-bg-01">
-      <Container className="pt-3" style={{minHeight: "100vh"}}>
-        {children}
-      </Container>
+        <Container className="pt-3 pb-5" style={{ minHeight: "100vh" }}>
+          {children}
+        </Container>
       </div>
-     
 
       {/* Add your footer component here */}
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );
