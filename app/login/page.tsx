@@ -40,7 +40,7 @@ function LoginPage() {
             />
             <h5 className="card-title">Login Portal</h5>
             <h6>Google Developer Student Clubs</h6>
-            <ps>with @dome.tu.ac.th email only</ps>
+            <p>with @dome.tu.ac.th email only</p>
             <hr />
             <form>
               <div className="d-flexbox justify-content-center">
