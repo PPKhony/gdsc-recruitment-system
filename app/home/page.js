@@ -118,7 +118,8 @@ const HomePage = () => {
             <CardBody>
               <div className="d-flex justify-content-between align-items-center flex-wrap">
                 <Col className="pb-2">
-                  <h5>ApplicationID: {applicant.applicationid}</h5>
+                  <div style={{color: "gray"}}>Application ID</div>
+                  <h5>{applicant.applicationid}</h5>
                   <h6>{applicant.position}</h6>
                 </Col>
                 <Alert
