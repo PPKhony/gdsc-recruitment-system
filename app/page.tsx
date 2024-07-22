@@ -15,11 +15,13 @@ export default function Home() {
     <Container className="d-flex vh-100 align-items-center justify-content-center">
       <Row className="text-center">
         <Col>
-          <h1>Home Page</h1>
+          Life at GDSC
+        </Col>
+        <Col>
+          
           <Button 
             variant="primary" 
-            onClick={handleLoginClick} 
-            className="mt-3"
+            onClick={handleLoginClick}
           >
             Login
           </Button>

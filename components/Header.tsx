@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       localStorage.clear();
       await supabase.auth.signOut();
       setUser(null); // Clear user state on logout
-      router.replace('/'); // Redirect to home page
+      router.replace("/"); // Redirect to home page
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
   }, [getUserData]);
 
   return (
-    <Navbar collapseOnSelect expand="lg"  className="bg-body-tertiary mb-3 header">
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary header">
       <Container>
         <Navbar.Brand href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
           <Image
@@ -54,12 +54,11 @@ const Header: React.FC = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="https://gdsctu-internal.vercel.app/home/guideline">
               Guideline
             </Nav.Link>
-            {/* <Nav.Link href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
-              Report problem
-            </Nav.Link> */}
+            <Nav.Link href="/home">Life at GDSC</Nav.Link>
           </Nav>
           <Navbar.Text>
             {user ? (
