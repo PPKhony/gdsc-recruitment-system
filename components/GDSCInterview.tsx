@@ -21,7 +21,7 @@ function GDSCCalendar(props: any) {
           layout: "month_view",
           email: `${props.data.email}`,
           name: `${props.data.user_metadata.full_name}`,
-          CandidateID: `${props.data.id}`
+          ApplicationID: `${props.data.id}`
         }}
       />
     

@@ -93,12 +93,11 @@ const HomePage = () => {
     return formattedDate;
   }
 
-  
   if (loading) return <div>Loading...</div>;
 
   return (
     <>
-      <h1 className="my-3">Application Status</h1>
+      <h1>Application Status</h1>
       {applicantstatus.length === 0 ? (
         <div>You have no previous applications</div>
       ) : null}
@@ -114,13 +113,13 @@ const HomePage = () => {
             : "secondary";
 
         return (
-          <Card key={applicant.i} className="mt-3 colored-bar-container">
+          <Card key={applicant.i} className="mt-3">
             <CardBody>
-              <div className="d-flex justify-content-between align-items-center flex-wrap">
-                <Col className="pb-2">
-                  <div style={{color: "gray"}}>Application ID</div>
+              <div className="d-flex mb-3 justify-content-between align-items-center flex-wrap ">
+                <Col className=" colored-bar-container">
+                  <div style={{ color: "gray" }}>Application ID</div>
                   <h5>{applicant.applicationid}</h5>
-                  <h6>{applicant.position}</h6>
+                  <h6>{applicant.role}</h6>
                 </Col>
                 <Alert
                   variant={alertVariant}
@@ -138,6 +137,10 @@ const HomePage = () => {
                 Date-time submitted
                 {" " + formatDateToGMTPlus7(applicant.timestamp)}
               </div>
+              <hr />
+              <Card.Link href={`/home/interview/`+applicant.object_id}>
+                Schedule Interview Time
+              </Card.Link>
             </CardBody>
           </Card>
         );

@@ -8,5 +8,5 @@ $warning: #f9ab00;  // Can be kept for similar functionality
 $danger: #ea4335;  // Consider replacing with Google's red: #EA4335
 
 /* end custom.scss */
-
+$card-border-radius: 40px;
 @import '~bootstrap/scss/bootstrap.scss';

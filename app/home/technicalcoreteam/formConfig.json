@@ -1,17 +1,16 @@
 {
-  
   "title": "Recruiting Form GDSC@TU 2024",
-  "subTitle": "Technical Core Team",
+  "role": "Technical Core Team",
   "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
   "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น (local device) เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
   "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
   "sections": [
     {
-      "title" : "Personal data policy",
-      "fields" : [
+      "title": "Personal data policy",
+      "fields": [
         {
           "type": "markdown",
-          "content": "**นโยบายข้อมูลส่วนบุคคล**"  
+          "content": "**นโยบายข้อมูลส่วนบุคคล**"
         },
         {
           "type": "markdown",
@@ -39,7 +38,7 @@
         },
         {
           "type": "markdown",
-          "content": "**การติดต่อ**\n\nหากคุณมีคำถามหรือข้อกังวลใดๆ เกี่ยวกับนโยบายนี้  กรุณาติดต่อเราได้ที่ อีเมล หรือ google chat : praphon.kha@dome.tu.ac.th"
+          "content": "**การติดต่อ**\n\nหากคุณมีคำถามหรือข้อกังวลใดๆ เกี่ยวกับนโยบายนี้  กรุณาติดต่อเราได้ที่ อีเมล หรือ Google Chat : praphon.kha@dome.tu.ac.th"
         },
         {
           "type": "markdown",
@@ -49,9 +48,7 @@
           "type": "radio",
           "label": "I have read and agree to the Personal data policy",
           "name": "community_personal_data_policy_acceptance",
-          "options": [
-            "I have read and agree to the Personal data policy"
-          ],
+          "options": ["I have read and agree to the Personal data policy"],
           "validation": {
             "required": true,
             "errorMessage": "Please agree to the personal data policy for continue."
@@ -78,7 +75,7 @@
         },
         {
           "type": "text",
-          "label": "Full Name (ภาษาไทย) ex. ธีรภัทร ภูงามเขียว",
+          "label": "Full Name (ภาษาไทย) ex. สมใจ ดวงดี",
           "name": "full_name",
           "validation": {
             "required": true,
@@ -152,24 +149,22 @@
           }
         },
         {
-          "type" : "markdown",
-          "content" : "---" 
-          },
+          "type": "markdown",
+          "content": "---"
+        },
         {
-          "type" : "markdown",
-          "content" : "**ข้อตกลงในการเข้าร่วมกลุ่มอิสระ GDSC@TU 2024**" 
-          },
+          "type": "markdown",
+          "content": "**ข้อตกลงในการเข้าร่วมกลุ่มอิสระ GDSC@TU 2024**"
+        },
         {
-          "type" : "markdown",
-          "content" : "คุณยอมรับว่าคุณได้อ่านและเข้าใจ [แนวปฏิบัติสำหรับชุมชน](https://developers.google.com/community-guidelines) และตกลงที่จะปฏิบัติตามแนวปฏิบัติดังกล่าวอย่างเคร่งครัด คุณตกลงที่จะไม่ละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม"
+          "type": "markdown",
+          "content": "คุณยอมรับว่าคุณได้อ่านและเข้าใจ [แนวปฏิบัติสำหรับชุมชน](https://developers.google.com/community-guidelines) และตกลงที่จะปฏิบัติตามแนวปฏิบัติดังกล่าวอย่างเคร่งครัด คุณตกลงที่จะไม่ละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม"
         },
         {
           "type": "radio",
           "label": "I have read and agree to the Community Guidelines.",
           "name": "community_guidelines_acceptance",
-          "options": [
-            "I have read and agree to the Community Guidelines."
-          ],
+          "options": ["I have read and agree to the Community Guidelines."],
           "validation": {
             "required": true,
             "errorMessage": "Please agree to the Community Guidelines."
@@ -177,9 +172,8 @@
         },
         {
           "type": "markdown",
-          "content": "---"  
+          "content": "---"
         }
-        
       ]
     },
     {
@@ -213,9 +207,9 @@
           }
         },
         {
-          "type" : "markdown",
-          "content" : "---" 
-          },
+          "type": "markdown",
+          "content": "---"
+        },
         {
           "type": "text",
           "label": "Phone",
@@ -261,7 +255,8 @@
             "Kotlin",
             "Go",
             "R",
-            "Other"
+            "Other",
+            "I never coding before"
           ],
           "validation": {
             "required": true,
@@ -410,7 +405,8 @@
       "Computer Engineering (CPE)",
       "Digital Engineering (DE)",
       "Engineering Management (EM)",
-      "Management Technology (MT)"
+      "Management Technology (MT)",
+      "Business and Supply Chain Analytics"
     ]
   }
 }

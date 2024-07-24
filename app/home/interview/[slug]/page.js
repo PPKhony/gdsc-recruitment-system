@@ -4,13 +4,14 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { Alert, Col, Container, Row } from "react-bootstrap";
 
-async function AuthorizePage() {
+async function AuthorizePage({ params }) {
   const supabase = createClient();
 
   const {
-    data: { user },
+    data: { user }
   } = await supabase.auth.getUser();
-
+  user["object_id"] = params.slug;
+  console.log("hello" + user);
   return (
     <div>
       <h1 className="my-3">Interview Scheduling</h1>
@@ -34,3 +35,4 @@ async function AuthorizePage() {
 }
 
 export default AuthorizePage;
+

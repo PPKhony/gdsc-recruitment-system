@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Prompt:ital,wght@0,400;1,300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/css?family=Google+Sans:400,500,700,800&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 /* Override h1-h6 and p tags */
 :root {
   min-height: 100vh;
@@ -28,9 +28,9 @@
 }
 
 h1 {
-  font-family: "Inter" !important;
+  /* font-family: "Inter" !important; */
   font-weight: 700 !important;
-  /* font-family: "Google Sans" !important; */
+  font-family: "Google Sans" !important;
   /* // font-family: "Prompt", sans-serif !important; */
 }
 
@@ -47,8 +47,8 @@ h6 {
 
 html,
 body {
-   /* font-family: "Google Sans" !important; */
-  font-family: "Bai Jamjuree", sans-serif !important;
+  font-family: "Google Sans" !important;
+  /* font-family: "Bai Jamjuree", sans-serif !important; */
   font-weight: 300;
   font-style: normal;
 }
@@ -63,22 +63,42 @@ textarea {
   font-family: "Poppins", "Prompt", sans-serif;
   font-weight: 500;
   font-style: normal;
-}/* Container div */
+}
+
+/* Container div */
 
 .colored-bar-container {
   position: relative; /* Needed for positioning the ::before pseudo-element */
-  padding-left: 10px; /* Adjust as needed to provide space for the color bar */
-  border: 1px solid #ddd; /* Optional: Add border to the container */
-  background-color: #f9f9f9; /* Optional: Background color of the container */
+  padding-left: 15px; /* Adjust as needed to provide space for the color bar */
+  border: 1px solid #ffffff; /* Optional: Add border to the container */
+  background-color: #ffffff; /* Optional: Background color of the container */
 }
 
 /* Color bar */
 .colored-bar-container::before {
-  content: ''; /* No text content needed */
+  content: ""; /* No text content needed */
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0;
   width: 5px; /* Width of the color bar */
   background-color: #4285f4; /* Color of the bar */
+}
+
+.btn {
+  border-radius: 40px !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.card {
+  /* border-radius: 40px !important; */
+  padding: 0.5rem !important;
+}
+
+.card-img-top,
+.card-img-bottom,
+.card-img {
+    border-top-left-radius: 40px !important;
+    border-top-right-radius: 40px !important;
 }

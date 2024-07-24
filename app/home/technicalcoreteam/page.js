@@ -149,6 +149,7 @@ const InterviewForm = () => {
       ...formData,
       user_id: user.id,
       user_email: user.email,
+      role: formConfig.role
     };
 
     // Insert data into Supabase table
@@ -184,7 +185,7 @@ const InterviewForm = () => {
   // Handle navigation between sections
   const handleNext = async () => {
     if (validateSection()) {
-      await setStatus("idle")
+      await setStatus("idle");
       await setCurrentSectionIndex((prev) => prev + 1);
       await targetRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
@@ -194,7 +195,7 @@ const InterviewForm = () => {
 
   const handlePrevious = () => {
     setCurrentSectionIndex((prev) => prev - 1);
-    setStatus("idle")
+    setStatus("idle");
     targetRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -241,7 +242,7 @@ const InterviewForm = () => {
               <h1 style={{ fontWeight: "600", lineHeight: "1.3" }}>
                 {formConfig.title}
               </h1>
-              <h4>{formConfig.subTitle}</h4>
+              <h4>{formConfig.role}</h4>
               <hr />
               <p>{formConfig.description}</p>
               <p>{formConfig.instructions}</p>
@@ -257,7 +258,7 @@ const InterviewForm = () => {
         </Col>
         <Col ref={targetRef} lg={7} xl={8} className="mb-3 p-0 p-lg-3">
           <form onSubmit={handleSubmit}>
-            <Card >
+            <Card>
               <Card.Body>
                 <h3 style={{ fontWeight: "600" }}>{currentSection.title}</h3>
                 {/* Render form fields within the current section */}

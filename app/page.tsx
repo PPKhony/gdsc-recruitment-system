@@ -17,7 +17,6 @@ export default function Home() {
           Life at GDSC
         </Col>
         <Col>
-          
           <Button 
             variant="primary" 
             onClick={handleLoginClick}
