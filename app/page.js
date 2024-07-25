@@ -101,10 +101,10 @@ export default function Home() {
                 height="315"
                 src="https://www.youtube.com/embed/UGE13GR9_CU?si=EXB_f_bq4OuOU2Ud"
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
+                allowFullScreen
                 initial="hidden"
                 animate={controls}
                 variants={{
