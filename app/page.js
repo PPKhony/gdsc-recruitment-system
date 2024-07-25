@@ -44,7 +44,10 @@ export default function Home() {
       >
         <Navbar expand="lg" variant="dark">
           <Container>
-            <Navbar.Brand href="#home" className="d-flex align-items-center">
+            <Navbar.Brand
+              href="#home"
+              className="d-flex align-items-center my-4"
+            >
               <Image
                 src="/images/Google_for_Developers_logomark_white.png"
                 width={50}
@@ -53,36 +56,52 @@ export default function Home() {
               />
               <Col style={{ marginLeft: "8px" }}>Thammasat University</Col>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/login">Login</Nav.Link>
+            <Navbar.Toggle
+              aria-controls="basic-navbar-nav"
+              style={{ border: "hidden" }}
+            >
+              <i className="bi bi-list"></i>
+            </Navbar.Toggle>
+            <Navbar.Collapse
+              id="basic-navbar-nav"
+              style={{ color: "white", opacity: "100%", fontWeight: "500" }}
+            >
+              <Nav className="ms-auto justify-content-end" defaultActiveKey="/">
+                <Nav.Link className="mx-3" href="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link className="mx-3" href="/lifeatgdsctu">
+                  Life at GDSC@TU
+                </Nav.Link>
+                <Nav.Link className="mx-3" href="/lifeatgdsctu">
+                  Contact US
+                </Nav.Link>
+                <Nav.Link className="mx-3" href="/login">
+                  Login
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
         <Container style={{ color: "white" }}>
           <motion.div
-            style={{ position: "absolute", bottom: "3rem" }}
+            style={{ position: "absolute", bottom: "3.5rem" }}
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h1 style={{ fontSize: "3rem" }}>Growth with GDSC</h1>
+            <h1 style={{ fontSize: "3.5rem" }}>Growth with </h1>
+            <h1 style={{ fontSize: "2rem" }}>GDSC@TU</h1>
             <hr />
             <p style={{ maxWidth: "600px" }}>
               Apply new learnings to build great solutions for local problems.
               Advance your skills, career, and network. Give back to your
               community by helping others learn.
             </p>
-            <Button
-              className="mt-3"
-              style={{ fontWeight: "bold" }}
-              onClick={handleLoginClick}
-            >
-              Apply club
+            <Button className="animated-button" onClick={handleLoginClick} style={{fontWeight: "bold"}}>
+              <span>Apply Club</span>
             </Button>
+        
           </motion.div>
         </Container>
       </motion.div>
@@ -103,13 +122,13 @@ export default function Home() {
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 initial="hidden"
                 animate={controls}
                 variants={{
                   hidden: { opacity: 0, y: 100 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                 }}
               ></motion.iframe>
             </Col>
@@ -119,7 +138,7 @@ export default function Home() {
                 animate={controls}
                 variants={{
                   hidden: { opacity: 0, y: 100 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                 }}
               >
                 <Card>
@@ -131,7 +150,7 @@ export default function Home() {
             </Col>
           </Row>
           <h1 className="my-4">Position Opening</h1>
-          <PositionOpening/>
+          <PositionOpening />
         </Container>
       </motion.div>
       <Footer />
