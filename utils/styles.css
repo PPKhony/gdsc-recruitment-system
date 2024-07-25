@@ -102,3 +102,24 @@ textarea {
     border-top-left-radius: 40px !important;
     border-top-right-radius: 40px !important;
 }
+.header-01 {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+.header-01::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/home1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  filter: brightness(60%);
+  z-index: -1; /* Ensure the background is behind the content */
+}

@@ -18,7 +18,7 @@ async function SuccessPage() {
         <CardBody>
           <h1>Your form has been successfully sent!</h1>
           <Alert variant="success">Thank you for submitting the form.</Alert>
-
+          
         </CardBody>
       </Card>
     </div>
