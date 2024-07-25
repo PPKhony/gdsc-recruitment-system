@@ -120,6 +120,7 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  background-attachment: fixed;
   filter: brightness(60%);
   z-index: -1; /* Ensure the background is behind the content */
 }
