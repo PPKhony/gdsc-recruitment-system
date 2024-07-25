@@ -97,7 +97,7 @@ export default function Home() {
           <Row xs={1} lg={2}>
             <Col ref={ref}>
               <motion.iframe
-                width="560"
+                width="100%"
                 height="315"
                 src="https://www.youtube.com/embed/UGE13GR9_CU?si=EXB_f_bq4OuOU2Ud"
                 title="YouTube video player"
