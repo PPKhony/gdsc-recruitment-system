@@ -1,5 +1,3 @@
-import GDSCCalendar from "@/components/GDSCInterview";
-import Process from "@/components/Process";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { Alert, Card, CardBody, Col, Container, Row } from "react-bootstrap";
