@@ -132,8 +132,10 @@ const HomePage = () => {
         );
       })}
       <br />
-      <h1 className="my-3">Position Opening</h1>
-      <PositionOpening />
+      <div>
+        <h1 className="my-3">Position Opening</h1>
+        <PositionOpening />
+      </div>
     </>
   );
 };

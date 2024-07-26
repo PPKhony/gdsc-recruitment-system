@@ -11,8 +11,6 @@
 }
 
 .form-bg-01 {
-  /* background-image: linear-gradient(to bottom, #f3ffad, #ff9f9f); */
-  /* background-image: url("https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/view-3d-school-classroom.jpg?alt=media&token=4469e291-1bef-4b16-9764-5d008ef6d16c"); */
   background-color: #f1f3f4;
   background-attachment: fixed;
   background-size: cover;
@@ -40,8 +38,6 @@ h4,
 h5,
 h6 {
   font-family: "Inter" !important;
-  /* font-family: "Google Sans" !important; */
-  /* // font-family: "Prompt", sans-serif !important; */
   font-weight: 300;
 }
 
@@ -70,8 +66,6 @@ textarea {
 .colored-bar-container {
   position: relative; /* Needed for positioning the ::before pseudo-element */
   padding-left: 15px; /* Adjust as needed to provide space for the color bar */
-  border: 1px solid #ffffff; /* Optional: Add border to the container */
-  background-color: #ffffff; /* Optional: Background color of the container */
 }
 
 /* Color bar */
@@ -104,7 +98,7 @@ textarea {
 }
 .header-01 {
   position: relative;
-  height: 65vh;
+  height: 70vh;
   width: 100%;
   overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
 }
@@ -125,15 +119,59 @@ textarea {
   background-image: url("/images/home1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
   /* background-attachment: fixed; */
   filter: brightness(50%);
   z-index: -1; /* Ensure the background is behind the content */
 }
+.header-02 {
+  position: relative;
+  overflow: hidden; /* Hide the overflow */
+}
 
-/* custom-navbar.css */
-/* custom-navbar.css */
+.header-02::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15rem; /* Limit the background image height to 15rem */
+  background-image: url("/images/home2.jpg");
+  filter: brightness(50%);
+  background-size: cover; /* Ensure the image covers the area */
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  z-index: -1; /* Place the pseudo-element behind the content */
+}
 
+.header-01-lifeatgdsc {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+}
+
+@media (max-height: 900px) {
+  .header-01-lifeatgdsc {
+    height: 100svh; /* Use 100vh for iPhone SE */
+  }
+}
+
+.header-01-lifeatgdsc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/home3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-attachment: fixed; */
+  filter: brightness(50%);
+  z-index: -1; /* Ensure the background is behind the content */
+}
 /* Default styles */
 .navbar-nav .nav-link {
   position: relative;
@@ -246,4 +284,12 @@ textarea {
 .animated-button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.homepageheader {
+  position: absolute; /* or 'absolute' depending on your layout */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
 }

@@ -58,7 +58,6 @@ const Header: React.FC = () => {
             <Nav.Link href="https://gdsctu-internal.vercel.app/home/guideline">
               Guideline
             </Nav.Link>
-            <Nav.Link href="/home">Life at GDSC</Nav.Link>
           </Nav>
           <Navbar.Text>
             {user ? (

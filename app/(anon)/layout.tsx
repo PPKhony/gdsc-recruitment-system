@@ -4,12 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import "@/utils/styles.css";
 import "@/utils/custom.scss";
+import HomepageHeader from "@/components/HomepageHeader";
 export const metadata: Metadata = {
   title: "GDSC Internal",
   description: "GDSC Internal",
   icons: {
-    icon: "images\TU-GDSC Logo chapter lockup template.png"
-  }
+    icon: "imagesTU-GDSC Logo chapter lockup template.png",
+  },
 };
 
 export default function RootLayout({
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Analytics />
+        <HomepageHeader/>
         {children}
         {/* <BootstrapClient /> */}
       </body>

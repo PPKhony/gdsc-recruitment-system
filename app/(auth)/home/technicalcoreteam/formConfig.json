@@ -83,6 +83,25 @@
           }
         },
         {
+          "type": "text",
+          "label": "Nickname",
+          "name": "nickname",
+          "validation": {
+            "required": true,
+            "errorMessage": "Please enter your nickname"
+          }
+        },
+        {
+          "type": "select",
+          "label": "gender",
+          "name": "gender",
+          "options": ["male", "female", "LGBTQ+", "Prefer not to say"],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your gender"
+          }
+        },
+        {
           "type": "email",
           "label": "Personal Email Address ex. teera@gmail.com",
           "name": "personal_email",
