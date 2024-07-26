@@ -58,25 +58,27 @@ export default function Home() {
             </Navbar.Brand>
             <Navbar.Toggle
               aria-controls="basic-navbar-nav"
-              style={{ border: "hidden" }}
             >
-              <i className="bi bi-list"></i>
+              <i className="bi bi-list" style={{fontSize: "2rem"}}></i>
             </Navbar.Toggle>
             <Navbar.Collapse
               id="basic-navbar-nav"
               style={{ color: "white", opacity: "100%", fontWeight: "500" }}
             >
-              <Nav className="ms-auto justify-content-end" defaultActiveKey="/">
-                <Nav.Link className="mx-3" href="/">
+              <Nav
+                className="ms-auto justify-content-end home-navbar"
+                defaultActiveKey="/"
+              >
+                <Nav.Link className="mx-3 home-navbar" href="/">
                   Home
                 </Nav.Link>
-                <Nav.Link className="mx-3" href="/lifeatgdsctu">
+                <Nav.Link className="mx-3 home-navbar" href="/lifeatgdsctu">
                   Life at GDSC@TU
                 </Nav.Link>
-                <Nav.Link className="mx-3" href="/lifeatgdsctu">
+                <Nav.Link className="mx-3 home-navbar" href="/lifeatgdsctu">
                   Contact US
                 </Nav.Link>
-                <Nav.Link className="mx-3" href="/login">
+                <Nav.Link className="mx-3 home-navbar" href="/login">
                   Login
                 </Nav.Link>
               </Nav>
@@ -98,10 +100,13 @@ export default function Home() {
               Advance your skills, career, and network. Give back to your
               community by helping others learn.
             </p>
-            <Button className="animated-button" onClick={handleLoginClick} style={{fontWeight: "bold"}}>
+            <Button
+              className="animated-button"
+              onClick={handleLoginClick}
+              style={{ fontWeight: "bold" }}
+            >
               <span>Apply Club</span>
             </Button>
-        
           </motion.div>
         </Container>
       </motion.div>
