@@ -30,7 +30,7 @@ export default function Home() {
       <div className="header-01">
         <Container style={{ color: "white" }}>
           <motion.div
-            style={{ position: "absolute", bottom: "4rem" }}
+            style={{ position: "absolute", bottom: "3rem" }}
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -59,14 +59,16 @@ export default function Home() {
       </div>
       <div style={{ backgroundColor: "#f1f3f4", minHeight: "30vh" }}>
         <Container className="py-5">
+          <br />
+          <br />
           <Row xs={1} lg={2}>
             <Col ref={ref} className="d-flex justify-content-center">
-              <Image
+              {/* <Image
                 src="images/img01.jpg"
                 width="90%"
                 heigth="70%"
                 className="rounded-3 border-black"
-              />
+              /> */}
               {/* <br/> */}
               {/* <a href="https://www.freepik.com/free-photo/3d-rendering-people-avatars-zoom-call_30117667.htm#fromView=search&page=1&position=14&uuid=e8cdce17-780f-40e3-bdd3-5dea3ff40bba">
                 Image by freepik
@@ -85,21 +87,21 @@ export default function Home() {
                   },
                 }}
               >
-                <h1 className="my-4">Why you should join GDSC</h1>
+                <h2 className="my-4">Why you should join GDSC</h2>
                 <div style={{ marginLeft: "1rem", marginBottom: "1.5rem" }}>
-                  <h3 className="colored-bar-container">Connect</h3>
+                  <h5 className="colored-bar-container">Connect</h5>
                   Meet students interested in developer technologies at your
                   college or university. All are welcome, including those with
                   diverse backgrounds and different majors.
                 </div>
                 <div style={{ marginLeft: "1rem", marginBottom: "1.5rem" }}>
-                  <h3 className="colored-bar-container">Learn</h3>
+                  <h5 className="colored-bar-container">Learn</h5>
                   Learn about a range of technical topics and gain new skills
                   through hands-on workshops, events, talks, and
                   project-building activities online and in-person.
                 </div>
                 <div style={{ marginLeft: "1rem", marginBottom: "1.5rem" }}>
-                  <h3 className="colored-bar-container">Grow</h3>
+                  <h5 className="colored-bar-container">Grow</h5>
                   Apply new learnings to build great solutions for local
                   problems. Advance your skills, career, and network. Give back
                   to your community by helping others learn.
@@ -107,6 +109,8 @@ export default function Home() {
               </motion.div>
             </Col>
           </Row>
+          <br />
+          <br />
         </Container>
       </div>
       <div className="header-02 py-4">

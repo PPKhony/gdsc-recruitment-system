@@ -84,6 +84,7 @@ const HomepageHeader: React.FC<HomepageHeaderProps> = ({ children }) => {
                     className="mx-3 home-navbar text-white"
                     href="/"
                     active={currentPath === "/"}
+                    style={{fontWeight: "bold"}}
                   >
                     Home
                   </Nav.Link>
@@ -91,6 +92,7 @@ const HomepageHeader: React.FC<HomepageHeaderProps> = ({ children }) => {
                     className="mx-3 home-navbar text-white"
                     href="/lifeatgdsctu"
                     active={currentPath === "/lifeatgdsctu"}
+                    style={{fontWeight: "bold"}}
                   >
                     Life at GDSC@TU
                   </Nav.Link>
@@ -98,11 +100,12 @@ const HomepageHeader: React.FC<HomepageHeaderProps> = ({ children }) => {
                     className="mx-3 home-navbar text-white"
                     href="/contactus"
                     active={currentPath === "/contactus"}
+                    style={{fontWeight: "bold"}}
                   >
                     Contact US
                   </Nav.Link>
                 </Nav>
-                <Button href="/login" variant="light">
+                <Button href="/login" variant="outline-light"  style={{fontWeight: "bold"}}>
                   Login
                 </Button>
               </Offcanvas.Body>
