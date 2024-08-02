@@ -18,7 +18,7 @@ export default function GoogleAnalytics({
     pageview(GA_MEASUREMENT_ID, url);
   }, [pathname, searchParams, GA_MEASUREMENT_ID]);
   return (
-    <Suspense>
+    <>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -45,6 +45,6 @@ export default function GoogleAnalytics({
                 `,
         }}
       />
-    </Suspense>
+    </>
   );
 }
