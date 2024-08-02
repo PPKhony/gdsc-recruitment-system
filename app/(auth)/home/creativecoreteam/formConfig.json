@@ -1,17 +1,16 @@
 {
-  
-  "title": "Recruiting Form GDSC@TU 2024",
-  "subTitle": "Technical Core Team",
-  "description": "ร่วมเป็นส่วนหนึ่งกับ technical core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
+  "title": "ใบสมัครเข้าร่วมทีม GDSC@TU 2024",
+  "role": "Creative Core Team",
+  "description": "ร่วมเป็นส่วนหนึ่งกับ creative core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
   "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น (local device) เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
   "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
   "sections": [
     {
-      "title" : "Personal data policy",
-      "fields" : [
+      "title": "นโยบายข้อมูลส่วนบุคคล",
+      "fields": [
         {
           "type": "markdown",
-          "content": "**นโยบายข้อมูลส่วนบุคคล**"  
+          "content": "**นโยบายข้อมูลส่วนบุคคล**"
         },
         {
           "type": "markdown",
@@ -39,7 +38,7 @@
         },
         {
           "type": "markdown",
-          "content": "**การติดต่อ**\n\nหากคุณมีคำถามหรือข้อกังวลใดๆ เกี่ยวกับนโยบายนี้  กรุณาติดต่อเราได้ที่ อีเมล หรือ google chat : praphon.kha@dome.tu.ac.th"
+          "content": "**การติดต่อ**\n\nหากคุณมีคำถามหรือข้อกังวลใดๆ เกี่ยวกับนโยบายนี้  กรุณาติดต่อเราได้ที่ อีเมล หรือ Google Chat : praphon.kha@dome.tu.ac.th"
         },
         {
           "type": "markdown",
@@ -47,57 +46,74 @@
         },
         {
           "type": "radio",
-          "label": "I have read and agree to the Personal data policy",
+          "label": "ฉันได้อ่านและยอมรับนโยบายข้อมูลส่วนบุคคลแล้ว",
           "name": "community_personal_data_policy_acceptance",
-          "options": [
-            "I have read and agree to the Personal data policy"
-          ],
+          "options": ["ฉันได้อ่านและยอมรับนโยบายข้อมูลส่วนบุคคลแล้ว"],
           "validation": {
             "required": true,
-            "errorMessage": "Please agree to the personal data policy for continue."
+            "errorMessage": "กรุณายอมรับนโยบายข้อมูลส่วนบุคคลเพื่อดำเนินการต่อ"
           }
         }
       ]
     },
     {
-      "title": "Personal Information",
+      "title": "ข้อมูลส่วนตัว",
       "fields": [
         {
           "type": "markdown",
-          "content": "Please fill out the form below to apply for the GDSC@TU 2024 Technical Core Team"
+          "content": "กรุณากรอกแบบฟอร์มด้านล่างเพื่อสมัครเข้าร่วมทีม GDSC@TU 2024 Creative Core Team"
         },
         {
           "type": "text",
-          "label": "Student ID",
+          "label": "รหัสนักศึกษา",
           "name": "student_id",
           "validation": {
             "required": true,
             "pattern": "^\\d{10}$",
-            "errorMessage": "Student ID must be 10 digits."
+            "errorMessage": "รหัสนักศึกษาต้องเป็นตัวเลข 10 หลัก"
           }
         },
         {
           "type": "text",
-          "label": "Full Name (ภาษาไทย) ex. ธีรภัทร ภูงามเขียว",
+          "label": "ชื่อ-นามสกุล (ภาษาไทย)",
           "name": "full_name",
           "validation": {
             "required": true,
-            "errorMessage": "Please enter your full name in Thai."
+            "errorMessage": "กรุณากรอกชื่อ-นามสกุล เป็นภาษาไทย"
           }
         },
         {
-          "type": "email",
-          "label": "Personal Email Address ex. teera@gmail.com",
-          "name": "personal_email",
+          "type": "text",
+          "label": "ชื่อเล่น",
+          "name": "nickname",
           "validation": {
             "required": true,
-            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
-            "errorMessage": "Please enter a valid email address."
+            "errorMessage": "กรุณากรอกชื่อเล่น"
           }
         },
         {
           "type": "select",
-          "label": "Faculty",
+          "label": "เพศ",
+          "name": "gender",
+          "options": ["male", "female", "LGBTQ+", "Prefer not to say"],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select your gender"
+          }
+        },
+        {
+          "type": "email",
+          "label": "อีเมลส่วนตัว",
+          "name": "personal_email",
+          "validation": {
+            "required": true,
+            "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
+            "errorMessage": "กรุณากรอกอีเมลที่ถูกต้อง"
+          }
+        },
+        {
+          "type": "select",
+          "label": "คณะ",
           "name": "faculty",
           "options": [
             "Thammasat Business School",
@@ -128,15 +144,16 @@
             "errorMessage": "Please select your faculty."
           }
         },
+
         {
           "name": "major",
-          "label": "Major",
+          "label": "สาขา",
           "type": "selectOrInput",
           "validation": { "required": true }
         },
         {
           "type": "select",
-          "label": "Current Year of Study",
+          "label": "ชั้นปีที่กำลังศึกษา",
           "name": "current_year_of_study",
           "options": [
             "Freshman (Year 1)",
@@ -152,42 +169,39 @@
           }
         },
         {
-          "type" : "markdown",
-          "content" : "---" 
-          },
+          "type": "markdown",
+          "content": "---"
+        },
         {
-          "type" : "markdown",
-          "content" : "**ข้อตกลงในการเข้าร่วมกลุ่มอิสระ GDSC@TU 2024**" 
-          },
+          "type": "markdown",
+          "content": "**ข้อตกลงในการเข้าร่วมกลุ่มอิสระ GDSC@TU 2024**"
+        },
         {
-          "type" : "markdown",
-          "content" : "คุณยอมรับว่าคุณได้อ่านและเข้าใจ [แนวปฏิบัติสำหรับชุมชน](https://developers.google.com/community-guidelines) และตกลงที่จะปฏิบัติตามแนวปฏิบัติดังกล่าวอย่างเคร่งครัด คุณตกลงที่จะไม่ละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม"
+          "type": "markdown",
+          "content": "คุณยอมรับว่าคุณได้อ่านและเข้าใจ [แนวปฏิบัติสำหรับชุมชน](https://developers.google.com/community-guidelines) และตกลงที่จะปฏิบัติตามแนวปฏิบัติดังกล่าวอย่างเคร่งครัด คุณตกลงที่จะไม่ละเมิดแนวปฏิบัติสำหรับชุมชนและนโยบายต่อต้านการคุกคามของกิจกรรม"
         },
         {
           "type": "radio",
-          "label": "I have read and agree to the Community Guidelines.",
+          "label": "ฉันได้อ่านและยอมรับแนวปฏิบัติสำหรับชุมชนแล้ว",
           "name": "community_guidelines_acceptance",
-          "options": [
-            "I have read and agree to the Community Guidelines."
-          ],
+          "options": ["I have read and agree to the Community Guidelines."],
           "validation": {
             "required": true,
-            "errorMessage": "Please agree to the Community Guidelines."
+            "errorMessage": "กรุณายอมรับแนวปฏิบัติสำหรับชุมชน"
           }
         },
         {
           "type": "markdown",
-          "content": "---"  
+          "content": "---"
         }
-        
       ]
     },
     {
-      "title": "Social media channel",
+      "title": "ช่องทางการติดต่อบน Social media",
       "fields": [
         {
           "type": "text",
-          "label": "Github Link (Optional)",
+          "label": "ลิงก์ Github (ไม่บังคับ)",
           "name": "github",
           "validation": {
             "required": false,
@@ -196,7 +210,7 @@
         },
         {
           "type": "text",
-          "label": "Google Developer Profile Link (Optional)",
+          "label": "ลิงก์ Google Developer Profile (ไม่บังคับ)",
           "name": "google_developer",
           "validation": {
             "required": false,
@@ -205,7 +219,7 @@
         },
         {
           "type": "text",
-          "label": "Linkedin Link (Optional)",
+          "label": "ลิงก์ Linkedin (ไม่บังคับ)",
           "name": "linkedin",
           "validation": {
             "required": false,
@@ -213,12 +227,12 @@
           }
         },
         {
-          "type" : "markdown",
-          "content" : "---" 
-          },
+          "type": "markdown",
+          "content": "---"
+        },
         {
           "type": "text",
-          "label": "Phone",
+          "label": "เบอร์โทรศัพท์",
           "name": "phone",
           "validation": {
             "required": true,
@@ -229,126 +243,33 @@
       ]
     },
     {
-      "title": "Technical Background",
-      "fields": [
-        {
-          "type": "select",
-          "label": "Level of experience with technology",
-          "name": "experience_level",
-          "options": [
-            "Beginner (0 month - 6 months)",
-            "Intermediate (6 months - 2 years)",
-            "Advanced (2 years - 4 years)",
-            "Expert (>4 years)"
-          ],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please select your level of experience."
-          }
-        },
-        {
-          "type": "checkbox",
-          "label": "Programming languages you are familiar with",
-          "name": "programming_languages",
-          "options": [
-            "Python",
-            "Java",
-            "JavaScript",
-            "C++",
-            "C#",
-            "HTML/CSS",
-            "Swift",
-            "Kotlin",
-            "Go",
-            "R",
-            "Other"
-          ],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please select at least one programming language."
-          }
-        },
-        {
-          "type": "radio",
-          "label": "Areas of technology you are most interested in",
-          "name": "tech_areas",
-          "options": [
-            "Web Development",
-            "Mobile App Development",
-            "Game Development",
-            "AI/ML",
-            "Data Science",
-            "Cloud Computing",
-            "Cybersecurity",
-            "UI/UX Design",
-            "Entrepreneurship",
-            "Other"
-          ],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please select at least one area of interest."
-          }
-        }
-      ]
-    },
-    {
-      "title": "Interests and Goals",
+      "title": "ความสนใจและ passion ของผู้สมัคร",
       "fields": [
         {
           "type": "textarea",
-          "label": "Why are you interested in joining the GDSC club?",
-          "name": "joining_reason",
-          "validation": {
-            "required": true,
-            "errorMessage": "Please provide a reason for joining."
-          }
-        },
-        {
-          "type": "radio",
-          "label": "How did you hear about the GDSC club?",
-          "name": "referral_source",
-          "options": [
-            "Social media",
-            "University event",
-            "Friend or peer",
-            "GDSC website",
-            "Other"
-          ],
-          "validation": {
-            "required": true,
-            "errorMessage": "Please select how you heard about the club."
-          }
-        }
-      ]
-    },
-    {
-      "title": "Interview Questions",
-      "fields": [
-        {
-          "type": "textarea",
-          "label": "Tell me about yourself and your interest in technology.",
+          "label": "อะไรคือแรงผลักดันสำคัญที่ทำให้คุณตัดสินใจเข้าร่วม Google Developer Student Clubs (GDSC)? คุณหวังจะได้รับประโยชน์อะไรจากการเป็นส่วนหนึ่งของชุมชนนี้",
           "name": "interview_question_1",
           "validation": {
             "required": true,
-            "errorMessage": "Please answer the question."
+            "errorMessage": "กรุณาตอบคำถามนี้"
           }
         },
         {
           "type": "textarea",
-          "label": "What are your goals for joining GDSC, and how do you plan to contribute to the club?",
+          "label": "คุณคาดหวังอะไรจากการเป็นสมาชิก GDSC? คุณอยากเรียนรู้สิ่งใดเป็นพิเศษไหม หรือคุณมีเป้าหมายอะไรที่อยากบรรลุผ่านการเข้าร่วม GDSC?",
           "name": "interview_question_2",
           "validation": {
             "required": true,
-            "errorMessage": "Please answer the question."
+            "errorMessage": "กรุณาตอบคำถามนี้"
           }
         },
         {
           "type": "textarea",
-          "label": "Describe a project or experience that you are proud of, related to technology or otherwise. What did you learn from it?",
+          "label": "หากคุณเป็นส่วนหนึ่งของ Creative Core Team ใน GDSC คุณจะมีแนวคิดอย่างไรในการนำเสนอเทคโนโลยีให้เข้าใจง่ายสำหรับคนทั่วไป? คุณคิดว่าสื่อประเภทใดเหมาะสมที่สุดในการสื่อสารกับกลุ่มเป้าหมาย?",
           "name": "interview_question_3",
           "validation": {
             "required": true,
-            "errorMessage": "Please answer the question."
+            "errorMessage": "กรุณาตอบคำถามนี้"
           }
         }
       ]
@@ -410,7 +331,8 @@
       "Computer Engineering (CPE)",
       "Digital Engineering (DE)",
       "Engineering Management (EM)",
-      "Management Technology (MT)"
+      "Management Technology (MT)",
+      "Business and Supply Chain Analytics"
     ]
   }
 }

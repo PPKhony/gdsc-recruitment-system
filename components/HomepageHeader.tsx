@@ -104,6 +104,7 @@ const HomepageHeader: React.FC<HomepageHeaderProps> = ({ children }) => {
                   >
                     Contact US
                   </Nav.Link>
+                  
                 </Nav>
                 <Button href="/login" variant="outline-light"  style={{fontWeight: "bold"}}>
                   Login
@@ -136,6 +137,7 @@ const HomepageHeader: React.FC<HomepageHeaderProps> = ({ children }) => {
                   >
                     Contact US
                   </Nav.Link>
+              
                 </Nav>
                 <Button href="/login" variant="light" style={{position: "absolute", bottom: "2rem"}}>
                   Login

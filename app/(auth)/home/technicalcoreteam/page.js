@@ -32,7 +32,7 @@ const InterviewForm = () => {
 
   useEffect(() => {
     // Load saved form data from localStorage on component mount
-    const savedData = localStorage.getItem("formData");
+    const savedData = localStorage.getItem(formConfig.role);
     if (savedData) {
       setFormData(JSON.parse(savedData));
     }
@@ -95,7 +95,7 @@ const InterviewForm = () => {
       // Validate the field after updating the form data
       validateField(name, newFormData[name], fieldConfig.validation);
       // Save form data to localStorage to persist across sessions
-      localStorage.setItem("formData", JSON.stringify(newFormData));
+      localStorage.setItem(formConfig.role, JSON.stringify(newFormData));
       return newFormData;
     });
   };
@@ -162,7 +162,7 @@ const InterviewForm = () => {
     } else {
       setStatus("saved");
       // Clear local storage after successful submission
-      localStorage.removeItem("formData");
+      localStorage.removeItem(formConfig.role);
       window.location.href = "/home/success";
     }
   };
@@ -177,7 +177,7 @@ const InterviewForm = () => {
   const handleConfirmClearData = () => {
     setFormData({});
     setErrors({});
-    localStorage.removeItem("formData");
+    localStorage.removeItem(formConfig.role);
     window.location.reload();
     setShowClearConfirmation(false); // Close the modal
   };
@@ -249,6 +249,7 @@ const InterviewForm = () => {
               <p>
                 <b>{formConfig.deadline}</b>
               </p>
+              <div style={{fontWeight: "bold", color: "red"}}>*หากคุณออกจากระบบ progress จะถูกลบโดยอัตโนมัติ</div>
               <hr />
               <Button variant="outline-danger" onClick={clearFormData}>
                 Clear Form

@@ -1,9 +1,13 @@
+"use client"
 // components/Footer.js
-import React from "react";
+import CookieSettings from "@/components/CookieSettings";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [showModal , setShowModal] = useState(false)
   return (
     <footer className="bg-dark text-white text-center text-lg-start">
+      <CookieSettings showModal={showModal} setShowModal={setShowModal}/>
       <div className="container p-4">
         <div className="row">
           <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -38,6 +42,26 @@ const Footer = () => {
                   Thammasat University
                 </a>
               </li>
+              <li>
+                <a
+                  className="text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={()=> {setShowModal(true)}}
+                >
+                  Privacy Preference
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="text-white"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Privacy Policy
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -60,8 +84,8 @@ const Footer = () => {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © {new Date().getFullYear()} Copyright: Google Development Student Clubs
-        (Thammasat University) | Develop by{"    "}
+        Google Geveloper Student Clubs Thammasat University
+         {/* Develop by{"     "}
         <a
           href="https://www.instagram.com/khon.pp/"
           className="text-white"
@@ -69,7 +93,7 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           Praphon Khaosaard
-        </a>
+        </a> */}
       </div>
     </footer>
   );

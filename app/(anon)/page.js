@@ -7,8 +7,7 @@ import { Button, Container, Row, Col, Image } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import HomepageHeader from "@/components/HomepageHeader";
-
+import React from "react";
 export default function Home() {
   const router = useRouter();
   const handleLoginClick = () => {
@@ -24,6 +23,7 @@ export default function Home() {
       controls.start("visible");
     }
   }, [controls, inView]);
+  
 
   return (
     <div>
@@ -40,7 +40,7 @@ export default function Home() {
               <h1 style={{ fontSize: "3rem" }}>GDSC@TU</h1>
             </div>
             <hr />
-            <p style={{ maxWidth: "600px" }}>
+            <p style={{ maxWidth: "555px" }}>
               Showing more representation in tech with GDSC greatly increases
               our confidence, innovation, and performance. Especially in
               academic environments, having a sense of belonging and community

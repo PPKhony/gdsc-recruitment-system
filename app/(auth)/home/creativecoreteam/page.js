@@ -32,7 +32,7 @@ const InterviewForm = () => {
 
   useEffect(() => {
     // Load saved form data from localStorage on component mount
-    const savedData = localStorage.getItem("formData");
+    const savedData = localStorage.getItem(formConfig.role);
     if (savedData) {
       setFormData(JSON.parse(savedData));
     }
@@ -95,7 +95,7 @@ const InterviewForm = () => {
       // Validate the field after updating the form data
       validateField(name, newFormData[name], fieldConfig.validation);
       // Save form data to localStorage to persist across sessions
-      localStorage.setItem("formData", JSON.stringify(newFormData));
+      localStorage.setItem(formConfig.role, JSON.stringify(newFormData));
       return newFormData;
     });
   };
@@ -149,6 +149,7 @@ const InterviewForm = () => {
       ...formData,
       user_id: user.id,
       user_email: user.email,
+      role: formConfig.role
     };
 
     // Insert data into Supabase table
@@ -161,7 +162,7 @@ const InterviewForm = () => {
     } else {
       setStatus("saved");
       // Clear local storage after successful submission
-      localStorage.removeItem("formData");
+      localStorage.removeItem(formConfig.role);
       window.location.href = "/home/success";
     }
   };
@@ -176,16 +177,17 @@ const InterviewForm = () => {
   const handleConfirmClearData = () => {
     setFormData({});
     setErrors({});
-    localStorage.removeItem("formData");
+    localStorage.removeItem(formConfig.role);
     window.location.reload();
     setShowClearConfirmation(false); // Close the modal
   };
 
   // Handle navigation between sections
-  const handleNext = () => {
+  const handleNext = async () => {
     if (validateSection()) {
-      setCurrentSectionIndex((prev) => prev + 1);
-      targetRef.current.scrollIntoView({ behavior: "smooth" });
+      await setStatus("idle");
+      await setCurrentSectionIndex((prev) => prev + 1);
+      await targetRef.current.scrollIntoView({ behavior: "smooth" });
     } else {
       setStatus("error");
     }
@@ -193,6 +195,7 @@ const InterviewForm = () => {
 
   const handlePrevious = () => {
     setCurrentSectionIndex((prev) => prev - 1);
+    setStatus("idle");
     targetRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -233,19 +236,20 @@ const InterviewForm = () => {
               variant="top"
               style={{ objectFit: "cover" }}
               height="210px"
-              src="https://s.yimg.com/ny/api/res/1.2/qTL3gCpign9c9J6zBAbDGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQxOA--/https://s.yimg.com/os/creatr-uploaded-images/2023-05/f07f40c0-ef5a-11ed-bfed-eaa440d7eecb"
+              src="https://firebasestorage.googleapis.com/v0/b/infowithfirestore.appspot.com/o/01.webp?alt=media&token=e1ad32a5-9201-4cd3-8203-28650ed21aaf"
             />
             <CardBody>
               <h1 style={{ fontWeight: "600", lineHeight: "1.3" }}>
                 {formConfig.title}
               </h1>
-              <h4>{formConfig.subTitle}</h4>
+              <h4>{formConfig.role}</h4>
               <hr />
               <p>{formConfig.description}</p>
               <p>{formConfig.instructions}</p>
               <p>
                 <b>{formConfig.deadline}</b>
               </p>
+              <div style={{fontWeight: "bold", color: "red"}}>*หากคุณออกจากระบบ progress จะถูกลบโดยอัตโนมัติ</div>
               <hr />
               <Button variant="outline-danger" onClick={clearFormData}>
                 Clear Form
@@ -255,7 +259,7 @@ const InterviewForm = () => {
         </Col>
         <Col ref={targetRef} lg={7} xl={8} className="mb-3 p-0 p-lg-3">
           <form onSubmit={handleSubmit}>
-            <Card >
+            <Card>
               <Card.Body>
                 <h3 style={{ fontWeight: "600" }}>{currentSection.title}</h3>
                 {/* Render form fields within the current section */}
