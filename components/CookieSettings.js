@@ -21,10 +21,12 @@ function CookieSettings({ showModal, setShowModal }) {
     const newValue = cookieConsent ? "granted" : "denied";
     setLocalStorage("cookie_consent", cookieConsent);
 
-    window.gtag("consent", "update", {
+    if (window.gtag) {
+      window.gtag("consent", "update", {
       analytics_storage: newValue,
       ad_user_data: newValue,
-    });
+      });
+    }
 
     if (newValue === "denied") {
       deleteGACookies();
