@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { getLocalStorage, setLocalStorage } from "@/utils/storageHelper";
 import { useState, useEffect, useRef } from "react";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import Cookies from "js-cookie";
 import CookieSettings from "./CookieSettings";
+import { setConsentMode } from "@/utils/GoogleAnalytics/ga";
+import { getLocalStorage , setLocalStorage } from "@/utils/GoogleAnalytics/storageHelper";
+
 const CookieConsent = () => {
   const [cookieConsent, setCookieConsent] = useState(false);
   const [disable, setDisable] = useState(true);
@@ -23,8 +25,6 @@ const CookieConsent = () => {
     }, 500)
   }, []);
 
-  
-
   useEffect(() => {
     if (isInitialRender.current) {
       isInitialRender.current = false;
@@ -34,32 +34,14 @@ const CookieConsent = () => {
         const newValue = cookieConsent ? "granted" : "denied";
         await setLocalStorage("cookie_consent", cookieConsent);
 
-        window.gtag("consent", "update", {
-          analytics_storage: newValue,
-          ad_user_data: newValue,
-        });
-
-        if (newValue === "denied") {
-          deleteGACookies();
-        }
+        //set consent lib ga
+        setConsentMode(newValue, "denied");
       };
 
       updateConsent();
     }
   }, [cookieConsent]);
 
-  const deleteGACookies = () => {
-    const gaCookies = [
-      "_ga",
-      "_gat",
-      "_gid",
-      // Add any other GA cookies you want to delete
-    ];
-
-    gaCookies.forEach((cookieName) => {
-      Cookies.remove(cookieName);
-    });
-  };
 
   return (
     <div>

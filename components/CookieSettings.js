@@ -1,7 +1,9 @@
+"use client"
 import React, { useEffect, useRef, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { getLocalStorage, setLocalStorage } from "@/utils/storageHelper";
 import Cookies from "js-cookie";
+import { setConsentMode } from "@/utils/GoogleAnalytics/ga";
+import { getLocalStorage , setLocalStorage } from "@/utils/GoogleAnalytics/storageHelper";
 
 function CookieSettings({ showModal, setShowModal }) {
   const [cookieConsent, setCookieConsent] = useState(false);
@@ -21,31 +23,10 @@ function CookieSettings({ showModal, setShowModal }) {
     const newValue = cookieConsent ? "granted" : "denied";
     setLocalStorage("cookie_consent", cookieConsent);
 
-    if (window.gtag) {
-      window.gtag("consent", "update", {
-      analytics_storage: newValue,
-      ad_user_data: newValue,
-      });
-    }
+    setConsentMode(newValue, "denied");
 
-    if (newValue === "denied") {
-      deleteGACookies();
-    }
-    
   }, [cookieConsent]);
 
-  const deleteGACookies = () => {
-    const gaCookies = [
-      "_ga",
-      "_gat",
-      "_gid",
-      // Add any other GA cookies you want to delete
-    ];
-
-    gaCookies.forEach((cookieName) => {
-      Cookies.remove(cookieName);
-    });
-  };
 
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>

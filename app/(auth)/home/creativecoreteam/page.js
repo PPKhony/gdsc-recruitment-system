@@ -201,6 +201,7 @@ const InterviewForm = () => {
 
   return (
     <div className="container fluid form-register">
+    <title>{"GDSC@TU | " + formConfig.role}</title>
       <Modal
         show={showClearConfirmation}
         onHide={() => setShowClearConfirmation(false)}

@@ -14,6 +14,7 @@ import {
 import PositionOpening from "@/components/PositionOpening";
 import Image from "next/image";
 
+
 const HomePage = () => {
   const supabase = createClient();
   const [applicantstatus, setApplicantStatus] = useState([]);

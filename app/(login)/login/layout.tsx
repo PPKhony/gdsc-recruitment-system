@@ -4,11 +4,8 @@ import '@/utils/styles.css';
 import '@/utils/custom.scss';
 
 export const metadata: Metadata = {
-  title: 'GDSC Internal',
-  description: 'GDSC Internal',
-  icons: {
-    icon: 'images/TU-GDSC Logo chapter lockup template.png',
-  },
+  title: 'GDSC@TU Login Portal',
+  description: 'GDSC@TU Login Portal',
 };
 
 export default function RootLayout({
