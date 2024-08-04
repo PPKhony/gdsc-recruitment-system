@@ -22,7 +22,6 @@ function CookieSettings({ showModal, setShowModal }) {
 
     const newValue = cookieConsent ? "granted" : "denied";
     setLocalStorage("cookie_consent", cookieConsent);
-
     setConsentMode(newValue, "denied");
 
   }, [cookieConsent]);

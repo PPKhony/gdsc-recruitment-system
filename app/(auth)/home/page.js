@@ -81,7 +81,6 @@ const HomePage = () => {
         className="d-flex justify-content-center align-items-center"
         style={{ minHeigth: "80vh" }}
       >
-        \
         <Image src="/images/GDSC-GIF-Loading.gif" width="300" height="300" />
       </Container>
     );

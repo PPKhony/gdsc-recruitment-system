@@ -29,18 +29,14 @@ const CookieConsent = () => {
     if (isInitialRender.current) {
       isInitialRender.current = false;
       return;
-    } else {
-      const updateConsent = async () => {
-        const newValue = cookieConsent ? "granted" : "denied";
-        await setLocalStorage("cookie_consent", cookieConsent);
-
-        //set consent lib ga
-        setConsentMode(newValue, "denied");
-      };
-
-      updateConsent();
     }
+
+    const newValue = cookieConsent ? "granted" : "denied";
+    setLocalStorage("cookie_consent", cookieConsent);
+    setConsentMode(newValue, "denied");
+
   }, [cookieConsent]);
+
 
 
   return (
