@@ -1,7 +1,7 @@
 import TagManager from 'react-gtm-module';
 
 export const initGTM = () => {
-  TagManager.initialize({ gtmId: 'GTM-KG6C5N9T' });
+  TagManager.initialize({ gtmId: 'GTM-WVNDBG29' });
 };
 
 export const setConsentMode = (analyticsStorage, adStorage) => {

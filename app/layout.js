@@ -16,14 +16,13 @@ const RootLayout = ({ children }) => {
       <head>
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=GTM-KG6C5N9T`} // GA script
+          src={`https://www.googletagmanager.com/gtag/js?id=GTM-WVNDBG29`} 
         ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('config', 'G-P2J3QPMVE4');
               gtag('js', new Date());
               gtag('consent', 'default', {
                 ad_storage: 'denied',
