@@ -38,8 +38,7 @@ const ApplicationDetailsModal = ({ dataObject }) => {
           {renderData('Current Year of Study', dataObject?.current_year_of_study)}
           {renderData('Experience Level', dataObject?.experience_level)}
           {renderData('Gender', dataObject?.gender)}
-          {renderData('Tech Areas', [dataObject?.tech_areas_1, dataObject?.tech_areas_2, dataObject?.tech_areas_3].filter(Boolean))}
-          {renderData('User Email', dataObject?.user_email)}
+          {renderData('User Login Email (University Email)', dataObject?.user_email)}
           {renderData('Personal Email', dataObject?.personal_email)}
           {renderData('Phone', dataObject?.phone)}
           <hr/>
@@ -49,6 +48,7 @@ const ApplicationDetailsModal = ({ dataObject }) => {
           {renderData('LinkedIn', dataObject?.linkedin)}
           {renderData('Programming Languages', dataObject?.programming_languages)}
           <hr/>
+          <b>--Some Answer will be hide due to security reason.--</b>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

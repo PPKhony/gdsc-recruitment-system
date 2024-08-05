@@ -43,7 +43,7 @@ const Header: React.FC = () => {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary header">
       <Container>
-        <Navbar.Brand href="https://gdsc.community.dev/thammasat-university-bangkok-thailand/">
+        <Navbar.Brand href="/">
           <Image
             src="/images/TU-GDSC Logo chapter lockup template.png"
             alt="logo"

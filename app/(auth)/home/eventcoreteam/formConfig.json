@@ -1,7 +1,7 @@
 {
   "title": "ใบสมัครเข้าร่วมทีม GDSC@TU 2024",
-  "role": "Creative Core Team",
-  "description": "ร่วมเป็นส่วนหนึ่งกับ creative core team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
+  "role": "Event Core Team",
+  "description": "ร่วมเป็นส่วนหนึ่งกับ Event Core Team GDSC มหาวิทยาลัยธรรมศาสตร์ ประจำปี 2024! นี่คือโอกาสในการเข้าร่วมโปรเจกต์ที่น่าตื่นเต้น ร่วมงานกับทีมที่มีความสามารถ และพัฒนาทักษะทางเทคนิคของคุณ ในขณะเดียวกันก็ได้สร้างผลกระทบที่แท้จริงต่อชุมชนนักพัฒนานักศึกษา",
   "instructions": "กรุณากรอกข้อมูลในคำถามต่อไปนี้ให้ครบถ้วน ความคืบหน้าของคุณจะถูกบันทึกไว้ในอุปกรณ์ของคุณเท่านั้น (local device) เราหวังเป็นอย่างยิ่งว่าจะได้พิจารณาใบสมัครของคุณ!",
   "deadline": "แบบฟอร์มปิดรับสมัครวันที่ 31 สิงหาคม 2567 23.59 น.",
   "sections": [
@@ -61,7 +61,7 @@
       "fields": [
         {
           "type": "markdown",
-          "content": "กรุณากรอกแบบฟอร์มด้านล่างเพื่อสมัครเข้าร่วมทีม GDSC@TU 2024 Creative Core Team"
+          "content": "กรุณากรอกแบบฟอร์มด้านล่างเพื่อสมัครเข้าร่วมทีม GDSC@TU 2024 Event Team"
         },
         {
           "type": "text",
@@ -92,6 +92,16 @@
           }
         },
         {
+          "type": "text",
+          "label": "เบอร์โทรศัพท์",
+          "name": "phone",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
+          }
+        },
+        {
           "type": "select",
           "label": "เพศ",
           "name": "gender",
@@ -109,16 +119,6 @@
             "required": true,
             "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
             "errorMessage": "กรุณากรอกอีเมลที่ถูกต้อง"
-          }
-        },
-        {
-          "type": "text",
-          "label": "เบอร์โทรศัพท์",
-          "name": "phone",
-          "validation": {
-            "required": true,
-            "pattern": "^\\d{10}$",
-            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
           }
         },
         {
@@ -154,6 +154,7 @@
             "errorMessage": "Please select your faculty."
           }
         },
+
         {
           "name": "major",
           "label": "สาขา",
@@ -210,7 +211,7 @@
       "fields": [
         {
           "type": "textarea",
-          "label": "อะไรคือแรงผลักดันสำคัญที่ทำให้คุณตัดสินใจเข้าร่วม Google Developer Student Clubs (GDSC)? คุณหวังจะได้รับประโยชน์อะไรจากการเป็นส่วนหนึ่งของชุมชนนี้",
+          "label": "คุณเคยเข้าร่วมงานอีเวนต์ใดบ้าง แล้วคิดว่ามีจุดใดที่สามารถพัฒนาได้? กรุณาอธิบายถึงจุดที่ควรปรับปรุงและเสนอแนวทางการพัฒนา",
           "name": "interview_question_1",
           "validation": {
             "required": true,
@@ -219,7 +220,7 @@
         },
         {
           "type": "textarea",
-          "label": "คุณคาดหวังอะไรจากการเป็นสมาชิก GDSC? คุณอยากเรียนรู้สิ่งใดเป็นพิเศษไหม หรือคุณมีเป้าหมายอะไรที่อยากบรรลุผ่านการเข้าร่วม GDSC?",
+          "label": "คุณคิดว่าการสื่อสารมีบทบาทสำคัญอย่างไรในการทำงานเป็นทีม? คุณใช้วิธีการใดในการสื่อสารอย่างมีประสิทธิภาพกับสมาชิกในทีม?",
           "name": "interview_question_2",
           "validation": {
             "required": true,
@@ -228,11 +229,32 @@
         },
         {
           "type": "textarea",
-          "label": "หากคุณเป็นส่วนหนึ่งของ Creative Core Team ใน GDSC คุณจะมีแนวคิดอย่างไรในการนำเสนอเทคโนโลยีให้เข้าใจง่ายสำหรับคนทั่วไป? คุณคิดว่าสื่อประเภทใดเหมาะสมที่สุดในการสื่อสารกับกลุ่มเป้าหมาย?",
+          "label": "คุณคาดหวังอะไรจากการเป็นสมาชิก GDSC? คุณอยากเรียนรู้สิ่งใดเป็นพิเศษไหม หรือคุณมีเป้าหมายอะไรที่อยากบรรลุผ่านการเข้าร่วม GDSC?",
           "name": "interview_question_3",
           "validation": {
             "required": true,
             "errorMessage": "กรุณาตอบคำถามนี้"
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "fields": [
+        {
+          "type": "radio",
+          "label": "คุณรู้จักชมรม GDSC ได้อย่างไร",
+          "name": "referral_source",
+          "options": [
+            "Social media",
+            "University event",
+            "Friend or peer",
+            "GDSC website",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select how you heard about the club."
           }
         }
       ]

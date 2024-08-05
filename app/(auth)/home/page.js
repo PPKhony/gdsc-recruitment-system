@@ -39,12 +39,8 @@ const HomePage = () => {
         if (applicantError) {
           console.error("Error fetching applicant data:", applicantError);
         } else {
-          for (let index = 0; index < applicantData.length; index++) {
-            applicantData[index]["position"] = "technical core team 2024";
-          }
           setApplicantStatus(applicantData);
         }
-        console.log(applicantData[0]);
       }
 
       setLoading(false);

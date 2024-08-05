@@ -169,6 +169,16 @@
           }
         },
         {
+          "type": "text",
+          "label": "เบอร์โทรศัพท์",
+          "name": "phone",
+          "validation": {
+            "required": true,
+            "pattern": "^\\d{10}$",
+            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
+          }
+        },
+        {
           "type": "markdown",
           "content": "---"
         },
@@ -196,58 +206,13 @@
         }
       ]
     },
-    {
-      "title": "ช่องทางการติดต่อบน Social media",
-      "fields": [
-        {
-          "type": "text",
-          "label": "ลิงก์ Github (ไม่บังคับ)",
-          "name": "github",
-          "validation": {
-            "required": false,
-            "errorMessage": "Please enter a valid Github profile URL starting with 'https://www.github.com/' or a valid username."
-          }
-        },
-        {
-          "type": "text",
-          "label": "ลิงก์ Google Developer Profile (ไม่บังคับ)",
-          "name": "google_developer",
-          "validation": {
-            "required": false,
-            "errorMessage": "Please enter a valid Google Developer profile URL starting with 'https://g.dev/....'."
-          }
-        },
-        {
-          "type": "text",
-          "label": "ลิงก์ Linkedin (ไม่บังคับ)",
-          "name": "linkedin",
-          "validation": {
-            "required": false,
-            "errorMessage": "Please enter a valid Linkedin profile URL starting with 'https://www.linkedin.com/' or a valid username."
-          }
-        },
-        {
-          "type": "markdown",
-          "content": "---"
-        },
-        {
-          "type": "text",
-          "label": "เบอร์โทรศัพท์",
-          "name": "phone",
-          "validation": {
-            "required": true,
-            "pattern": "^\\d{10}$",
-            "errorMessage": "Please enter a valid phone number in the format '0123456789'."
-          }
-        }
-      ]
-    },
+  
     {
       "title": "ความสนใจและ passion ของผู้สมัคร",
       "fields": [
         {
           "type": "textarea",
-          "label": "อะไรคือแรงผลักดันสำคัญที่ทำให้คุณตัดสินใจเข้าร่วม Google Developer Student Clubs (GDSC)? คุณหวังจะได้รับประโยชน์อะไรจากการเป็นส่วนหนึ่งของชุมชนนี้",
+          "label": "บอกสื่อที่คุณชื่นชอบมา 1 ตัวอย่าง อธิบายคร่าวๆว่าทำไมคุณถึงชอบสื่อนั้นๆ 📽️",
           "name": "interview_question_1",
           "validation": {
             "required": true,
@@ -270,6 +235,27 @@
           "validation": {
             "required": true,
             "errorMessage": "กรุณาตอบคำถามนี้"
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "fields": [
+        {
+          "type": "radio",
+          "label": "คุณรู้จักชมรม GDSC ได้อย่างไร",
+          "name": "referral_source",
+          "options": [
+            "Social media",
+            "University event",
+            "Friend or peer",
+            "GDSC website",
+            "Other"
+          ],
+          "validation": {
+            "required": true,
+            "errorMessage": "Please select how you heard about the club."
           }
         }
       ]

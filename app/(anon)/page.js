@@ -76,15 +76,9 @@ export default function Home() {
           >
             <div>
               <h1 style={{ fontSize: "3.5rem" }}>Growth with </h1>
-              <h1 style={{ fontSize: "1rem" }}>GDSC@TU</h1>
+              <h2 style={{ fontSize: "1.5rem" }}>GDSC@TU</h2>
             </div>
             <hr />
-            <p style={{ maxWidth: "555px" }}>
-              Showing more representation in tech with GDSC greatly increases
-              our confidence, innovation, and performance. Especially in
-              academic environments, having a sense of belonging and community
-              for students can lead to success in tech together.
-            </p>
             <br />
           </motion.div>
         </Container>
