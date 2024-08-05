@@ -1,22 +1,20 @@
 // app/layout.js or app/layout.tsx
 "use client";
 
-import { useEffect } from 'react';
-import { initGTM } from '@/utils/GoogleTagManager/gtm';
+import { useEffect } from "react";
+import { initGTM } from "@/utils/GoogleTagManager/gtm";
 
 const RootLayout = ({ children }) => {
-  
   useEffect(() => {
     initGTM();
   }, []);
- 
 
   return (
     <html lang="en">
       <head>
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=GTM-WVNDBG29`} 
+          src={`https://www.googletagmanager.com/gtag/js?id=GTM-WVNDBG29`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -27,6 +25,9 @@ const RootLayout = ({ children }) => {
               gtag('consent', 'default', {
                 ad_storage: 'denied',
                 analytics_storage: 'denied'
+              });
+              gtag('config', 'GTM-WVNDBG29', {
+                page_path: window.location.pathname,
               });
             `,
           }}
