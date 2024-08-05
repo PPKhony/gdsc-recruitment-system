@@ -13,12 +13,13 @@ import {
 } from "react-bootstrap";
 import PositionOpening from "@/components/PositionOpening";
 import Image from "next/image";
-
+import ApplicationDetailsModal from "@/components/ResponseDataModal";
 
 const HomePage = () => {
   const supabase = createClient();
   const [applicantstatus, setApplicantStatus] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -123,6 +124,10 @@ const HomePage = () => {
               <div>
                 {"submit on " + formatDateToGMTPlus7(applicant.timestamp)}
               </div>
+              <hr />
+              <ApplicationDetailsModal
+                dataObject={applicant}
+              />
               {/* <hr />
               <Card.Link href={`/home/interview/`+applicant.object_id}>
                 Schedule Interview Time

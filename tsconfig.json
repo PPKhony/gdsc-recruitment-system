@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/home/technicalcoreteam/page.js", "app/home/technicalcoreteam/page.js", "app/home/interview/[slug]/page.js", "app/(anon)/page.js", "app/(anon)/layout.js", "app/layout.js", "utils/gTaghelper.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/home/technicalcoreteam/page.js", "app/home/technicalcoreteam/page.js", "app/home/interview/[slug]/page.js", "app/(anon)/page.js", "app/(anon)/layout.js", "app/layout.js", "utils/gTaghelper.tsx", "components/ResponseDataModal.js"],
   "exclude": ["node_modules"]
 }

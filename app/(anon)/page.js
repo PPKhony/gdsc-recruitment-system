@@ -90,7 +90,7 @@ export default function Home() {
         </Container>
       </div>
       <div
-        style={{ backgroundColor: "#f1f3f4", minHeight: "30vh", zIndex: "-10" }}
+        style={{ backgroundColor: "#f1f3f4", minHeight: "30vh", zIndex: "-10"  }}
       >
         <Container>
           <br />
@@ -245,7 +245,7 @@ export default function Home() {
             </motion.div>
           </Container>
         </div>
-        <div>
+        <div className="bg-1">
           <Container>
             <Row
               xs={1}
@@ -469,7 +469,7 @@ export default function Home() {
             </Row>
           </Container>
         </div>
-        <div>
+        <div className="bg-2">
           <Container>
             <Row
               xs={1}
