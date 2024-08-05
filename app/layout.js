@@ -23,6 +23,7 @@ const RootLayout = ({ children }) => {
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              gtag('config', 'G-P2J3QPMVE4');
               gtag('js', new Date());
               gtag('consent', 'default', {
                 ad_storage: 'denied',
