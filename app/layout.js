@@ -2,9 +2,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { initGTM } from "@/utils/GoogleTagManager/gtm";
+import { initGTM , logPageView } from "@/utils/GoogleTagManager/gtm";
+import { usePathname } from 'next/navigation'; // Updated import for pathname
 
 const RootLayout = ({ children }) => {
+  const pathname = usePathname(); // Get the current pathname
+
+  useEffect(() => {
+    // Log page view when pathname changes
+    logPageView(pathname);
+
+  }, [pathname]); // Dependency on pathname
+
   useEffect(() => {
     initGTM();
   }, []);

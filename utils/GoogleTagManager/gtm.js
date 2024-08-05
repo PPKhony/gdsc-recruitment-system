@@ -4,6 +4,14 @@ export const initGTM = () => {
   TagManager.initialize({ gtmId: 'GTM-WVNDBG29' });
 };
 
+export const logPageView = (url) => {
+  window.dataLayer.push({
+    event: 'pageview',
+    page: url,
+  });
+};
+
+
 export const setConsentMode = (analyticsStorage, adStorage) => {
   console.log(analyticsStorage);
   window.dataLayer = window.dataLayer || [];
