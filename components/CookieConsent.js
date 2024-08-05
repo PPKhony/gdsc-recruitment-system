@@ -5,8 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import Cookies from "js-cookie";
 import CookieSettings from "./CookieSettings";
-import { setConsentMode } from "@/utils/GoogleAnalytics/ga";
-import { getLocalStorage , setLocalStorage } from "@/utils/GoogleAnalytics/storageHelper";
+import { setConsentMode } from "@/utils/GoogleTagManager/gtm";
+import { getLocalStorage , setLocalStorage } from "@/utils/GoogleTagManager/storageHelper";
 
 const CookieConsent = () => {
   const [cookieConsent, setCookieConsent] = useState(false);
