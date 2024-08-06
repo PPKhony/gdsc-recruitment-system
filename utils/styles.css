@@ -429,10 +429,6 @@ textarea {
   overflow-y:visible;
 }
 
-p {
-  font-size: large;
-}
-
 .vertical-line {
   position: relative;
   padding-left: 1rem; /* Space for the vertical line */

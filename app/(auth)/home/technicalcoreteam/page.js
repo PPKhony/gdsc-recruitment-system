@@ -149,7 +149,7 @@ const InterviewForm = () => {
       ...formData,
       user_id: user.id,
       user_email: user.email,
-      role: formConfig.role
+      role: formConfig.role,
     };
 
     // Insert data into Supabase table
@@ -201,7 +201,7 @@ const InterviewForm = () => {
 
   return (
     <div className="container fluid form-register">
-    <title>{"GDSC@TU | " + formConfig.role}</title>
+      <title>{"GDSC@TU | " + formConfig.role}</title>
       <Modal
         show={showClearConfirmation}
         onHide={() => setShowClearConfirmation(false)}
@@ -246,11 +246,28 @@ const InterviewForm = () => {
               <h4>{formConfig.role}</h4>
               <hr />
               <p>{formConfig.description}</p>
-              <p>{formConfig.instructions}</p>
+
+              <h5>คุณสมบัติของ Technical Core Team:</h5>
+              <ul>
+                <li>
+                  ไม่จำเป็นต้องมีความรู้พื้นฐานมาก่อน ขอแค่มีความกระตือรือร้น
+                  รักการเรียนรู้ และพร้อมที่จะพัฒนาตัวเอง
+                </li>
+                <li>
+                  มีความสามารถในการทำงานเป็นทีม
+                  และสามารถสื่อสารกับผู้อื่นได้อย่างมีประสิทธิภาพ
+                </li>
+                <li>มีความรับผิดชอบ ตรงต่อเวลา และมีความมุ่งมั่นในการทำงาน</li>
+              </ul>
+
               <p>
                 <b>{formConfig.deadline}</b>
               </p>
-              <div style={{fontWeight: "bold", color: "red"}}>*หากคุณออกจากระบบ progress จะถูกลบโดยอัตโนมัติ</div>
+              <p>{formConfig.instructions}</p>
+              <p>your email will record associated to your response</p>
+              <div style={{ fontWeight: "bold", color: "red" }}>
+                หากคุณออกจากระบบ progress จะถูกลบโดยอัตโนมัติ
+              </div>
               <hr />
               <Button variant="outline-danger" onClick={clearFormData}>
                 Clear Form

@@ -46,7 +46,7 @@ const applicantopening = [
 
 function PositionOpening() {
   return (
-    <Row xs={1} md={3}>
+    <Row xs={1} md={1} lg={3}>
       {applicantopening.map((opening, index) => (
         <Col key={index} className="pb-3">
           <Card key={index}>
