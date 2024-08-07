@@ -37,7 +37,7 @@ function LoginPage() {
               alt="logo"
               className="mb-4"
             />
-            <h5 className="card-title">Login Portal</h5>
+            <h5 className="card-title">Internal Login Portal</h5>
             <h6>Google Developer Student Clubs</h6>
             <p>with @dome.tu.ac.th email only</p>
             <hr />
@@ -47,7 +47,7 @@ function LoginPage() {
                   className="btn btn-primary btn-large centerButton"
                   formAction={googleContinue}
                 >
-                  <i className="bi bi-google"> </i>Continue with google
+                  <i className="bi bi-google"> </i>Continue with @dome email
                 </button>
               </div>
             </form>
