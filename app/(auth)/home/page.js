@@ -19,7 +19,6 @@ const HomePage = () => {
   const supabase = createClient();
   const [applicantstatus, setApplicantStatus] = useState([]);
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,6 +83,16 @@ const HomePage = () => {
 
   return (
     <>
+      {applicantstatus.length !== 0 ? (
+        <Alert variant="success" className="p-4">
+          <h5><i className="bi bi-check-circle"></i> เย้!คุณได้ส่งแบบฟอร์มสำเร็จอย่างน้อย 1 แบบฟอร์มแล้ว </h5>
+          <h6>
+            ทำแบบประเมินในการใช้งานระบบเพื่อเป็นฟีดแบ็คให้กับทีมงานหน่อยน้า
+          </h6>
+          <hr/>
+          <Button href={"https://forms.gle/g96RdEjyFdTqTmxw5"}>แบบฟอร์ม</Button>
+        </Alert>
+      ) : null}
       <h1>Application Status</h1>
       {applicantstatus.length === 0 ? (
         <div>You have no previous applications</div>
@@ -121,9 +130,7 @@ const HomePage = () => {
                 {"submit on " + formatDateToGMTPlus7(applicant.timestamp)}
               </div>
               <hr />
-              <ApplicationDetailsModal
-                dataObject={applicant}
-              />
+              <ApplicationDetailsModal dataObject={applicant} />
               {/* <hr />
               <Card.Link href={`/home/interview/`+applicant.object_id}>
                 Schedule Interview Time
