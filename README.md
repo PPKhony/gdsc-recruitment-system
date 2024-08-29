@@ -28,7 +28,7 @@ The GDSC Recruitment System is a web application designed to streamline the recr
    ```
 2. **Install dependencies**
    ```bash
-   pnpm instal
+   pnpm install
    ```
 3. **Set Up Environment Variables Create a .env.local file in the root directory and add your Supabase credentials**
    ```bash
