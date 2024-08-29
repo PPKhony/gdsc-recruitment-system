@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+GDSC Recruitment System
+Welcome to the GDSC Recruitment System! This application is designed to streamline the recruitment process for the GDSC@TU Technical Core Team and other GDSC Core teams. It allows candidates to apply, complete forms, and track their application status.
 
-## Getting Started
+Features
+Customizable Faculty and Major Fields: Administrators can easily configure and update faculty and major options to match the current needs and offerings of the GDSC club.
+Application Status Tracking: Applicants and administrators can track the status of applications, including draft saves, submission statuses, and completion stages.
+Auto-Save and Debounced Submission: The form automatically saves progress locally and periodically syncs with the Supabase database to ensure data is not lost.
+Dynamic Form Configuration: Form fields and sections are dynamically generated based on configuration files, allowing for easy updates and customizations.
+User Authentication: Integrated with Supabase authentication to manage user access and ensure secure submission and tracking of applications.
+Tech Stack
+Supabase: Provides authentication, real-time database, and API services. Used for managing user data and application submissions.
+Next.js: A React framework used for building the web application. It supports server-side rendering and static site generation, enhancing performance and SEO.
+Bootstrap: Utilized for styling and responsive design, ensuring the application is visually appealing and accessible on various devices.
+Getting Started
+Clone the Repository
 
-First, run the development server:
+git clone https://github.com/your-repo/gdsc-recruitment-system.git
+cd gdsc-recruitment-system
+Install Dependencies
 
-```bash
+npm install
+Set Up Environment Variables Create a .env.local file in the root directory and add your Supabase credentials:
+
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+Run the Development Server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Access the Application Open your browser and navigate to http://localhost:3000 to start using the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
