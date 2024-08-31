@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import CloseApplication from "@/components/CloseApplication";
 import {
   Alert,
   Button,
@@ -142,7 +143,8 @@ const HomePage = () => {
       <br />
       <div>
         <h1 className="my-3">Position Opening</h1>
-        <PositionOpening />
+        <CloseApplication/>
+        {/* <PositionOpening /> */}
       </div>
     </>
   );

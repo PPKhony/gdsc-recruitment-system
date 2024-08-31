@@ -3,11 +3,12 @@
 import Footer from "@/components/Footer";
 import PositionOpening from "@/components/PositionOpening";
 import { useRouter } from "next/navigation";
-import { Button, Container, Row, Col, Image } from "react-bootstrap";
+import { Button, Container, Row, Col, Image, Card } from "react-bootstrap";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import React from "react";
+import CloseApplication from "@/components/CloseApplication";
 
 export default function Home() {
   const router = useRouter();
@@ -84,7 +85,7 @@ export default function Home() {
         </Container>
       </div>
       <div
-        style={{ backgroundColor: "#f1f3f4", minHeight: "30vh", zIndex: "-10"  }}
+        style={{ backgroundColor: "#f1f3f4", minHeight: "30vh", zIndex: "-10" }}
       >
         <Container>
           <br />
@@ -116,13 +117,13 @@ export default function Home() {
                   เชื่อมต่อ และ เติบโต ไปพร้อมกับโลกเทคโนโลยีที่ไม่หยุดนิ่ง
                 </p>
 
-                <Button
+                {/* <Button
                   className="animated-button mt-4"
                   onClick={handleLoginClick}
                   style={{ fontWeight: "bold" }}
                 >
                   <span>Apply Club</span>
-                </Button>
+                </Button> */}
               </motion.div>
             </Col>
             <Col ref={ref1} className="d-flex align-items-center">
@@ -621,10 +622,11 @@ export default function Home() {
           <div>
             <br />
             <h1 style={{ color: "white" }}>Position Opening</h1>
-            <h5 style={{ color: "white" }}>Semester 1-2/2567 </h5>
+            <h5 style={{ color: "white" }}>Academic Year 2567 </h5>
             <br />
           </div>
-          <PositionOpening />
+         <CloseApplication/>
+          {/* <PositionOpening /> */}
         </Container>
       </div>
       <Footer />
