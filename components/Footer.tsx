@@ -72,7 +72,7 @@ const Footer = () => {
               <li>
                 <h6>Internal Domain Only (@dome)</h6>
                 <a className="text-white">
-                gdsctu.hr-team@dome.tu.ac.th
+                gdsc.thammasat@gmail.com
                 </a>
               </li>
             </ul>
