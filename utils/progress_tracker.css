@@ -1,0 +1,70 @@
+
+.progress-steps {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.progress-steps .top {
+  margin-bottom: 30px;
+  position: relative;
+}
+.progress-steps .top .progress {
+  width: 100%;
+  height: 3px;
+  background-color: #e0e0e0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.progress-steps .top .progress span {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: #3498db;
+  transition: 0.5s;
+}
+.progress-steps .top .steps {
+  display: flex;
+  justify-content: space-between;
+}
+.progress-steps .top .steps .step {
+  background-color: white;
+  border: 3px solid #e0e0e0;
+  border-radius: 50%;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.progress-steps .top .steps .step.active {
+  border-color: #3498db;
+  transition: border 1s;
+}
+
+.progress-steps .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0px 20px;
+}
+
+.progress-steps .buttons .btn {
+  outline: 0px;
+  border: 0px;
+  padding: 10px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  font-weight: bold;
+  color: white;
+  transition: color 0.5s;
+}
+
+.progress-steps .buttons .btn.disabled {
+  background-color: #e0e0e0;
+  color: #bdbdbd;
+  cursor: no-drop;
+}

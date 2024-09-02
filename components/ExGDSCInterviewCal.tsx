@@ -1,16 +1,23 @@
-"use client";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { useEffect, useState } from "react";
-function GDSCCalendar(props: any) {
-  interface Data {
-    full_name: string;
-    user_email: string;
-    object_id: string;
-    applicationid: string;
-    // Add other properties as needed
-  }
-  
-  const [data, setData] = useState<Data | null>(null);
+
+interface GDSCCalendarProps {
+  data: Data[];
+  link: string;
+}
+
+interface Data {
+  full_name: string;
+  user_email: string;
+  object_id: string;
+  applicationid: string;
+  // Add other properties as needed
+}
+
+function GDSCCalendar(props: GDSCCalendarProps) {
+  const { data, link } = props;
+  const [calendarData, setCalendarData] = useState<Data | null>(null);
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({});
@@ -23,25 +30,26 @@ function GDSCCalendar(props: any) {
     })();
   }, []);
 
-  useEffect(()=> {
-    console.log(props["data"][0]);
-    setData(props["data"][0]);
-  })
+  useEffect(() => {
+    if (data && data.length > 0) {
+      console.log(data[0]);
+      setCalendarData(data[0]);
+      console.log(link);
+    }
+  }, [data, link]);
 
-
-  return (   
-      <Cal
-        calLink="praphon.kha/gdsc.tu.interview"
-        style={{ width: "100%" , overflow: "visible" , msOverflowStyle: "none"}}
-        config={{
-          layout: "month_view",
-          name: data?.full_name as string,
-          email: data?.user_email as string,
-          applicationid: data?.applicationid as string,
-          verifycode: data?.object_id as string,
-        }}
-      />
-    
+  return (
+    <Cal
+      calLink={link}
+      style={{ width: "100%", overflow: "visible", msOverflowStyle: "none" }}
+      config={{
+        layout: "month_view",
+        name: calendarData?.full_name as string,
+        email: calendarData?.user_email as string,
+        applicationid: calendarData?.applicationid as string,
+        verifycode: calendarData?.object_id as string,
+      }}
+    />
   );
 }
 

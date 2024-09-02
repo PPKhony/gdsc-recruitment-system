@@ -34,7 +34,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children }) => {
 
       <main>
         <div className="form-bg-01">
-          <Container className="pt-3 pb-5" style={{ minHeight: '100vh' }}>
+          <Container className=" pb-5" style={{ minHeight: '100vh' }}>
             {children}
           </Container>
         </div>

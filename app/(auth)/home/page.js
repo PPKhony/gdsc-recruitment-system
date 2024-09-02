@@ -14,7 +14,7 @@ import {
 import PositionOpening from "@/components/PositionOpening";
 import Image from "next/image";
 import ApplicationDetailsModal from "@/components/ResponseDataModal";
-
+import ProgressTracker from "@/components/ProgressTracker";
 const HomePage = () => {
   const supabase = createClient();
   const [applicantstatus, setApplicantStatus] = useState([]);
@@ -107,14 +107,46 @@ const HomePage = () => {
 
   return (
     <>
-      <h1>Application Status</h1>
-      <h4>Hello {user?.user_metadata?.full_name} 👋</h4>
+      <Card
+        style={{
+          borderColor: "white",
+          borderTopLeftRadius: "0px",
+          borderTopRightRadius: "0px",
+        }}
+        className="no-padding"
+      >
+        <CardBody>
+          <div
+            style={{
+              position: "absolute",
+              top: "10px",
+            }}
+          >
+            <h1>Application Tracker System</h1>
+            <h4>Hello {user?.user_metadata?.full_name} 👋</h4>
+          </div>
+        </CardBody>
+        <div className="d-flex justify-content-end">
+          <div
+            xs={12}
+            lg={8}
+            style={{
+              backgroundImage: "url(/images/bg-application.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "right",
+              minHeight: "20rem",
+              maxWidth: "1000px",
+              width: "100%",
+            }}
+          ></div>
+        </div>
+      </Card>
       {applicantstatus.length === 0 ? (
         <div>You have no previous applications</div>
       ) : null}
-      <Row xs={1} md={1} lg={2}>
-        <Col lg={3} className="pt-4">
-          <Card style={{ position: "sticky", top: "0px" }}>
+      <Row xs={1} md={1} lg={2} xl={2}>
+        <Col md={8} lg={4} xl={3} className="pt-4">
+          <Card style={{ position: "sticky", top: "30px" }}>
             <CardBody>
               <h5>
                 <b>Your Application</b>
@@ -145,15 +177,15 @@ const HomePage = () => {
             </CardBody>
           </Card>
         </Col>
-        <Col lg={9} className="pt-4">
+        <Col md={12} lg={8} xl={9} className="pt-4">
           {applicantstatus.map((applicant, i) => {
             const alertVariant =
               applicant.status === "success" ||
               applicant.status === "complete" ||
               applicant.status === "submitted"
                 ? "success"
-                : applicant.status === "pending"
-                ? "warning"
+                : applicant.status === "rejected"
+                ? "danger"
                 : "secondary";
 
             const filteredInterview = itw_data?.filter(
@@ -165,6 +197,7 @@ const HomePage = () => {
                 key={i}
                 id={`applicant-${applicant.applicationid}`}
                 className="mb-4"
+                style={{ borderColor: "white" }}
               >
                 <CardBody>
                   <div className="d-flex mb-3 justify-content-between align-items-center flex-wrap">
@@ -173,36 +206,63 @@ const HomePage = () => {
                       <h5>{applicant.applicationid}</h5>
                       <h6>{applicant.role}</h6>
                     </Col>
-                    <Alert
-                      variant={alertVariant}
-                      style={{ textAlign: "center" }}
-                      className="d-inline-flex px-3 py-1 fw-semibold rounded-5"
-                    >
-                      {applicant.status}
-                    </Alert>
+                    <div className="text-center">
+                      <h6 className="d-none d-md-block">Application Status</h6>
+                      <Alert
+                        variant={alertVariant}
+                        style={{ textAlign: "center" }}
+                        className="d-inline-flex px-3 py-1 fw-semibold rounded-5"
+                      >
+                        {applicant.status}
+                      </Alert>
+                    </div>
                   </div>
-
+                  <div>
+                    <h5>Recruitment Process</h5>
+                    <ProgressTracker />
+                  </div>
                   {filteredInterview.length > 0 ? (
                     <Alert variant="success" className="my-3">
                       <h5>Successfully scheduling 🥳</h5>
-                      <b>Your Interview time</b>
-                      <ul>
-                        <li>
-                          <b>Interview Date-Time : </b>
-                          {formatDate(filteredInterview[0].start_time)} -{" "}
-                          {formatDate(filteredInterview[0].end_time)}
-                        </li>
-
-                        <li>
-                          <b>Meeting Link : </b>{" "}
-                          <a
-                            href={filteredInterview[0].meeting_link}
-                            style={{ color: "black" }}
-                          >
-                            {filteredInterview[0].meeting_link}
-                          </a>
-                        </li>
-                      </ul>
+                      <div>
+                        <b>Interview Date-Time (20 min)</b>
+                      </div>
+                      <div className="d-flex flex-wrap align-items-center my-3">
+                        <Container
+                          className="px-3 py-1 mb-2 me-3"
+                          style={{
+                            backgroundColor: "white",
+                            borderRadius: "5px",
+                          }}
+                        >
+                          <div>
+                            <small className="text-muted">Start Time</small>
+                          </div>
+                          <div>
+                            {formatDate(filteredInterview[0].start_time)}
+                          </div>
+                        </Container>
+                        <Container
+                          className="px-3 py-1 mb-2 me-3"
+                          style={{
+                            backgroundColor: "white",
+                            borderRadius: "5px",
+                          }}
+                        >
+                          <div>
+                            <small className="text-muted">End Time</small>
+                          </div>
+                          <div>{formatDate(filteredInterview[0].end_time)}</div>
+                        </Container>
+                      </div>
+                      <hr/>
+                      <b>Meeting Link : </b>{" "}
+                      <a
+                        href={filteredInterview[0].meeting_link}
+                        style={{ color: "black" }}
+                      >
+                        {filteredInterview[0].meeting_link}
+                      </a>
                     </Alert>
                   ) : (
                     <Alert variant="info" className="my-3">

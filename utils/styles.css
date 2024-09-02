@@ -62,7 +62,9 @@ textarea {
   font-weight: 500;
   font-style: normal;
 }
-
+.no-padding {
+  padding: 0px !important;
+}
 /* Container div */
 .colored-bar-container {
   position: relative; /* Needed for positioning the ::before pseudo-element */

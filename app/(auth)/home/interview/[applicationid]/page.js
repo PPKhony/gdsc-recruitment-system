@@ -16,7 +16,7 @@ import {
 function AuthorizePage({ params }) {
   const [applicationData, setApplicationData] = useState([]);
   const [showSecretCode, setShowSecretCode] = useState(false);
-
+  const [selectedRoom, handleRoomChange] = useState("Room A");
   const NoDataFallback = () => (
     <div>
       <h1>No interview data available :( </h1>
@@ -51,7 +51,7 @@ function AuthorizePage({ params }) {
   return (
     <div>
       <div className="px-3">
-        <h1 className="my-3 ">Interview Scheduling</h1>
+        <h1 className="py-3 ">Interview Scheduling</h1>
         <h5>
           <b>Application ID : </b>
           {applicationData[0].applicationid}
@@ -64,10 +64,11 @@ function AuthorizePage({ params }) {
             <CardBody>
               <h4>Instructions</h4>
               <p>Dear {applicationData[0].full_name},</p>
+              <p>Select only 1 time slot of 4 rooms</p>
               <p>
                 <strong>Important:</strong> Once your interview is scheduled,{" "}
-                <u>rescheduling or canceling is not allowed</u>. If you have any
-                exceptional circumstances that necessitate changes, please{" "}
+                <u style={{color: "red"}}>rescheduling or canceling is not allowed</u>. Sorry for the inconvenience.  
+                If you have any exceptional circumstances that necessitate changes, please
                 contact us via email at{" "}
                 <a href="mailto:gdsc.thammasat@gmail.com">
                   gdsc.thammasat@gmail.com
@@ -102,7 +103,6 @@ function AuthorizePage({ params }) {
                 <li>
                   <strong>Be on time</strong> for your interview.
                 </li>
-              
               </ul>
 
               <p>
@@ -150,12 +150,107 @@ function AuthorizePage({ params }) {
             </CardBody>
           </Card>
         </Col>
-        <Col
-          lg={8}
-          className="d-flex"
-          style={{ minHeight: "75vh" }}
-        >
-          <GDSCCalendar data={applicationData} />
+        <Col lg={8} style={{ minHeight: "75vh" }}>
+          <Card className="py-4 mb-4">
+            <CardBody>
+              <h4 className="px-3">Available 4 rooms</h4>
+              <strong className="px-3">Select a Room Below</strong>
+              <h6 className="px-3">
+                Once you have selected a room, the available time slots for that
+                room will be displayed.
+              </h6>
+              <br />
+              <nav className="px-3">
+                <ul className="pagination pagination">
+                  <li
+                    className={`page-item ${
+                      selectedRoom === "Room A" ? "active" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => {
+                        handleRoomChange("Room A");
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      A
+                    </a>
+                  </li>
+                  <li
+                    className={`page-item ${
+                      selectedRoom === "Room B" ? "active" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => handleRoomChange("Room B")}
+                      style={{ cursor: "pointer" }}
+                    >
+                      B
+                    </a>
+                  </li>
+                  <li
+                    className={`page-item ${
+                      selectedRoom === "Room C" ? "active" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => handleRoomChange("Room C")}
+                      style={{ cursor: "pointer" }}
+                    >
+                      C
+                    </a>
+                  </li>
+                  <li
+                    className={`page-item ${
+                      selectedRoom === "Room D" ? "active" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => handleRoomChange("Room D")}
+                      style={{ cursor: "pointer" }}
+                    >
+                      D
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </CardBody>
+          </Card>
+          {selectedRoom === "Room A" ? (
+            <div key={selectedRoom}>
+              <GDSCCalendar
+                data={applicationData}
+                link={"praphon.kha/gdsc-interview-room-a"}
+              />
+            </div>
+          ) : selectedRoom === "Room B" ? (
+            <div key={selectedRoom}>
+              <GDSCCalendar
+                data={applicationData}
+                link={"praphon.kha/gdsc-interview-room-b"}
+              />
+            </div>
+          ) : selectedRoom === "Room C" ? (
+            <div key={selectedRoom}>
+              <GDSCCalendar
+                data={applicationData}
+                link={"praphon.kha/gdsc-interview-room-c"}
+              />
+              <br />
+            </div>
+          ) : selectedRoom === "Room D" ? (
+            <div key={selectedRoom}>
+              <GDSCCalendar
+                data={applicationData}
+                link={"praphon.kha/gdsc-interview-room-d"}
+              />{" "}
+              <br />
+            </div>
+          ) : null}
         </Col>
       </Row>
     </div>
