@@ -8,8 +8,8 @@ export default function Page() {
           <img src="/images/maintain-1.gif" width={"100%"} style={{objectFit: "cover"}}  alt="Maintenance" />
         </Col>
         <Col>
-          <h1>GDSC Recruiting Website is being maintained</h1>
-          <h3>Please visit again at 18:00</h3>
+          <h1>GDSC Recruiting Website is being maintaince</h1>
+          <h3>Please visit again at 05-09-2024 18:00</h3>
           <p>Sorry for the inconvenience.</p>
         </Col>
       </Row>
