@@ -1,3 +1,4 @@
+import React, { ReactNode } from "react";
 import { Container } from "react-bootstrap";
 import Header from "@/components/RecrutementHeader";
 import Footer from "@/components/Footer";
