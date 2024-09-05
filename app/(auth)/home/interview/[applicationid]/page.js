@@ -64,12 +64,15 @@ function AuthorizePage({ params }) {
             <CardBody>
               <h4>Instructions</h4>
               <p>Dear {applicationData[0].full_name},</p>
-              <p>Select only 1 time slot of 4 rooms</p>
+              <p>Select only 1 time slot in 1 room from all 5 rooms</p>
               <p>
                 <strong>Important:</strong> Once your interview is scheduled,{" "}
-                <u style={{color: "red"}}>rescheduling or canceling is not allowed</u>. Sorry for the inconvenience.  
-                If you have any exceptional circumstances that necessitate changes, please
-                contact us via email at{" "}
+                <u style={{ color: "red" }}>
+                  rescheduling or canceling is not allowed
+                </u>
+                . Sorry for the inconvenience. If you have any exceptional
+                circumstances that necessitate changes, please contact us via
+                email at{" "}
                 <a href="mailto:gdsc.thammasat@gmail.com">
                   gdsc.thammasat@gmail.com
                 </a>
@@ -101,10 +104,26 @@ function AuthorizePage({ params }) {
                   any technical issues.
                 </li>
                 <li>
+                  <strong>
+                    If you schedule an appointment multiple times,{" "}
+                  </strong>{" "}
+                  the system will select the earliest one you scheduled.
+                </li>
+                <li>
                   <strong>Be on time</strong> for your interview.
                 </li>
               </ul>
-
+              <p>
+                <strong>Additional Note:</strong>
+                <ul>
+                  <li>
+                    Please be advised that your upcoming interview with us will
+                    be recorded. This recording is intended solely for internal
+                    purposes, including but not limited to improving our
+                    interview process and maintaining standards.
+                  </li>
+                </ul>
+              </p>
               <p>
                 If you have any questions or need further assistance, please do
                 not hesitate to reach out to us via the email address provided.
@@ -112,146 +131,95 @@ function AuthorizePage({ params }) {
 
               <p>Thank you for your attention to these details.</p>
               <Alert variant="info" className="my-3">
-                <h6>ระยะเวลาสัมภาษณ์</h6>
-                <div>07/09/2024 - 09/09/2024</div>
-                <hr />
-                <h6>เวลาสัมภาษณ์</h6>
-                <div>09.00-12.00 | 13.00-16.00 | 17.00-19.30</div>
-                <hr />
-                <h6>Session Duration</h6>
-                <div>15 นาที</div>
+                <h5>Interview Period</h5>
+                <Container
+                  className="px-3 py-1 mb-2 me-3"
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <div>
+                    <small className="text-muted">Booking Period</small>
+                  </div>
+                  <div>
+                    September 5th, 2024 (6:00 PM GMT+7) - September 8th, 2024
+                    (11:59 PM GMT+7)
+                  </div>
+                </Container>
+                <Container
+                  className="px-3 py-1 mb-2 me-3"
+                  style={{
+                    backgroundColor: "white",
+                    borderRadius: "5px",
+                  }}
+                >
+                  <div>
+                    <small className="text-muted">Interview Period Dates</small>
+                  </div>
+                  <div>September 9th, 2024 - September 11th, 2024</div>
+                </Container>
               </Alert>
-              <h5>Your Info</h5>
-              <ul>
-                <li>
-                  <b>Name:</b> {applicationData[0].full_name}
-                </li>
-                <li>
-                  <b>Application ID:</b> {applicationData[0].applicationid}
-                </li>
-                <li>
-                  <b>Email:</b> {applicationData[0].user_email}
-                </li>
-                <li>
-                  <b>Secret Code:</b>{" "}
-                  {showSecretCode ? (
-                    applicationData[0].object_id
-                  ) : (
-                    <a
-                      href="#"
-                      onClick={handleToggleSecretCode}
-                      style={{ color: "red" }}
-                    >
-                      Click to show
-                    </a>
-                  )}
-                </li>
-              </ul>
             </CardBody>
           </Card>
         </Col>
         <Col lg={8} style={{ minHeight: "75vh" }}>
           <Card className="py-4 mb-4">
             <CardBody>
-              <h4 className="px-3">Available 4 rooms</h4>
-              <strong className="px-3">Select a Room Below</strong>
-              <h6 className="px-3">
+              <h4>Available 5 rooms</h4>
+              <strong>Select a Room Below</strong>
+              <h6>
                 Once you have selected a room, the available time slots for that
                 room will be displayed.
               </h6>
               <br />
-              <nav className="px-3">
-                <ul className="pagination pagination">
-                  <li
-                    className={`page-item ${
-                      selectedRoom === "Room A" ? "active" : ""
-                    }`}
+              <na>
+                <h5 className="py-3">Please Use This info for Appointment</h5>
+                <Alert variant="danger">
+                  <Container
+                    className="px-3 py-1 mb-2 me-3"
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "5px",
+                    }}
                   >
-                    <a
-                      className="page-link"
-                      onClick={() => {
-                        handleRoomChange("Room A");
-                      }}
-                      style={{ cursor: "pointer" }}
-                    >
-                      A
-                    </a>
-                  </li>
-                  <li
-                    className={`page-item ${
-                      selectedRoom === "Room B" ? "active" : ""
-                    }`}
+                    <div>
+                      <small className="text-muted">
+                        Full name and Last name (You can seperate firstname and
+                        lastname with yourself)
+                      </small>
+                    </div>
+                    <div> {applicationData[0].full_name}</div>
+                  </Container>
+                  <Container
+                    className="px-3 py-1 mb-2 me-3"
+                    style={{
+                      backgroundColor: "white",
+                      borderRadius: "5px",
+                    }}
                   >
-                    <a
-                      className="page-link"
-                      onClick={() => handleRoomChange("Room B")}
-                      style={{ cursor: "pointer" }}
-                    >
-                      B
-                    </a>
-                  </li>
-                  <li
-                    className={`page-item ${
-                      selectedRoom === "Room C" ? "active" : ""
-                    }`}
-                  >
-                    <a
-                      className="page-link"
-                      onClick={() => handleRoomChange("Room C")}
-                      style={{ cursor: "pointer" }}
-                    >
-                      C
-                    </a>
-                  </li>
-                  <li
-                    className={`page-item ${
-                      selectedRoom === "Room D" ? "active" : ""
-                    }`}
-                  >
-                    <a
-                      className="page-link"
-                      onClick={() => handleRoomChange("Room D")}
-                      style={{ cursor: "pointer" }}
-                    >
-                      D
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                    <div>
+                      <small className="text-muted">
+                        Email (@dome is required for interview)
+                      </small>
+                    </div>
+                    <div>{applicationData[0].user_email}</div>
+                  </Container>
+                </Alert>
+              </na>
             </CardBody>
           </Card>
-          {selectedRoom === "Room A" ? (
-            <div key={selectedRoom}>
-              <GDSCCalendar
-                data={applicationData}
-                link={"praphon.kha/gdsc-interview-room-a"}
-              />
-            </div>
-          ) : selectedRoom === "Room B" ? (
-            <div key={selectedRoom}>
-              <GDSCCalendar
-                data={applicationData}
-                link={"praphon.kha/gdsc-interview-room-b"}
-              />
-            </div>
-          ) : selectedRoom === "Room C" ? (
-            <div key={selectedRoom}>
-              <GDSCCalendar
-                data={applicationData}
-                link={"praphon.kha/gdsc-interview-room-c"}
-              />
-              <br />
-            </div>
-          ) : selectedRoom === "Room D" ? (
-            <div key={selectedRoom}>
-              <GDSCCalendar
-                data={applicationData}
-                link={"praphon.kha/gdsc-interview-room-d"}
-              />{" "}
-              <br />
-            </div>
-          ) : null}
+          <Container style={{ overflow: "hidden" , backgroundColor: "white" , borderRadius: "10px" , padding: "5px" }}>
+            <iframe
+              src="https://calendar.google.com/calendar/appointments/AcZssZ1rjLimWYn4gIu3ORkYG1haM0nmLmcwpIDAgek=?gv=true"
+              style={{ border: "5px" }}
+              width="100%"
+              height="900"
+              frameborder="0"
+            ></iframe>
+          </Container>
         </Col>
+        <Col lg={12} className="px-3"></Col>
       </Row>
     </div>
   );

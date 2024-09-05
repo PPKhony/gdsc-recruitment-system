@@ -106,9 +106,9 @@ textarea {
   overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
 }
 
-@media (max-height: 900px) {
+@media (max-height: 700px) {
   .header-01 {
-    height: 100svh; /* Use 100vh for iPhone SE */
+    height: 70svh; /* Use 100vh for iPhone SE */
   }
 }
 

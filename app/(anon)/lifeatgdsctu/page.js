@@ -8,6 +8,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import HomepageHeader from "@/components/HomepageHeader";
+import CloseApplication from "@/components/CloseApplication";
 
 export default function Home() {
   const router = useRouter();
@@ -104,10 +105,11 @@ export default function Home() {
           <div>
             <br />
             <h1 style={{ color: "white" }}>Joining with us</h1>
-            <div style={{ color: "white" }}>Fall 2024</div>
+            <div style={{ color: "white" }}>Academic Year 2024</div>
             <br />
           </div>
-          <PositionOpening />
+          <CloseApplication/>
+          {/* <PositionOpening /> */}
         </Container>
       </div>
 

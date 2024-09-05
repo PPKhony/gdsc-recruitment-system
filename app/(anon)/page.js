@@ -77,9 +77,8 @@ export default function Home() {
           >
             <div>
               <h1 style={{ fontSize: "3.5rem" }}>Growth with </h1>
-              <h2 style={{ fontSize: "1.5rem" }}>GDSC@TU</h2>
+              <h2 style={{ fontSize: "1.5rem" }}>GDSC at Thammasat</h2>
             </div>
-            <hr />
             <br />
           </motion.div>
         </Container>

@@ -221,7 +221,7 @@ const HomePage = () => {
                     <h5>Recruitment Process</h5>
                     <ProgressTracker />
                   </div>
-                  {filteredInterview.length > 0 ? (
+                  {/* {filteredInterview.length > 0 ? (
                     <Alert variant="success" className="my-3">
                       <h5>Successfully scheduling 🥳</h5>
                       <div>
@@ -279,7 +279,7 @@ const HomePage = () => {
                       </strong>
                       <p> (email : gdsc.thammasat@gmail.com)</p>
                     </Alert>
-                  )}
+                  )} */}
                   <div>
                     <b>Candidate Name: </b>
                     {applicant.full_name}
