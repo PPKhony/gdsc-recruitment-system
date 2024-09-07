@@ -35,7 +35,6 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children }) => {
   // Define the target date and time
   const nowDate = new Date(currentDate)
   const targetDate = new Date("2024-09-05T18:00:00+07:00") //Thai time
-  console.log(nowDate < targetDate);
   
   if (nowDate < targetDate) {
     // Redirect to /waiting if the current time is before the target date
