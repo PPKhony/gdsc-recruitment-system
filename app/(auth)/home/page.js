@@ -293,13 +293,13 @@ const HomePage = () => {
                   <li className="list-group-item">
                     <div className="d-block mb-3">
                       <ApplicationDetailsModal dataObject={applicant} />
-                      {filteredInterview.length == 0 ? (
+                      {/* {filteredInterview.length == 0 ? (
                         <Card.Link
                           href={`/home/interview/` + applicant.object_id}
                         >
                           Schedule Interview Time
                         </Card.Link>
-                      ) : null}
+                      ) : null} */}
                     </div>
                   </li>
                 </ul>
