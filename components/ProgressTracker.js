@@ -10,17 +10,17 @@ const stepsData = [
   },
   {
     stepNumber: 2,
-    status: "In Progress : Interview",
+    status: "Finished : Interview",
     description: "Attend your scheduled interview.",
-    bgColor: "bg-info",
+    bgColor: "bg-primary",
     textColor: "text-white",
   },
   {
     stepNumber: 3,
-    status: "Pending : Evaluation",
+    status: "In Progress : Evaluation",
     description: "Your profile will be evaluated.",
-    bgColor: "bg-light",
-    textColor: "text-secondary",
+    bgColor: "bg-info",
+    textColor: "text-white",
     border: "border",
   },
   {
