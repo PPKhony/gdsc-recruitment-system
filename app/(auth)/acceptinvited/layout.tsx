@@ -11,8 +11,8 @@ import { createClient } from "@/utils/supabase/server";
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: "GDSC@TU Waiting Page",
-  description: "GDSC@TU Waiting Page",
+  title: "GDSC@TU Accept Invited",
+  description: "GDSC@TU Accept Invited",
 };
 
 interface RootLayoutProps {

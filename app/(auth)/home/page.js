@@ -239,8 +239,8 @@ const HomePage = () => {
                     {filteredResult[0]?.status == "Passed" &&
                     filteredResult[0]?.isAccept == "FALSE" ? (
                       <Alert>
-                        <h4>Congratulation🎉</h4>
-                        <h5>⌛Pending for confirm member status</h5>
+                        <h5>Congratulation🎉</h5>
+                        <h6>Pending for confirm member status</h6>
                         <h6 className="mb-4">
                           You have been selected to be a core team in 2024
                           Confirm here
@@ -271,8 +271,7 @@ const HomePage = () => {
                           After careful consideration, we regret to inform you
                           that we will not be moving forward with your
                           application at this time. This decision was a
-                          difficult one due to the high caliber of candidates we
-                          reviewed.
+                          difficult one.
                         </p>
                         <p>
                           We encourage you to apply for future openings that
