@@ -125,6 +125,7 @@ function AuthorizePage({ params }) {
             autoPlay
             muted
             playsInline
+            preload="auto"
             onEnded={() => handleVideoEnd(1)} // Set event listener for video end
             style={{
               position: "absolute",
@@ -226,6 +227,7 @@ function AuthorizePage({ params }) {
             autoPlay
             muted
             playsInline // Add playsinline attribute for iOS
+            preload="auto"
             style={{
               position: "absolute",
               top: "50%",
