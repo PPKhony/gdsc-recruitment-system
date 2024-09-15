@@ -268,7 +268,7 @@ function AuthorizePage({ params }) {
                 >
                   <h1>Congratulation!</h1>
                   <h2>Now you are GDSC Member</h2>
-                  <h3>Don't Miss out information</h3>
+                  <h3>Don{"'"}t Miss out information</h3>
                   <hr/>
                   <Button href="https://discord.gg/KJrMvCPK"> Join Discord</Button>
                 </Container>
