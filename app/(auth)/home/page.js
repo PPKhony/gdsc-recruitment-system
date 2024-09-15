@@ -22,6 +22,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedApplicationId, setSelectedApplicationId] = useState(null);
   const [user, setUser] = useState(null);
+  const [applicantresult, setApplicantResult] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       const {
@@ -42,24 +43,32 @@ const HomePage = () => {
           .select("*")
           .eq("user_email", user.email);
 
+        const { data: application_result, error: application_result_error } =
+          await supabase
+            .from("applications_result")
+            .select("*")
+            .eq("user_id", user.id);
+
         if (applicantError) {
           console.error("Error fetching applicant data:", applicantError);
-        } else if (itv_error) {
-          console.error("Error fetching applicant data:", itv_data);
         } else {
           setApplicantStatus(applicantData);
           setItwData(itv_data);
           if (applicantData.length > 0) {
             setSelectedApplicationId(applicantData[0].applicationid);
           }
-          console.log(itv_data);
-          sessionStorage.setItem(
-            "applicationData",
-            JSON.stringify(applicantData)
+          // sessionStorage.setItem(
+          //   "applicationData",
+          //   JSON.stringify(applicantData)
+          // );
+
+          await setApplicantResult(application_result);
+          await sessionStorage.setItem(
+            "applicationResult",
+            JSON.stringify(application_result)
           );
         }
       }
-
       setLoading(false);
     };
 
@@ -192,6 +201,10 @@ const HomePage = () => {
               (data) => data.application_id == applicant.applicationid
             );
 
+            const filteredResult = applicantresult?.filter(
+              (data) => data.application_id == applicant.applicationid
+            );
+
             return (
               <Card
                 key={i}
@@ -221,65 +234,43 @@ const HomePage = () => {
                     <h5>Recruitment Process</h5>
                     <ProgressTracker />
                   </div>
-                  {/* {filteredInterview.length > 0 ? (
-                    <Alert variant="success" className="my-3">
-                      <h5>Successfully scheduling 🥳</h5>
-                      <div>
-                        <b>Interview Date-Time (20 min)</b>
-                      </div>
-                      <div className="d-flex flex-wrap align-items-center my-3">
-                        <Container
-                          className="px-3 py-1 mb-2 me-3"
-                          style={{
-                            backgroundColor: "white",
-                            borderRadius: "5px",
-                          }}
+                  <h5 className="mb-">Application Result</h5>
+                  <div className="my-3">
+                    {filteredResult[0]?.status == "Passed" &&
+                    filteredResult[0]?.isAccept == "FALSE" ? (
+                      <Alert>
+                        <h4>Congratulation🎉</h4>
+                        <h5>⌛Pending for confirm member status</h5>
+                        <h6 className="mb-4">
+                          You have been selected to be a core team in 2024
+                          Confirm here
+                        </h6>
+                        <Button
+                          href={`/acceptinvited/` + filteredResult[0].object_id}
                         >
-                          <div>
-                            <small className="text-muted">Start Time</small>
-                          </div>
-                          <div>
-                            {formatDate(filteredInterview[0].start_time)}
-                          </div>
-                        </Container>
-                        <Container
-                          className="px-3 py-1 mb-2 me-3"
-                          style={{
-                            backgroundColor: "white",
-                            borderRadius: "5px",
-                          }}
-                        >
-                          <div>
-                            <small className="text-muted">End Time</small>
-                          </div>
-                          <div>{formatDate(filteredInterview[0].end_time)}</div>
-                        </Container>
-                      </div>
-                      <hr/>
-                      <b>Meeting Link : </b>{" "}
-                      <a
-                        href={filteredInterview[0].meeting_link}
-                        style={{ color: "black" }}
-                      >
-                        {filteredInterview[0].meeting_link}
-                      </a>
-                    </Alert>
-                  ) : (
-                    <Alert variant="info" className="my-3">
-                      <h5>You are not scheduling for this application 😢</h5>
-                      <div>
-                        Please ensure that all interviews are scheduled before
-                        September 6, 2024, 23:59:59 GMT+07.
-                      </div>
-                      <br />
-                      <strong>
-                        If you encounter any issues or need assistance, please{" "}
-                        <a href="mailto:gdsc.thammasat@gmail.com">contact us</a>
-                        .
-                      </strong>
-                      <p> (email : gdsc.thammasat@gmail.com)</p>
-                    </Alert>
-                  )} */}
+                          Click here to confirm
+                        </Button>
+                      </Alert>
+                    ) : null}
+                    {filteredResult[0]?.status == "Passed" &&
+                    filteredResult[0]?.isAccept == "TRUE" ? (
+                      <Alert variant="success">
+                        Congretulation You have been selected to be a core team
+                        in 2024 Confirm here
+                      </Alert>
+                    ) : null}
+                    {filteredResult[0]?.status == "Rejected" ? (
+                      <Alert variant="danger">You are not selected</Alert>
+                    ) : null}
+
+                    {filteredResult.length == 0 ? (
+                      <Alert>
+                        The problem occurs to application please contact us via
+                        email before 20 Sep 2024
+                      </Alert>
+                    ) : null}
+                  </div>
+
                   <div>
                     <b>Candidate Name: </b>
                     {applicant.full_name}
@@ -293,12 +284,17 @@ const HomePage = () => {
                   <li className="list-group-item">
                     <div className="d-block mb-3">
                       <ApplicationDetailsModal dataObject={applicant} />
+
                       {/* {filteredInterview.length == 0 ? (
                         <Card.Link
                           href={`/home/interview/` + applicant.object_id}
                         >
                           Schedule Interview Time
                         </Card.Link>
+                      ) : null} */}
+
+                      {/* {filteredResult.status != "true" ? (
+                        <div>Not yet scheduled for an interview</div>
                       ) : null} */}
                     </div>
                   </li>

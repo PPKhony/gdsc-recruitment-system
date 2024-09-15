@@ -9,7 +9,6 @@ export default function Page() {
         </Col>
         <Col>
           <h1>GDSC Recruiting Website is being maintaince</h1>
-          <h3>Please visit again at 05-09-2024 18:00</h3>
           <p>Sorry for the inconvenience.</p>
         </Col>
       </Row>

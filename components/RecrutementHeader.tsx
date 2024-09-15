@@ -32,7 +32,7 @@ const Header: React.FC = () => {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      console.log(user);
+      // console.log(user);
       setUser_profile(user?.user_metadata?.avatar_url || "");
       setUser(user?.user_metadata?.email || ""); // Handle case where user or user_metadata might be undefined
     } catch (error) {

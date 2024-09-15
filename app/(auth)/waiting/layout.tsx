@@ -22,7 +22,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children }) => {
 
   // Define the target date and time
   const nowDate = new Date(currentDate)
-  const targetDate = new Date("2024-09-05T18:00:00+07:00") //Thai time
+  const targetDate = new Date("2024-09-16T18:00:00+07:00") //Thai time
 
   if (nowDate > targetDate) {
     return redirect("/home")
