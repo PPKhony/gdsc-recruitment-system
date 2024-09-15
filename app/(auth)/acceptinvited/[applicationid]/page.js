@@ -68,7 +68,7 @@ function AuthorizePage({ params }) {
             height="300"
             alt="Loading..."
           />
-          <h3>Loading...</h3>
+          <h3 style={{color: "white"}}>Loading...</h3>
         </div>
       </Container>
     );
@@ -105,8 +105,9 @@ function AuthorizePage({ params }) {
             width={50}
             height={23}
             alt="logo"
+            style={{zIndex: "1000"}}
           />
-          <Col style={{ marginLeft: "8px", color: "white" }}>
+          <Col style={{ marginLeft: "8px", color: "white" , zIndex: "1000"}}>
             <div>Thammasat University</div>
           </Col>
         </div>
@@ -123,7 +124,7 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
-            playsInline 
+            playsInline
             onEnded={() => handleVideoEnd(1)} // Set event listener for video end
             style={{
               position: "absolute",
@@ -133,7 +134,7 @@ function AuthorizePage({ params }) {
               minHeight: "100%",
               width: "auto",
               height: "auto",
-              zIndex: "-1",
+              zIndex: "1",
               transform: "translate(-50%, -50%)",
             }}
           >
@@ -177,13 +178,10 @@ function AuthorizePage({ params }) {
                       <h4>You have Been Selected to Join GDSC</h4>
                       <br />
                       <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
-                        We are thrilled to inform you that you have been
-                        selected to join the Google Developer Student Club
-                        (GDSC) at Thammasat University! Your passion, skills,
-                        and dedication have truly stood out, and we believe you
-                        will be a valuable part of our club. This is the
-                        beginning of an exciting journey filled with
-                        opportunities to grow, collaborate, and make an impact.
+                        Your passion and skills have truly impressed us, and
+                        we are excited to have you as part of the team. Get ready
+                        for an exciting journey of growth, collaboration, and
+                        impact!
                       </p>
                       <p>
                         {" "}
@@ -222,7 +220,8 @@ function AuthorizePage({ params }) {
       {sectionPage === 2 ? (
         <div
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
-        >d
+        >
+          d
           <video
             autoPlay
             muted
@@ -269,8 +268,11 @@ function AuthorizePage({ params }) {
                   <h1>Congratulation!</h1>
                   <h2>Now you are GDSC Member</h2>
                   <h3>Don{"'"}t Miss out information</h3>
-                  <hr/>
-                  <Button href="https://discord.gg/KJrMvCPK"> Join Discord</Button>
+                  <hr />
+                  <Button href="https://discord.gg/KJrMvCPK">
+                    {" "}
+                    Join Discord
+                  </Button>
                 </Container>
               </div>
             </Container>

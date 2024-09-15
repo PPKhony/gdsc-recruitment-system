@@ -30,7 +30,7 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children }) => {
 
   return (
     <>
-      <main style={{ minHeight: "100dvh" }}>{children}</main>
+      <main style={{ minHeight: "100dvh" , backgroundColor: "black" }}>{children}</main>
     </>
   );
 };

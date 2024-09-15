@@ -450,8 +450,9 @@ textarea {
   position: relative;
   background-color: rgba(255, 255, 255, 0.05); /* Black background with 80% opacity */
   color: white; /* Set text color to white */
-  backdrop-filter: blur(5px); /* Apply blur effect to the background */
+  backdrop-filter: blur(15px); /* Apply blur effect to the background */
   padding: 20px;
   border-radius: 40px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur, color */
+  filter: brightness(85%); /* Reduce brightness by 15% */
 }
