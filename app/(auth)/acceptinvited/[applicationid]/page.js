@@ -136,7 +136,6 @@ function AuthorizePage({ params }) {
               zIndex: "-1",
               transform: "translate(-50%, -50%)",
             }}
-            preload="auto"
           >
             <source src="https://wxaqfbrnwhtooidzbvhi.supabase.co/storage/v1/object/public/video/01.mp4" />
             Your browser does not support the video tag.
@@ -223,11 +222,10 @@ function AuthorizePage({ params }) {
       {sectionPage === 2 ? (
         <div
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
-        >
+        >d
           <video
             autoPlay
             muted
-            preload="auto"
             playsinline // Add playsinline attribute for iOS
             style={{
               position: "absolute",
