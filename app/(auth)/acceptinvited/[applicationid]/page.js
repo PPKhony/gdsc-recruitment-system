@@ -212,7 +212,7 @@ function AuthorizePage({ params }) {
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
-                      <Button onClick={updateAcceptmember}>
+                      <Button onClick={()=>{setSectionPage(2)}}>
                         Join the GDSC Core Team 2024
                       </Button>
                     </div>
