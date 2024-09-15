@@ -111,11 +111,11 @@ function AuthorizePage({ params }) {
           </Col>
         </div>
       </Container>
-      <audio
+      {/* <audio
         src="/images/sound1.mp3"
         autoPlay
         style={{ width: "0px", height: "0px" }}
-      />
+      /> */}
       {sectionPage === 0 || sectionPage === 1 ? (
         <div
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
