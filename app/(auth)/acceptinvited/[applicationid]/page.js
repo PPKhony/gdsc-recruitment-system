@@ -227,6 +227,7 @@ function AuthorizePage({ params }) {
             autoPlay
             muted
             preload="auto"
+            playsinline // Add playsinline attribute for iOS
             style={{
               position: "absolute",
               top: "50%",
