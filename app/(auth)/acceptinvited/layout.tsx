@@ -8,6 +8,7 @@ import "@/utils/custom.scss";
 import { getCurrentTime } from "@/utils/getCurrentTime";
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "GDSC@TU Waiting Page",

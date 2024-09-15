@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-import { Button, Container, Image } from "react-bootstrap";
-import { motion } from "framer-motion"; 
-import { openDB } from 'idb';
+import { useEffect, useState, useRef } from "react";
+import { Button, Card, Container, Image } from "react-bootstrap";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 function AuthorizePage({ params }) {
   const [applicationData, setApplicationData] = useState([]);
@@ -10,50 +9,10 @@ function AuthorizePage({ params }) {
   const [isLoaded, setIsLoaded] = useState(false); // Video loading state
   const [isMinimumTimeElapsed, setIsMinimumTimeElapsed] = useState(false); // Minimum time state
   const [sectionAccept, setSectionAccept] = useState(1);
-  const [videosLoaded, setVideosLoaded] = useState(false); // Videos cached and ready state
-  const [videoUrl1, setVideoUrl1] = useState(null); // State to hold video 1 URL
-  const [videoUrl2, setVideoUrl2] = useState(null); // State to hold video 2 URL
 
-  const videoUrls = ["/images/01.mp4", "/images/02.mp4"];
-
-  // Initialize IndexedDB
-  const initDB = async () => {
-    return openDB("video-cache", 1, {
-      upgrade(db) {
-        if (!db.objectStoreNames.contains("videos")) {
-          db.createObjectStore("videos", { keyPath: "url" });
-        }
-      },
-    });
-  };
-
-  // Utility function to fetch and cache the video as Blob data in IndexedDB
-  const cacheVideo = async (url) => {
-    const db = await initDB();
-    const response = await fetch(url);
-    const blob = await response.blob();
-    await db.put("videos", { url, blob });
-  };
-
-  // Load videos from IndexedDB or fetch and cache them if not available
-  const loadAndCacheVideos = async () => {
-    const db = await initDB();
-
-    for (const url of videoUrls) {
-      const cachedVideo = await db.get("videos", url);
-      if (!cachedVideo) {
-        await cacheVideo(url);
-      }
-    }
-
-    // After caching, load the video URLs
-    const video1Blob = await db.get("videos", videoUrls[0]);
-    const video2Blob = await db.get("videos", videoUrls[1]);
-
-    if (video1Blob) setVideoUrl1(URL.createObjectURL(video1Blob.blob));
-    if (video2Blob) setVideoUrl2(URL.createObjectURL(video2Blob.blob));
-
-    setVideosLoaded(true); // Mark videos as loaded
+  const updateAcceptmember = () => {
+    setSectionPage(2);
+    setSectionAccept(3);
   };
 
   useEffect(() => {
@@ -72,8 +31,6 @@ function AuthorizePage({ params }) {
       setIsMinimumTimeElapsed(true);
     }, 3000);
 
-    loadAndCacheVideos(); // Start caching videos
-
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
 
@@ -87,8 +44,8 @@ function AuthorizePage({ params }) {
     </Container>
   );
 
-  // Loading screen is shown if the minimum time hasn't elapsed or videos aren't loaded yet
-  if (!isMinimumTimeElapsed || !videosLoaded) {
+  // Loading screen is shown if either the video is not loaded or the minimum time has not elapsed
+  if (!isMinimumTimeElapsed) {
     return (
       <Container style={{ minHeight: "100dvh" }}>
         <div
@@ -147,12 +104,10 @@ function AuthorizePage({ params }) {
               zIndex: "-1",
               transform: "translate(-50%, -50%)",
             }}
+            preload="auto"
           >
-            {videoUrl1 ? (
-              <source src={videoUrl1} type="video/mp4" />
-            ) : (
-              <p>Your browser does not support the video tag.</p>
-            )}
+            <source src="https://cdn.discordapp.com/attachments/941645769012822049/1284905133846560859/01-2.mp4?ex=66e854a8&is=66e70328&hm=4c45005b70a0fe70a4eb3fac2f23bc832c9053fd2ad04ef463a2b6305312c881&" />
+            Your browser does not support the video tag.
           </video>
 
           {/* Fade-in text on page load */}
@@ -178,15 +133,16 @@ function AuthorizePage({ params }) {
                   marginTop: "50px",
                 }}
               >
-                <h1 className="mb-3">Congratulations</h1>
+                <h1>Congratulations</h1>
                 <Container
-                  className="background-congratulation mt-xl-5 mt-md-3 mt-2 pb-4 px-4"
+                  className="background-congratulation mt-xl-5 mt-md-3 mt-2 py-4 px-4"
                   style={{ textAlign: "left" }}
                 >
                   {sectionAccept === 1 ? (
                     <div>
-                      <br />
-                      <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
+                      <h4>You have Been Selected to Join GDSC</h4>
+                      <br/>
+                      <p style={{maxWidth: "500px", lineHeight: "1.8"}}>
                         We are thrilled to inform you that you have been
                         selected to join the Google Developer Student Club
                         (GDSC) at Thammasat University! Your passion, skills,
@@ -198,7 +154,7 @@ function AuthorizePage({ params }) {
                       <p>
                         {" "}
                         We are looking forward to seeing you thrive in GDSC!
-                        Once again,
+                        Once again, 
                       </p>
                       <b>congratulations and welcome aboard!</b>
                       <hr />
@@ -208,12 +164,12 @@ function AuthorizePage({ params }) {
                   {sectionAccept == 2 ? (
                     <div>
                       <h4>Become GDSC Team!</h4>
-                      <h6 className="mb-4" style={{ lineHeight: "1.5" }}>
+                      <h6 className="mb-4" style={{lineHeight: "1.5"}}>
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
-                      <Button onClick={()=>{setSectionPage(2)}}>
-                        Join the GDSC Core Team 2024
+                      <Button onClick={updateAcceptmember}>
+                        Accept member
                       </Button>
                     </div>
                   ) : null}
@@ -231,6 +187,8 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
+            onEnded={() => handleVideoEnd(3)}
+            preload="auto"
             style={{
               position: "absolute",
               top: "50%",
@@ -243,12 +201,15 @@ function AuthorizePage({ params }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            {videoUrl2 ? (
-              <source src={videoUrl2} type="video/mp4" />
-            ) : (
-              <p>Your browser does not support the video tag.</p>
-            )}
+            <source src="https://cdn.discordapp.com/attachments/941645769012822049/1284906444780470303/02-2.mp4?ex=66e855e0&is=66e70460&hm=83a09822e1456006be03ad5f03b87db2cb3e468a40f6db029819b55c9f877f5b&" type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
+          {sectionPage === 3 ? (
+            <div>
+              <h1>Thank you for apply this club</h1>
+              <Button href="/home"> Go to HomePage and see result</Button>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </motion.div>
