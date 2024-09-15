@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import { Button, Card, Container, Image } from "react-bootstrap";
+import { Button, Card, Col, Container, Image, Navbar } from "react-bootstrap";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import { createClient } from "@/utils/supabase/client";
 
@@ -90,6 +90,27 @@ function AuthorizePage({ params }) {
       animate={{ opacity: 1 }} // Transition to full opacity
       transition={{ duration: 1.5 }} // Duration for page load animation
     >
+      <Container>
+        <div
+          style={{
+            backgroundColor: "transparent",
+            position: "absolute",
+            top: "0",
+          }}
+          href="/"
+          className="d-flex align-items-center my-4"
+        >
+          <Image
+            src="/images/Google_for_Developers_logomark_color.png"
+            width={50}
+            height={23}
+            alt="logo"
+          />
+          <Col style={{ marginLeft: "8px", color: "white" }}>
+            <div>Thammasat University</div>
+          </Col>
+        </div>
+      </Container>
       <audio
         src="/images/sound1.mp3"
         autoPlay
@@ -140,10 +161,13 @@ function AuthorizePage({ params }) {
                   zIndex: "1",
                   color: "white",
                   textAlign: "center",
-                  marginTop: "50px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "90dvh",
                 }}
               >
-                <h1>Congratulations</h1>
                 <Container
                   className="background-congratulation mt-xl-5 mt-md-3 mt-2 py-4 px-4"
                   style={{ textAlign: "left" }}
@@ -173,10 +197,10 @@ function AuthorizePage({ params }) {
                   ) : null}
                   {sectionAccept == 2 ? (
                     <motion.div
-                      initial={{ opacity: 0, y: -20 }}
+                      initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
-                        duration: 1.5
+                        duration: 1,
                       }} // Add easing
                     >
                       <h4>Become GDSC Team!</h4>
@@ -184,10 +208,8 @@ function AuthorizePage({ params }) {
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
-                      <hr/>
-                      <Button onClick={updateAcceptmember}>
-                        Accept 
-                      </Button>
+                      <hr />
+                      <Button onClick={updateAcceptmember}>Accept</Button>
                     </motion.div>
                   ) : null}
                 </Container>
@@ -204,7 +226,6 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
-            onEnded={() => handleVideoEnd(3)}
             preload="auto"
             style={{
               position: "absolute",
@@ -226,11 +247,33 @@ function AuthorizePage({ params }) {
             />
             Your browser does not support the video tag.
           </video>
-          {sectionPage === 3 ? (
-            <div>
-              <h1>Thank you for apply this club</h1>
-              <Button href="/home"> Go to HomePage and see result</Button>
-            </div>
+          {sectionAccept === 3 ? (
+            <Container>
+              <div
+                style={{
+                  position: "relative",
+                  zIndex: "1",
+                  color: "white",
+                  textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "90dvh",
+                }}
+              >
+                <Container
+                  className="background-congratulation mt-xl-5 mt-md-3 mt-2 py-4 px-4"
+                  style={{ textAlign: "left" }}
+                >
+                  <h1>Congratulation!</h1>
+                  <h2>Now you are GDSC Member</h2>
+                  <h3>Don't Miss out information</h3>
+                  <hr/>
+                  <Button href="https://discord.gg/KJrMvCPK"> Join Discord</Button>
+                </Container>
+              </div>
+            </Container>
           ) : null}
         </div>
       ) : null}

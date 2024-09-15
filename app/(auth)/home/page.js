@@ -209,10 +209,9 @@ const HomePage = () => {
               <Card
                 key={i}
                 id={`applicant-${applicant.applicationid}`}
-                className="mb-4"
+                className="mb-4 px-3 px-xl-4 py-5"
                 style={{ borderColor: "white" }}
               >
-                <CardBody>
                   <div className="d-flex mb-3 justify-content-between align-items-center flex-wrap">
                     <Col className="colored-bar-container">
                       <div style={{ color: "gray" }}>Application ID</div>
@@ -298,7 +297,6 @@ const HomePage = () => {
                       {formatDateToGMTPlus7(applicant.timestamp)}
                     </div>
                   </div>
-                </CardBody>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <div className="d-block mb-3">
