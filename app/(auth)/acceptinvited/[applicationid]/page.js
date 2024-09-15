@@ -123,6 +123,7 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
+            playsinline 
             onEnded={() => handleVideoEnd(1)} // Set event listener for video end
             style={{
               position: "absolute",
