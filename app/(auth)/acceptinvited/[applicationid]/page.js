@@ -222,11 +222,10 @@ function AuthorizePage({ params }) {
         <div
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
         >
-          d
           <video
             autoPlay
             muted
-            playsInline // Add playsinline attribute for iOS
+            playsInline
             preload="auto"
             style={{
               position: "absolute",
@@ -236,7 +235,6 @@ function AuthorizePage({ params }) {
               minHeight: "100%",
               width: "auto",
               height: "auto",
-              zIndex: "-1",
               transform: "translate(-50%, -50%)",
             }}
           >

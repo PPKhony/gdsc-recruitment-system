@@ -448,11 +448,23 @@ textarea {
 
 .background-congratulation {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.05); /* Black background with 80% opacity */
   color: white; /* Set text color to white */
-  backdrop-filter: blur(15px); /* Apply blur effect to the background */
   padding: 20px;
   border-radius: 40px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur, color */
-  filter: brightness(85%); /* Reduce brightness by 15% */
+  z-index: 1; /* Ensure text stays above the background */
+}
+
+.background-congratulation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  backdrop-filter: blur(15px); /* Apply blur effect to the background */
+  filter: brightness(85%); /* Apply brightness only to the background */
+  border-radius: 40px; /* Match border-radius with the parent container */
+  z-index: -1; /* Ensure the background stays behind the content */
 }
