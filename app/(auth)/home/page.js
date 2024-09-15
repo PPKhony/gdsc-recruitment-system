@@ -255,12 +255,32 @@ const HomePage = () => {
                     {filteredResult[0]?.status == "Passed" &&
                     filteredResult[0]?.isAccept == "TRUE" ? (
                       <Alert variant="success">
-                        Congretulation You have been selected to be a core team
-                        in 2024 Confirm here
+                        Congratulation! You are member of gdsc 2024!
                       </Alert>
                     ) : null}
                     {filteredResult[0]?.status == "Rejected" ? (
-                      <Alert variant="danger">You are not selected</Alert>
+                      <Alert variant="danger">
+                      <h5>Rejected Application</h5>
+                        <p>
+                          Thank you for your interest in the {applicant.role} {" "}
+                          position at GDSC Thammasat. We appreciate the time and
+                          effort you put into your application and interview
+                          process.
+                        </p>
+                        <p>
+                          After careful consideration, we regret to inform you
+                          that we will not be moving forward with your
+                          application at this time. This decision was a
+                          difficult one due to the high caliber of candidates we
+                          reviewed.
+                        </p>
+                        <p>
+                          We encourage you to apply for future openings that
+                          align with your skills and experience. Thank you again
+                          for your interest in our company and for the
+                          opportunity to consider your application.
+                        </p>
+                      </Alert>
                     ) : null}
 
                     {filteredResult.length == 0 ? (

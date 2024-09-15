@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { Button, Card, Container, Image } from "react-bootstrap";
 import { motion } from "framer-motion"; // Import motion from framer-motion
+import { createClient } from "@/utils/supabase/client";
 
 function AuthorizePage({ params }) {
   const [applicationData, setApplicationData] = useState([]);
@@ -9,11 +10,7 @@ function AuthorizePage({ params }) {
   const [isLoaded, setIsLoaded] = useState(false); // Video loading state
   const [isMinimumTimeElapsed, setIsMinimumTimeElapsed] = useState(false); // Minimum time state
   const [sectionAccept, setSectionAccept] = useState(1);
-
-  const updateAcceptmember = () => {
-    setSectionPage(2);
-    setSectionAccept(3);
-  };
+  const supabase = createClient();
 
   useEffect(() => {
     const applicationDatas = sessionStorage.getItem("applicationResult");
@@ -33,7 +30,20 @@ function AuthorizePage({ params }) {
 
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
-
+  
+  const updateAcceptmember = async () => {
+    setSectionPage(2);
+    setSectionAccept(3);
+    const { data, error } = await supabase
+      .from("applications_result")
+      .update({ isAccept: "TRUE" })
+      .eq("object_id", applicationData[0].object_id);
+    
+    if (error) {
+      console.error("Error updating data:", error.message);
+    }
+  };
+  
   const NoDataFallback = () => (
     <Container
       style={{ height: "95dvh" }}
@@ -141,8 +151,8 @@ function AuthorizePage({ params }) {
                   {sectionAccept === 1 ? (
                     <div>
                       <h4>You have Been Selected to Join GDSC</h4>
-                      <br/>
-                      <p style={{maxWidth: "500px", lineHeight: "1.8"}}>
+                      <br />
+                      <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
                         We are thrilled to inform you that you have been
                         selected to join the Google Developer Student Club
                         (GDSC) at Thammasat University! Your passion, skills,
@@ -154,7 +164,7 @@ function AuthorizePage({ params }) {
                       <p>
                         {" "}
                         We are looking forward to seeing you thrive in GDSC!
-                        Once again, 
+                        Once again,
                       </p>
                       <b>congratulations and welcome aboard!</b>
                       <hr />
@@ -164,12 +174,12 @@ function AuthorizePage({ params }) {
                   {sectionAccept == 2 ? (
                     <div>
                       <h4>Become GDSC Team!</h4>
-                      <h6 className="mb-4" style={{lineHeight: "1.5"}}>
+                      <h6 className="mb-4" style={{ lineHeight: "1.5" }}>
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
                       <Button onClick={updateAcceptmember}>
-                        Accept member
+                        Accept Invitation to GDSC Member
                       </Button>
                     </div>
                   ) : null}
@@ -201,7 +211,11 @@ function AuthorizePage({ params }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <source src="https://cdn.discordapp.com/attachments/941645769012822049/1284906444780470303/02-2.mp4?ex=66e855e0&is=66e70460&hm=83a09822e1456006be03ad5f03b87db2cb3e468a40f6db029819b55c9f877f5b&" type="video/mp4" />
+            <source
+              src="https://cdn.discordapp.com/attachments/941645769012822049/1284906444780470303/02-2.mp4?ex=66e855e0&is=66e70460&hm=83a09822e1456006be03ad5f03b87db2cb3e468a40f6db029819b55c9f877f5b&"
+              // src="https://firebasestorage.googleapis.com/v0/b/gdsc-test-58801.appspot.com/o/02-2.mp4?alt=media&token=19afd371-d455-4289-ad01-d9c9ce518727"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
           {sectionPage === 3 ? (
