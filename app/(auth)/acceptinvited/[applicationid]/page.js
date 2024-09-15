@@ -111,11 +111,11 @@ function AuthorizePage({ params }) {
           </Col>
         </div>
       </Container>
-      {/* <audio
+      <audio
         src="/images/sound1.mp3"
         autoPlay
         style={{ width: "0px", height: "0px" }}
-      /> */}
+      />
       {sectionPage === 0 || sectionPage === 1 ? (
         <div
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
@@ -123,7 +123,7 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
-            playsinline 
+            playsInline 
             onEnded={() => handleVideoEnd(1)} // Set event listener for video end
             style={{
               position: "absolute",
@@ -226,7 +226,7 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
-            playsinline // Add playsinline attribute for iOS
+            playsInline // Add playsinline attribute for iOS
             style={{
               position: "absolute",
               top: "50%",
