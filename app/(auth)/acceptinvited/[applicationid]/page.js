@@ -30,7 +30,7 @@ function AuthorizePage({ params }) {
 
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
-  
+
   const updateAcceptmember = async () => {
     setSectionPage(2);
     setSectionAccept(3);
@@ -38,12 +38,12 @@ function AuthorizePage({ params }) {
       .from("applications_result")
       .update({ isAccept: "TRUE" })
       .eq("object_id", applicationData[0].object_id);
-    
+
     if (error) {
       console.error("Error updating data:", error.message);
     }
   };
-  
+
   const NoDataFallback = () => (
     <Container
       style={{ height: "95dvh" }}
@@ -116,7 +116,7 @@ function AuthorizePage({ params }) {
             }}
             preload="auto"
           >
-            <source src="https://wxaqfbrnwhtooidzbvhi.supabase.co/storage/v1/object/public/video/01.mp4"  />
+            <source src="https://wxaqfbrnwhtooidzbvhi.supabase.co/storage/v1/object/public/video/01.mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -172,16 +172,23 @@ function AuthorizePage({ params }) {
                     </div>
                   ) : null}
                   {sectionAccept == 2 ? (
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 1.5
+                      }} // Add easing
+                    >
                       <h4>Become GDSC Team!</h4>
                       <h6 className="mb-4" style={{ lineHeight: "1.5" }}>
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
+                      <hr/>
                       <Button onClick={updateAcceptmember}>
-                        Accept Invitation to GDSC Member
+                        Accept 
                       </Button>
-                    </div>
+                    </motion.div>
                   ) : null}
                 </Container>
               </motion.div>
