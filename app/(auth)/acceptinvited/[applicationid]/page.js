@@ -121,7 +121,7 @@ function AuthorizePage({ params }) {
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
         >
           <video
-            autoplay
+            autoPlay
             muted
             playsinline 
             onEnded={() => handleVideoEnd(1)} // Set event listener for video end
@@ -224,7 +224,7 @@ function AuthorizePage({ params }) {
           style={{ position: "relative", height: "100dvh", overflow: "hidden" }}
         >d
           <video
-            autoplay
+            autoPlay
             muted
             playsinline // Add playsinline attribute for iOS
             style={{
