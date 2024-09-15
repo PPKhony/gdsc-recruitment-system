@@ -116,7 +116,7 @@ function AuthorizePage({ params }) {
             }}
             preload="auto"
           >
-            <source src="/images/01.mp4"  />
+            <source src="https://wxaqfbrnwhtooidzbvhi.supabase.co/storage/v1/object/public/video/01.mp4"  />
             Your browser does not support the video tag.
           </video>
 
@@ -212,7 +212,7 @@ function AuthorizePage({ params }) {
             }}
           >
             <source
-              src="/images/02.mp4"
+              src="https://wxaqfbrnwhtooidzbvhi.supabase.co/storage/v1/object/public/video/02-2.mp4"
               // src="https://cdn.discordapp.com/attachments/941645769012822049/1284906444780470303/02-2.mp4?ex=66e855e0&is=66e70460&hm=83a09822e1456006be03ad5f03b87db2cb3e468a40f6db029819b55c9f877f5b&"
               // src="https://firebasestorage.googleapis.com/v0/b/gdsc-test-58801.appspot.com/o/02-2.mp4?alt=media&token=19afd371-d455-4289-ad01-d9c9ce518727"
               type="video/mp4"
