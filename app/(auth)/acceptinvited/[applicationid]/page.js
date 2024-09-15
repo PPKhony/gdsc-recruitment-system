@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
-import { Button, Card, Container, Image } from "react-bootstrap";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { useEffect, useState } from "react";
+import { Button, Container, Image } from "react-bootstrap";
+import { motion } from "framer-motion"; 
+import { openDB } from 'idb';
 
 function AuthorizePage({ params }) {
   const [applicationData, setApplicationData] = useState([]);
@@ -9,10 +10,50 @@ function AuthorizePage({ params }) {
   const [isLoaded, setIsLoaded] = useState(false); // Video loading state
   const [isMinimumTimeElapsed, setIsMinimumTimeElapsed] = useState(false); // Minimum time state
   const [sectionAccept, setSectionAccept] = useState(1);
+  const [videosLoaded, setVideosLoaded] = useState(false); // Videos cached and ready state
+  const [videoUrl1, setVideoUrl1] = useState(null); // State to hold video 1 URL
+  const [videoUrl2, setVideoUrl2] = useState(null); // State to hold video 2 URL
 
-  const updateAcceptmember = () => {
-    setSectionPage(2);
-    setSectionAccept(3);
+  const videoUrls = ["/images/01.mp4", "/images/02.mp4"];
+
+  // Initialize IndexedDB
+  const initDB = async () => {
+    return openDB("video-cache", 1, {
+      upgrade(db) {
+        if (!db.objectStoreNames.contains("videos")) {
+          db.createObjectStore("videos", { keyPath: "url" });
+        }
+      },
+    });
+  };
+
+  // Utility function to fetch and cache the video as Blob data in IndexedDB
+  const cacheVideo = async (url) => {
+    const db = await initDB();
+    const response = await fetch(url);
+    const blob = await response.blob();
+    await db.put("videos", { url, blob });
+  };
+
+  // Load videos from IndexedDB or fetch and cache them if not available
+  const loadAndCacheVideos = async () => {
+    const db = await initDB();
+
+    for (const url of videoUrls) {
+      const cachedVideo = await db.get("videos", url);
+      if (!cachedVideo) {
+        await cacheVideo(url);
+      }
+    }
+
+    // After caching, load the video URLs
+    const video1Blob = await db.get("videos", videoUrls[0]);
+    const video2Blob = await db.get("videos", videoUrls[1]);
+
+    if (video1Blob) setVideoUrl1(URL.createObjectURL(video1Blob.blob));
+    if (video2Blob) setVideoUrl2(URL.createObjectURL(video2Blob.blob));
+
+    setVideosLoaded(true); // Mark videos as loaded
   };
 
   useEffect(() => {
@@ -31,6 +72,8 @@ function AuthorizePage({ params }) {
       setIsMinimumTimeElapsed(true);
     }, 3000);
 
+    loadAndCacheVideos(); // Start caching videos
+
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
 
@@ -44,8 +87,8 @@ function AuthorizePage({ params }) {
     </Container>
   );
 
-  // Loading screen is shown if either the video is not loaded or the minimum time has not elapsed
-  if (!isMinimumTimeElapsed) {
+  // Loading screen is shown if the minimum time hasn't elapsed or videos aren't loaded yet
+  if (!isMinimumTimeElapsed || !videosLoaded) {
     return (
       <Container style={{ minHeight: "100dvh" }}>
         <div
@@ -105,8 +148,11 @@ function AuthorizePage({ params }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <source src="/images/01.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            {videoUrl1 ? (
+              <source src={videoUrl1} type="video/mp4" />
+            ) : (
+              <p>Your browser does not support the video tag.</p>
+            )}
           </video>
 
           {/* Fade-in text on page load */}
@@ -197,17 +243,12 @@ function AuthorizePage({ params }) {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <source src="/images/02.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            {videoUrl2 ? (
+              <source src={videoUrl2} type="video/mp4" />
+            ) : (
+              <p>Your browser does not support the video tag.</p>
+            )}
           </video>
-          {sectionAccept === 3 ? (
-            <Container style={{backgroundColor: "white"}}>
-              <div>
-                <h1>Thank you for apply this club</h1>
-                <Button href="/home"> Go to HomePage and see result</Button>
-              </div>
-            </Container>
-          ) : null}
         </div>
       ) : null}
     </motion.div>
