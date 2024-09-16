@@ -445,7 +445,6 @@ textarea {
   width: 2px; /* Thickness of the vertical line */
   background-color: black; /* Color of the vertical line */
 }
-
 .background-congratulation {
   position: relative;
   color: white; /* Set text color to white */
@@ -462,9 +461,15 @@ textarea {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.08); /* Semi-transparent background */
+  
+  /* WebKit specific (Safari, iOS) */
+  -webkit-backdrop-filter: blur(15px); /* Apply blur effect to the background (WebKit) */
   backdrop-filter: blur(15px); /* Apply blur effect to the background */
+  
+  -webkit-filter: brightness(85%); /* Apply brightness only to the background (WebKit) */
   filter: brightness(85%); /* Apply brightness only to the background */
+  
   border-radius: 40px; /* Match border-radius with the parent container */
   z-index: -1; /* Ensure the background stays behind the content */
 }
