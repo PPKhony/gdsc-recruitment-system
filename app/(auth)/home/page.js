@@ -238,12 +238,12 @@ const HomePage = () => {
                   {filteredResult[0]?.status == "Passed" &&
                   filteredResult[0]?.isAccept == "FALSE" ? (
                     <Alert>
-                      <h5>Congratulation</h5>
-                      <h6>Pending for confirm member status</h6>
+                      <h5>Congratulation</h5> 
                       <h6 className="mb-4">
-                        You have been selected to be a core team in 2024 Confirm
-                        here
+                        You have been selected to be a core team in 2024
                       </h6>
+                      <h6>Pending for confirm member status</h6>
+                      <p>Before 20-09-2024 23:59 (GMT+07)</p>
                       <hr/>
                       <Button
                         href={`/acceptinvited/` + filteredResult[0].object_id}
@@ -300,27 +300,11 @@ const HomePage = () => {
                   <div>
                     <b>Form Submitted On: </b>
                     {formatDateToGMTPlus7(applicant.timestamp)}
+                    <hr/>
+                    <ApplicationDetailsModal dataObject={applicant} />
                   </div>
                 </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    <div className="d-block mb-3">
-                      <ApplicationDetailsModal dataObject={applicant} />
-
-                      {/* {filteredInterview.length == 0 ? (
-                        <Card.Link
-                          href={`/home/interview/` + applicant.object_id}
-                        >
-                          Schedule Interview Time
-                        </Card.Link>
-                      ) : null} */}
-
-                      {/* {filteredResult.status != "true" ? (
-                        <div>Not yet scheduled for an interview</div>
-                      ) : null} */}
-                    </div>
-                  </li>
-                </ul>
+                
               </Card>
             );
           })}

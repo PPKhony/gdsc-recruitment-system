@@ -10,8 +10,19 @@ function AuthorizePage({ params }) {
   const [isLoaded, setIsLoaded] = useState(false); // Video loading state
   const [isMinimumTimeElapsed, setIsMinimumTimeElapsed] = useState(false); // Minimum time state
   const [sectionAccept, setSectionAccept] = useState(1);
+  const [g_user, setG_user] = useState(null);
   const [seconds, setSeconds] = useState(3);
   const supabase = createClient();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setG_user(user);
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const applicationDatas = sessionStorage.getItem("applicationResult");
@@ -27,7 +38,7 @@ function AuthorizePage({ params }) {
     // Set minimum loading time to 3 seconds
     const timer = setTimeout(() => {
       setIsMinimumTimeElapsed(true);
-    }, seconds*1000);
+    }, seconds * 1000);
 
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
@@ -48,9 +59,9 @@ function AuthorizePage({ params }) {
   const NoDataFallback = () => (
     <Container
       style={{ height: "95dvh" }}
-      className="d-flex flex-column justify-content-center align-items-center"
+      className="d-flex flex-column justify-content-center align-items-center text-white"
     >
-      <h1>No applicationData available :( </h1>
+      <h1 className="mb-4">No applicationData available :( </h1>
       <Button href="/home">Go back to home page</Button>
     </Container>
   );
@@ -69,7 +80,7 @@ function AuthorizePage({ params }) {
   // Loading screen is shown if either the video is not loaded or the minimum time has not elapsed
   if (!isLoaded) {
     return (
-      <Container style={{ minHeight: "100dvh" , color: "white" }}>
+      <Container style={{ minHeight: "100dvh", color: "white" }}>
         <div
           className="d-flex flex-column justify-content-center align-items-center"
           style={{ minHeight: "100dvh" }}
@@ -205,7 +216,6 @@ function AuthorizePage({ params }) {
                   {sectionAccept === 1 ? (
                     <div>
                       <h4>You have Been Selected to Join GDSC</h4>
-                      <br />
                       <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
                         Your passion and skills have truly impressed us, and we
                         are excited to have you as part of the team. Get ready
@@ -231,15 +241,18 @@ function AuthorizePage({ params }) {
                       }} // Add easing
                     >
                       <h4>Become GDSC Team!</h4>
+                      <h6>{g_user.user_metadata.name}</h6>
                       <h6
-                        className="mb-4"
+                        className="mt-4"
                         style={{ lineHeight: "1.5", maxWidth: "500px" }}
                       >
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
                       <hr />
-                      <Button onClick={updateAcceptmember} variant="light">Accept</Button>
+                      <Button onClick={updateAcceptmember} variant="light">
+                        Accept
+                      </Button>
                     </motion.div>
                   ) : null}
                 </Container>
@@ -296,7 +309,7 @@ function AuthorizePage({ params }) {
                 <motion.div
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
+                  transition={{ duration: 1.5, delay: 7 }}
                   style={{
                     position: "relative",
                     zIndex: "1",
@@ -314,8 +327,7 @@ function AuthorizePage({ params }) {
                     style={{ textAlign: "left" }}
                   >
                     <div>
-                      <h4>Thank you for joining GDSC!</h4>
-                      <br />
+                      <h4 className="mb-3">Thank you for joining GDSC!</h4>
                       <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
                         You have successfully joined the GDSC Core Team 2024! We
                         are thrilled to have you on board and can{"'"}t wait to
