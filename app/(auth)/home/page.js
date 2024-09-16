@@ -212,91 +212,96 @@ const HomePage = () => {
                 className="mb-4 px-3 px-xl-4 py-5"
                 style={{ borderColor: "white" }}
               >
-                  <div className="d-flex mb-3 justify-content-between align-items-center flex-wrap">
-                    <Col className="colored-bar-container">
-                      <div style={{ color: "gray" }}>Application ID</div>
-                      <h5>{applicant.applicationid}</h5>
-                      <h6>{applicant.role}</h6>
-                    </Col>
-                    <div className="text-center">
-                      <h6 className="d-none d-md-block">Application Status</h6>
-                      <Alert
-                        variant={alertVariant}
-                        style={{ textAlign: "center" }}
-                        className="d-inline-flex px-3 py-1 fw-semibold rounded-5"
+                <div className="d-flex mb-3 justify-content-between align-items-center flex-wrap">
+                  <Col className="colored-bar-container">
+                    <div style={{ color: "gray" }}>Application ID</div>
+                    <h5>{applicant.applicationid}</h5>
+                    <h6>{applicant.role}</h6>
+                  </Col>
+                  <div className="text-center">
+                    <h6 className="d-none d-md-block">Application Status</h6>
+                    <Alert
+                      variant={alertVariant}
+                      style={{ textAlign: "center" }}
+                      className="d-inline-flex px-3 py-1 fw-semibold rounded-5"
+                    >
+                      {applicant.status}
+                    </Alert>
+                  </div>
+                </div>
+                <div>
+                  <h5>Recruitment Process</h5>
+                  <ProgressTracker />
+                </div>
+                <h5 className="mb-">Application Result</h5>
+                <div className="my-3">
+                  {filteredResult[0]?.status == "Passed" &&
+                  filteredResult[0]?.isAccept == "FALSE" ? (
+                    <Alert>
+                      <h5>Congratulation</h5>
+                      <h6>Pending for confirm member status</h6>
+                      <h6 className="mb-4">
+                        You have been selected to be a core team in 2024 Confirm
+                        here
+                      </h6>
+                      <hr/>
+                      <Button
+                        href={`/acceptinvited/` + filteredResult[0].object_id}
                       >
-                        {applicant.status}
-                      </Alert>
-                    </div>
-                  </div>
-                  <div>
-                    <h5>Recruitment Process</h5>
-                    <ProgressTracker />
-                  </div>
-                  <h5 className="mb-">Application Result</h5>
-                  <div className="my-3">
-                    {filteredResult[0]?.status == "Passed" &&
-                    filteredResult[0]?.isAccept == "FALSE" ? (
-                      <Alert>
-                        <h5>Congratulation🎉</h5>
-                        <h6>Pending for confirm member status</h6>
-                        <h6 className="mb-4">
-                          You have been selected to be a core team in 2024
-                          Confirm here
-                        </h6>
-                        <Button
-                          href={`/acceptinvited/` + filteredResult[0].object_id}
-                        >
-                          Click here to confirm
-                        </Button>
-                      </Alert>
-                    ) : null}
-                    {filteredResult[0]?.status == "Passed" &&
-                    filteredResult[0]?.isAccept == "TRUE" ? (
-                      <Alert variant="success">
-                        Congratulation! You are member of gdsc 2024!
-                      </Alert>
-                    ) : null}
-                    {filteredResult[0]?.status == "Rejected" ? (
-                      <Alert variant="danger">
+                        Click here to confirm
+                      </Button>
+                    </Alert>
+                  ) : null}
+                  {filteredResult[0]?.status == "Passed" &&
+                  filteredResult[0]?.isAccept == "TRUE" ? (
+                    <Alert variant="success">
+                      <h5>Congratulation! You are member of gdsc 2024!</h5>
+                      <h6>Proceed next step join GDSC Discord</h6>
+                      <hr/>
+                      <Button href="https://discord.gg/47D6FTjn" variant="outline-dark">
+                        Join Discord
+                      </Button>
+                    </Alert>
+                  ) : null}
+                  {filteredResult[0]?.status == "Rejected" ? (
+                    <Alert variant="danger">
                       <h5>Rejected Application</h5>
-                        <p>
-                          Thank you for your interest in the {applicant.role} {" "}
-                          position at GDSC Thammasat. We appreciate the time and
-                          effort you put into your application and interview
-                          process.
-                        </p>
-                        <p>
-                          After careful consideration, we regret to inform you
-                          that we will not be moving forward with your
-                          application at this time. This decision was a
-                          difficult one.
-                        </p>
-                        <p>
-                          We encourage you to apply for future openings that
-                          align with your skills and experience. Thank you again
-                          for your interest in our company and for the
-                          opportunity to consider your application.
-                        </p>
-                      </Alert>
-                    ) : null}
+                      <p>
+                        Thank you for your interest in the {applicant.role}{" "}
+                        position at GDSC Thammasat. We appreciate the time and
+                        effort you put into your application and interview
+                        process.
+                      </p>
+                      <p>
+                        After careful consideration, we regret to inform you
+                        that we will not be moving forward with your application
+                        at this time. This decision was a difficult one.
+                      </p>
+                      <p>
+                        We encourage you to apply for future openings that align
+                        with your skills and experience. Thank you again for
+                        your interest in our company and for the opportunity to
+                        consider your application.
+                      </p>
+                    </Alert>
+                  ) : null}
 
-                    {filteredResult.length == 0 ? (
-                      <Alert>
-                        The problem occurs to application please contact us via
-                        email before 20 Sep 2024
-                      </Alert>
-                    ) : null}
-                  </div>
+                  {filteredResult.length == 0 ? (
+                    <Alert>
+                      The problem occurs to application please contact us via
+                      email before 20 Sep 2024
+                    </Alert>
+                  ) : null}
+                </div>
 
+                <div>
+                  <b>Candidate Name: </b>
+                  {applicant.full_name}
                   <div>
-                    <b>Candidate Name: </b>
-                    {applicant.full_name}
-                    <div>
-                      <b>Form Submitted On: </b>
-                      {formatDateToGMTPlus7(applicant.timestamp)}
-                    </div>
+                    <b>Form Submitted On: </b>
+                    {formatDateToGMTPlus7(applicant.timestamp)}
                   </div>
+                </div>
                 <ul className="list-group list-group-flush">
                   <li className="list-group-item">
                     <div className="d-block mb-3">

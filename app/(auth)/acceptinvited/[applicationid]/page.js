@@ -10,6 +10,7 @@ function AuthorizePage({ params }) {
   const [isLoaded, setIsLoaded] = useState(false); // Video loading state
   const [isMinimumTimeElapsed, setIsMinimumTimeElapsed] = useState(false); // Minimum time state
   const [sectionAccept, setSectionAccept] = useState(1);
+  const [seconds, setSeconds] = useState(3);
   const supabase = createClient();
 
   useEffect(() => {
@@ -26,7 +27,7 @@ function AuthorizePage({ params }) {
     // Set minimum loading time to 3 seconds
     const timer = setTimeout(() => {
       setIsMinimumTimeElapsed(true);
-    }, 3000);
+    }, seconds*1000);
 
     return () => clearTimeout(timer); // Clear timer if the component unmounts
   }, [params.applicationid]);
@@ -54,10 +55,21 @@ function AuthorizePage({ params }) {
     </Container>
   );
 
+  useEffect(() => {
+    if (seconds > 0) {
+      const timer = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }, 1000);
+
+      // Clear the interval when the component unmounts or when the countdown ends
+      return () => clearInterval(timer);
+    }
+  }, [seconds]);
+
   // Loading screen is shown if either the video is not loaded or the minimum time has not elapsed
-  if (!isMinimumTimeElapsed) {
+  if (!isLoaded) {
     return (
-      <Container style={{ minHeight: "100dvh" }}>
+      <Container style={{ minHeight: "100dvh" , color: "white" }}>
         <div
           className="d-flex flex-column justify-content-center align-items-center"
           style={{ minHeight: "100dvh" }}
@@ -68,7 +80,23 @@ function AuthorizePage({ params }) {
             height="300"
             alt="Loading..."
           />
-          <h3 style={{color: "white"}}>Loading...</h3>
+          <h6 className="mb-3">**This application have background music</h6>
+          {!isMinimumTimeElapsed ? (
+            <div>
+              <h3>Loading...</h3>
+              <h6>Waiting in: {seconds}</h6>
+            </div>
+          ) : null}
+          {isMinimumTimeElapsed ? (
+            <Button
+              onClick={() => {
+                setIsLoaded(!isLoaded);
+              }}
+            >
+              {" "}
+              Continue...
+            </Button>
+          ) : null}
         </div>
       </Container>
     );
@@ -105,9 +133,9 @@ function AuthorizePage({ params }) {
             width={50}
             height={23}
             alt="logo"
-            style={{zIndex: "1000"}}
+            style={{ zIndex: "1000" }}
           />
-          <Col style={{ marginLeft: "8px", color: "white" , zIndex: "1000"}}>
+          <Col style={{ marginLeft: "8px", color: "white", zIndex: "1000" }}>
             <div>Thammasat University</div>
           </Col>
         </div>
@@ -179,8 +207,8 @@ function AuthorizePage({ params }) {
                       <h4>You have Been Selected to Join GDSC</h4>
                       <br />
                       <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
-                        Your passion and skills have truly impressed us, and
-                        we are excited to have you as part of the team. Get ready
+                        Your passion and skills have truly impressed us, and we
+                        are excited to have you as part of the team. Get ready
                         for an exciting journey of growth, collaboration, and
                         impact!
                       </p>
@@ -203,12 +231,15 @@ function AuthorizePage({ params }) {
                       }} // Add easing
                     >
                       <h4>Become GDSC Team!</h4>
-                      <h6 className="mb-4" style={{ lineHeight: "1.5" }}>
+                      <h6
+                        className="mb-4"
+                        style={{ lineHeight: "1.5", maxWidth: "500px" }}
+                      >
                         Click the button below to officially join the GDSC Core
                         Team 2024 and start your exciting journey with us!
                       </h6>
                       <hr />
-                      <Button onClick={updateAcceptmember}>Accept</Button>
+                      <Button onClick={updateAcceptmember} variant="light">Accept</Button>
                     </motion.div>
                   ) : null}
                 </Container>
@@ -225,6 +256,7 @@ function AuthorizePage({ params }) {
           <video
             autoPlay
             muted
+            loop
             playsInline
             preload="auto"
             style={{
@@ -261,19 +293,42 @@ function AuthorizePage({ params }) {
                   height: "90dvh",
                 }}
               >
-                <Container
-                  className="background-congratulation mt-xl-5 mt-md-3 mt-2 py-4 px-4"
-                  style={{ textAlign: "left" }}
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.5, delay: 0.5 }}
+                  style={{
+                    position: "relative",
+                    zIndex: "1",
+                    color: "white",
+                    textAlign: "center",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "90dvh",
+                  }}
                 >
-                  <h1>Congratulation!</h1>
-                  <h2>Now you are GDSC Member</h2>
-                  <h3>Don{"'"}t Miss out information</h3>
-                  <hr />
-                  <Button href="https://discord.gg/KJrMvCPK">
-                    {" "}
-                    Join Discord
-                  </Button>
-                </Container>
+                  <Container
+                    className="background-congratulation py-4 px-4"
+                    style={{ textAlign: "left" }}
+                  >
+                    <div>
+                      <h4>Thank you for joining GDSC!</h4>
+                      <br />
+                      <p style={{ maxWidth: "500px", lineHeight: "1.8" }}>
+                        You have successfully joined the GDSC Core Team 2024! We
+                        are thrilled to have you on board and can{"'"}t wait to
+                        see your contributions to the community.
+                      </p>
+                      <b>congratulations and welcome aboard!</b>
+                      <hr />
+                      <div>Go to Homepage and going in next step</div>
+                      <br />
+                      <Button href="/home">Homepage</Button>
+                    </div>
+                  </Container>
+                </motion.div>
               </div>
             </Container>
           ) : null}

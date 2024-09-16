@@ -29,7 +29,7 @@ function LoginPage() {
         style={{ height: "100vh" }}
       >
         <div className="card">
-          <div className="card-body m-4">
+          <div className=" m-4">
             <Image
               src="/images/Google_for_Developers_logomark_color.png"
               height="33"

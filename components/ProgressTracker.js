@@ -17,7 +17,7 @@ const stepsData = [
   },
   {
     stepNumber: 3,
-    status: "In Progress : Evaluation",
+    status: "Finished : Evaluation",
     description: "Your profile will be evaluated.",
     bgColor: "bg-primary",
     textColor: "text-white",
@@ -25,8 +25,8 @@ const stepsData = [
   },
   {
     stepNumber: 4,
-    status: "Pending : Result",
-    description: "Await your recruitment outcome.",
+    status: "Now : Response",
+    description: "Confirm your recruitment outcome.",
     bgColor: "bg-info",
     textColor: "text-white",
     border: "border",
