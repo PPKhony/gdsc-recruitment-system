@@ -243,7 +243,7 @@ const HomePage = () => {
                         You have been selected to be a core team in 2024
                       </h6>
                       <h6>Pending for confirm member status</h6>
-                      <p>Before 20-09-2024 23:59 (GMT+07)</p>
+                      <p>Before 18-09-2024 23:59 (GMT+07)</p>
                       <hr/>
                       <Button
                         href={`/acceptinvited/` + filteredResult[0].object_id}
