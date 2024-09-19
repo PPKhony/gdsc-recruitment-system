@@ -238,18 +238,23 @@ const HomePage = () => {
                   {filteredResult[0]?.status == "Passed" &&
                   filteredResult[0]?.isAccept == "FALSE" ? (
                     <Alert>
-                      <h5>Congratulation</h5> 
+                      <h5>Status Confirmation Period Has Ended </h5>
                       <h6 className="mb-4">
-                        You have been selected to be a core team in 2024
+                        We would like to inform you that the time for status
+                        confirmation has now ended. Thank you for your interest
+                        and participation.
                       </h6>
-                      <h6>Pending for confirm member status</h6>
-                      <p>Before 18-09-2024 23:59 (GMT+07)</p>
-                      <hr/>
+                      <h6>
+                        If you have any further inquiries or need additional
+                        assistance, please feel free to contact us via email
+                      </h6>
+                      {/* <p>Before 18-09-2024 23:59 (GMT+07)</p>
+                      <hr />
                       <Button
                         href={`/acceptinvited/` + filteredResult[0].object_id}
                       >
                         Click here to confirm
-                      </Button>
+                      </Button> */}
                     </Alert>
                   ) : null}
                   {filteredResult[0]?.status == "Passed" &&
@@ -257,8 +262,11 @@ const HomePage = () => {
                     <Alert variant="success">
                       <h5>Congratulation! You are member of gdsc 2024!</h5>
                       <h6>Proceed next step join GDSC Discord</h6>
-                      <hr/>
-                      <Button href="https://discord.gg/47D6FTjn" variant="outline-dark">
+                      <hr />
+                      <Button
+                        href="https://discord.gg/47D6FTjn"
+                        variant="outline-dark"
+                      >
                         Join Discord
                       </Button>
                     </Alert>
@@ -300,11 +308,10 @@ const HomePage = () => {
                   <div>
                     <b>Form Submitted On: </b>
                     {formatDateToGMTPlus7(applicant.timestamp)}
-                    <hr/>
+                    <hr />
                     <ApplicationDetailsModal dataObject={applicant} />
                   </div>
                 </div>
-                
               </Card>
             );
           })}

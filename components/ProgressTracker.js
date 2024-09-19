@@ -25,9 +25,9 @@ const stepsData = [
   },
   {
     stepNumber: 4,
-    status: "Now : Response",
+    status: "Finished : Response",
     description: "Confirm your recruitment outcome.",
-    bgColor: "bg-info",
+    bgColor: "bg-primary",
     textColor: "text-white",
     border: "border",
   },
